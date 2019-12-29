@@ -4,4 +4,4 @@
 
 ## How to play
 
-# Screenshots
+## Screenshots
