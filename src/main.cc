@@ -36,6 +36,8 @@ int main(void) {
 
 
 		switch(Rand){
+
+			/* Tetronimo 1 */
 			case 1:
 				 Tetronimo1.RenderTetronimo();
 				 // timer function
@@ -46,24 +48,26 @@ int main(void) {
 				// check for stacking (start new block)
 				switch(Tetronimo1.RotationCounter){
 					case 0:
-								if (row >= 18 || blocks[col][row+3] == 1) {
-									Tetronimo1.Fill();
-									Tetronimo1.RotationCounter = 0;
-									Rand = 1;
-									// GameBoard.CheckLineClear();
+							if (row >= 18 || blocks[col][row+3] == 1) {
+								Tetronimo1.Fill();
+								Tetronimo1.RotationCounter = 0;
+								Rand = 1;
+								// GameBoard.CheckLineClear();
 								}
 								break;
 						case 1:
-								if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-									|| blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
-									Tetronimo1.Fill();
-									Tetronimo1.RotationCounter = 0;
-									Rand = 1;
-									// GameBoard.CheckLineClear();
-								}
-								break;
+							if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+								|| blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+								Tetronimo1.Fill();
+								Tetronimo1.RotationCounter = 0;
+								Rand = 1;
+								// GameBoard.CheckLineClear();
+							}
+							break;
 					}
-					break;
+						break;
+
+			/* Tetronimo 2 */
 			case 2:
 				 Tetronimo2.RenderTetronimo();
 				 // timer function
@@ -90,7 +94,7 @@ int main(void) {
 									// GameBoard.CheckLineClear();
 								}
 								break;
-					}
+				}
 					break;
 		}
 

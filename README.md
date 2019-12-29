@@ -1,6 +1,6 @@
 # Fruit Tetris
 
-## Prerequisites
+## Setting up
 
 ## How to play
 
