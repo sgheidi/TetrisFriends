@@ -14,9 +14,7 @@ void Board::DrawBoard() {
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glColor3f(1.0f, 1.0f, 1.0f);
-
   glBegin(GL_LINES);
-
   // horizontal lines
   glVertex2f(0, 1);
   glVertex2f(ScreenX, 1);
@@ -24,7 +22,6 @@ void Board::DrawBoard() {
     glVertex2f(0, i);
     glVertex2f(ScreenX, i);
   }
-
   // vertical lines
   glVertex2f(0, 1);
   glVertex2f(1, ScreenY);
@@ -32,7 +29,6 @@ void Board::DrawBoard() {
     glVertex2f(i, 0);
     glVertex2f(i, ScreenY);
   }
-
   glEnd();
   glFlush();
 }
@@ -43,7 +39,6 @@ void Board::RenderDroppedBlocks() {
     for(int j=1;j<=20;j++){
       if(blocks[i][j] == 1){
         Util.FindColor(colors[i][j]);
-
         glPushMatrix();
         glBegin(GL_POLYGON);
 

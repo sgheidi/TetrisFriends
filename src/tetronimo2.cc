@@ -4,7 +4,6 @@
 // Non-rotated tetronimo
 void Tetronimo_2::RenderTetronimo() {
   glPushMatrix();
-
   switch(Tetronimo2.RotationCounter) {
       case 0:
           Util.DrawSquare(1);
@@ -46,7 +45,6 @@ void Tetronimo_2::RenderTetronimo() {
           Util.DrawSquare(4);
           break;
   }
-
   glPopMatrix();
 }
 
@@ -76,11 +74,23 @@ void Tetronimo_2::FillBlocks(){
   switch (Tetronimo2.RotationCounter) {
       case 0:
           blocks[col][row-1] = 1;
+          blocks[col-1][row] = 1;
           blocks[col][row] = 1;
-          blocks[col][row+1] = 1;
-          blocks[col][row+2] = 1;
+          blocks[col+1][row] = 1;
           break;
       case 1:
+          blocks[col-1][row] = 1;
+          blocks[col][row+1] = 1;
+          blocks[col][row] = 1;
+          blocks[col][row-1] = 1;
+          break;
+      case 2:
+          blocks[col+1][row] = 1;
+          blocks[col][row] = 1;
+          blocks[col-1][row] = 1;
+          blocks[col-2][row] = 1;
+          break;
+      case 3:
           blocks[col+1][row] = 1;
           blocks[col][row] = 1;
           blocks[col-1][row] = 1;
@@ -93,9 +103,9 @@ void Tetronimo_2::FillColors(){
   switch (Tetronimo2.RotationCounter) {
       case 0:
           colors[col][row-1] = 1;
-          colors[col][row] = 2;
-          colors[col][row+1] = 3;
-          colors[col][row+2] = 4;
+          colors[col-1][row] = 2;
+          colors[col][row] = 3;
+          colors[col+1][row] = 4;
           break;
       case 1:
           colors[col+1][row] = 1;

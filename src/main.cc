@@ -24,7 +24,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen from 1-6
-	Rand = 1;
+	Rand = 2;
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
@@ -78,7 +78,7 @@ int main(void) {
 				// check for stacking (start new block)
 				switch(Tetronimo2.RotationCounter){
 					case 0:
-								if (row >= 18 || blocks[col][row+3] == 1) {
+								if (row >= 20 || blocks[col][row+3] == 1) {
 									Tetronimo2.Fill();
 									Tetronimo2.RotationCounter = 0;
 									Rand = 2;
