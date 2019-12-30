@@ -1,10 +1,6 @@
 #include "../include/utility.h"
 #include "../include/common.h"
 
-void Utility::PrintCurrentPosition() {
-  cout << "Row " << row << "  Col " << col << endl;
-}
-
 void Utility::GoDown() {
       y += unit;
       row ++;
@@ -58,11 +54,9 @@ void Utility::FindColor(int color) {
     default:
       glColor3f(0.0f, 0.0f, 0.0f);
   }
-
 }
 
 void Utility::DrawSquare(int color) {
-
       this->FindColor(color);
 			glBegin(GL_POLYGON);
 

@@ -24,7 +24,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen from 1-6
-	Rand = 2;
+	Rand = 1;
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
@@ -33,39 +33,24 @@ int main(void) {
 		 GameBoard.DrawBoard();
 		 GameBoard.RenderDroppedBlocks();
 
-
-
 		switch(Rand){
 
 			/* Tetronimo 1 */
 			case 1:
-				 Tetronimo1.RenderTetronimo();
-				 // timer function
-				 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
-					 NumberOfIterations = 0;
-					 Util.GoDown();
-				 }
-				// check for stacking (start new block)
-				switch(Tetronimo1.RotationCounter){
-					case 0:
-							if (row >= 18 || blocks[col][row+3] == 1) {
-								Tetronimo1.Fill();
-								Tetronimo1.RotationCounter = 0;
-								Rand = 1;
-								// GameBoard.CheckLineClear();
-								}
-								break;
-						case 1:
-							if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-								|| blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
-								Tetronimo1.Fill();
-								Tetronimo1.RotationCounter = 0;
-								Rand = 1;
-								// GameBoard.CheckLineClear();
-							}
-							break;
+					 Tetronimo1.RenderTetronimo();
+					 // timer function
+					 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
+						 NumberOfIterations = 0;
+						 Util.GoDown();
+					 }
+					// Landing criteria
+					if(Tetronimo1.LandingCriteria() == true) {
+							Tetronimo1.FillArrays();
+		          Tetronimo1.RotationCounter = 0;
+		          Rand = 1;
+		          GameBoard.CheckLineClear();
 					}
-						break;
+							break;
 
 			/* Tetronimo 2 */
 			case 2:
@@ -76,24 +61,11 @@ int main(void) {
 					 Util.GoDown();
 				 }
 				// check for stacking (start new block)
-				switch(Tetronimo2.RotationCounter){
-					case 0:
-								if (row >= 20 || blocks[col][row+3] == 1) {
-									Tetronimo2.Fill();
-									Tetronimo2.RotationCounter = 0;
-									Rand = 2;
-									// GameBoard.CheckLineClear();
-								}
-								break;
-						case 1:
-								if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-									|| blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
-									Tetronimo2.Fill();
-									Tetronimo2.RotationCounter = 0;
-									Rand = 2;
-									// GameBoard.CheckLineClear();
-								}
-								break;
+				if (Tetronimo2.LandingCriteria() == true) {
+						Tetronimo2.FillArrays();
+						Tetronimo2.RotationCounter = 0;
+						Rand = 2;
+						// GameBoard.CheckLineClear();
 				}
 					break;
 		}

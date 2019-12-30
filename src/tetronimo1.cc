@@ -4,7 +4,6 @@
 // Non-rotated tetronimo
 void Tetronimo_1::RenderTetronimo() {
   glPushMatrix();
-
   switch (Tetronimo1.RotationCounter) {
       case 0:
           Util.DrawSquare(1);
@@ -25,8 +24,7 @@ void Tetronimo_1::RenderTetronimo() {
           glTranslatef(-unit, 0.0f, 0.0f);
           Util.DrawSquare(4);
           break;
-  }
-
+    }
   glPopMatrix();
 }
 
@@ -127,8 +125,25 @@ bool Tetronimo_1::CheckCollisionLeft() {
 
 // Fill blocks and colors
 // Used when a tetronimo 'drops' on board
-void Tetronimo_1::Fill() {
+void Tetronimo_1::FillArrays() {
     this->FillBlocks();
     this->FillColors();
     GameBoard.ResetUnits();
+}
+
+bool Tetronimo_1::LandingCriteria(){
+  switch(Tetronimo1.RotationCounter){
+    case 0:
+        if (row >= 18 || blocks[col][row+3] == 1) {
+          return true;
+          }
+          break;
+      case 1:
+        if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+          || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+            return true;
+        }
+        break;
+    }
+    return false;
 }

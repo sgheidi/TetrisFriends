@@ -1,6 +1,6 @@
 #include "../include/common.h"
 
-// input handling & collision detection here
+/* input handling & collision detection here */
 
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 

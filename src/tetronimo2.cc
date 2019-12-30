@@ -44,7 +44,7 @@ void Tetronimo_2::RenderTetronimo() {
           glTranslatef(0.0f, unit, 0.0f);
           Util.DrawSquare(4);
           break;
-  }
+      }
   glPopMatrix();
 }
 
@@ -85,16 +85,16 @@ void Tetronimo_2::FillBlocks(){
           blocks[col][row-1] = 1;
           break;
       case 2:
+          blocks[col][row+1] = 1;
           blocks[col+1][row] = 1;
           blocks[col][row] = 1;
           blocks[col-1][row] = 1;
-          blocks[col-2][row] = 1;
           break;
       case 3:
           blocks[col+1][row] = 1;
+          blocks[col][row-1] = 1;
           blocks[col][row] = 1;
-          blocks[col-1][row] = 1;
-          blocks[col-2][row] = 1;
+          blocks[col][row+1] = 1;
           break;
     }
 }
@@ -108,10 +108,22 @@ void Tetronimo_2::FillColors(){
           colors[col+1][row] = 4;
           break;
       case 1:
+          colors[col-1][row] = 1;
+          colors[col][row+1] = 2;
+          colors[col][row] = 3;
+          colors[col][row-1] = 4;
+          break;
+      case 2:
+          colors[col][row+1] = 1;
+          colors[col+1][row] = 2;
+          colors[col][row] = 3;
+          colors[col-1][row] = 4;
+          break;
+      case 3:
           colors[col+1][row] = 1;
-          colors[col][row] = 2;
-          colors[col-1][row] = 3;
-          colors[col-2][row] = 4;
+          colors[col][row-1] = 2;
+          colors[col][row] = 3;
+          colors[col][row+1] = 4;
           break;
     }
 }
@@ -157,8 +169,38 @@ bool Tetronimo_2::CheckCollisionLeft() {
 
 // Fill blocks and colors
 // Used when a tetronimo 'drops' on board
-void Tetronimo_2::Fill() {
+void Tetronimo_2::FillArrays() {
     this->FillBlocks();
     this->FillColors();
     GameBoard.ResetUnits();
+}
+
+bool Tetronimo_2::LandingCriteria(){
+    switch(Tetronimo2.RotationCounter){
+      case 0:
+            if (row >= 20 || blocks[col][row+1] == 1 || blocks[col-1][row+21] == 1
+            || blocks[col+1][row+1] == 1) {
+                return true;
+            }
+            break;
+        case 1:
+            if (row >= 19 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+              || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+                return true;
+            }
+            break;
+        case 2:
+            if (row >= 19 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+              || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+                return true;
+            }
+            break;
+        case 3:
+            if (row >= 19 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+              || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+                return true;
+            }
+            break;
+      }
+      return false;
 }

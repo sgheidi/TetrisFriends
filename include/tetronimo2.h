@@ -21,7 +21,9 @@ class Tetronimo_2 {
 
 		bool CheckCollisionLeft();
 
-		void Fill();
+		void FillArrays();
+
+		bool LandingCriteria();
 
 };
 

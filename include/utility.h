@@ -5,8 +5,6 @@ class Utility {
 
 	public:
 
-		void PrintCurrentPosition();
-
 		void GoDown();
 
 		void AccelerateDown();

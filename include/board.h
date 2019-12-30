@@ -12,8 +12,15 @@ class Board {
 
 		void ResetUnits();
 
-		// helper function
+		/* Helper functions */
 		void PrintFilledBlocks();
+		void PrintCurrentPosition();
+
+		void ClearLine(int row);
+
+		bool IsRowFull(int row);
+
+		void CheckLineClear();
 
 };
 
