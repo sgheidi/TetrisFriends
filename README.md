@@ -4,6 +4,8 @@ A simple, elegant Tetris implementation written in OpenGL/C++.
 
 ## Setting up
 
+Playing the game is as easy as running ``` make && ./FruitTetris ```!
+
 ## How to play
 
 - 'p': pause
@@ -19,3 +21,9 @@ A simple, elegant Tetris implementation written in OpenGL/C++.
 - Down key: downward acceleration
 
 ## Screenshots
+
+## Other notes
+
+- Code is well commented, easy to read and change
+
+- Code broken up into classes and objects for good structure
