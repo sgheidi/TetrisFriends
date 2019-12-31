@@ -4,7 +4,7 @@ A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framewo
 
 ## Setting up
 
-Before attempting to play the game, visit [glfw.org/](https://www.glfw.org/) and build the library from source using CMake.
+Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
 
 Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
