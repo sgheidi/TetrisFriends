@@ -12,6 +12,10 @@ A simple, elegant Tetris implementation written in OpenGL/C++.
 
 - 'r': restart
 
-- Up/down/left/right: movement
+- Up key: rotate piece
+
+- Left/right keys: horizontal movement
+
+- Down key: downward acceleration
 
 ## Screenshots
