@@ -4,7 +4,7 @@ A simple, elegant Tetris implementation written in OpenGL/C++.
 
 ## Setting up
 
-Playing the game is as easy as running ``` make && ./FruitTetris ```!
+Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
 ## How to play
 
