@@ -2,10 +2,11 @@
 
 GLFWwindow* window;
 
-// screen width & height
+// screen width & height (pixels)
 int ScreenX = 250;
 int ScreenY = 500;
 
+// Area of 1 block (pixels)
 float unit = ScreenX/10;
 
 int blocks[11][21] = {0};
@@ -20,7 +21,7 @@ int Rand = 0;
 
 // Decrease this to increase game speed
 // Default should be 50
-int GameSpeed = 50;
+int GameSpeed = 5;
 
 int row = 1;
 int col = 6;

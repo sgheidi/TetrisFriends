@@ -8,33 +8,28 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 			/* Tetronimo 1 */
 			case 1:
-				/* collision detection with horizontal movement */
+						/* collision detection with horizontal movement */
 						// right side
-						if (action != GLFW_RELEASE) {
-							if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight() && Paused == false
+						if (action != GLFW_RELEASE && Paused == false) {
+							if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
 							&& Tetronimo1.CheckCollisionRight() == false){
-								Util.GoRight();
+									Util.GoRight();
 							}
-						}
 						// left side
-						if (action != GLFW_RELEASE) {
-							if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft() && Paused == false
+						else if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft()
 						&& Tetronimo1.CheckCollisionLeft() == false){
-								Util.GoLeft();
-							}
+									Util.GoLeft();
 						}
-
 						// rotatations
-						if (action != GLFW_RELEASE) {
-							if (key == GLFW_KEY_UP && Paused == false){
-								if(Tetronimo1.RotationCounter == 1) {
-									Tetronimo1.RotationCounter = 0;
-								}
-								else if(Tetronimo1.RotationCounter == 0) {
-									Tetronimo1.RotationCounter = 1;
-								}
+						else if (key == GLFW_KEY_UP){
+							if(Tetronimo1.RotationCounter == 1) {
+								Tetronimo1.RotationCounter = 0;
 							}
-						}
+							else if(Tetronimo1.RotationCounter == 0) {
+								Tetronimo1.RotationCounter = 1;
+							}
+					 }
+		}
 				break;
 
 			/* Tetronimo 2 */
@@ -42,36 +37,30 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 				/* collision detection with horizontal movement */
 						// right side
-						if (action != GLFW_RELEASE) {
-							if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight() && Paused == false
+						if (action != GLFW_RELEASE && Paused == false) {
+							if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight()
 							&& Tetronimo2.CheckCollisionRight() == false){
 								Util.GoRight();
 							}
-						}
-						// left side
-						if (action != GLFW_RELEASE) {
-							if (key == GLFW_KEY_LEFT && Tetronimo2.InWindowLeft() && Paused == false
-						&& Tetronimo2.CheckCollisionLeft() == false){
+							// left side
+							else if (key == GLFW_KEY_LEFT && Tetronimo2.InWindowLeft()
+						&& Tetronimo2.CheckCollisionLeft() == false) {
 								Util.GoLeft();
 							}
-						}
-				// rotatations
-				if (action != GLFW_RELEASE) {
-					if (key == GLFW_KEY_UP && Paused == false){
-						if(Tetronimo2.RotationCounter < 3) {
-							Tetronimo2.RotationCounter ++;
-						}
-						else if(Tetronimo2.RotationCounter >= 3) {
-							Tetronimo2.RotationCounter = 0;
-						}
-					}
+							// rotatations
+							else if (key == GLFW_KEY_UP){
+									if(Tetronimo2.RotationCounter < 3) {
+										Tetronimo2.RotationCounter ++;
+									}
+									else if(Tetronimo2.RotationCounter >= 3) {
+										Tetronimo2.RotationCounter = 0;
+									}
+							}
 				}
 				break;
-	}
+		}
 
-
-
-// acceleration
+	// acceleration
 	if (action != GLFW_RELEASE) {
 		if (key == GLFW_KEY_DOWN && Paused == false){
 			Util.AccelerateDown();
@@ -87,7 +76,6 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			Paused = false;
 		}
 	}
-
 
 	// quit
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) glfwSetWindowShouldClose(window, GL_TRUE);

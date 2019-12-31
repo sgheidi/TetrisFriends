@@ -78,14 +78,14 @@ void Board::PrintCurrentPosition() {
 
 void Board::ClearLine(int row) {
   for(int col=1;col<=10;col++){
-    blocks[row][col] = 0;
-    colors[row][col] = 0;
+    blocks[col][row] = 0;
+    colors[col][row] = 0;
   }
 }
 
 bool Board::IsRowFull(int row) {
   for(int col=1;col<=10;col++){
-    if(blocks[row][col] == 0) {
+    if(blocks[col][row] == 0) {
       return false;
     }
   }

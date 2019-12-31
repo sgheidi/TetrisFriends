@@ -28,7 +28,6 @@ int main(void) {
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
-
 		 NumberOfIterations ++;
 		 GameBoard.DrawBoard();
 		 GameBoard.RenderDroppedBlocks();
@@ -37,20 +36,20 @@ int main(void) {
 
 			/* Tetronimo 1 */
 			case 1:
-					 Tetronimo1.RenderTetronimo();
-					 // timer function
-					 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
-						 NumberOfIterations = 0;
-						 Util.GoDown();
-					 }
-					// Landing criteria
-					if(Tetronimo1.LandingCriteria() == true) {
-							Tetronimo1.FillArrays();
-		          Tetronimo1.RotationCounter = 0;
-		          Rand = 1;
-		          GameBoard.CheckLineClear();
-					}
-							break;
+				 Tetronimo1.RenderTetronimo();
+				 // timer function
+				 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
+					 NumberOfIterations = 0;
+					 Util.GoDown();
+				 }
+				// Landing criteria
+				if(Tetronimo1.LandingCriteria() == true) {
+						Tetronimo1.FillArrays();
+	          Tetronimo1.RotationCounter = 0;
+	          Rand = 1;
+	          GameBoard.CheckLineClear();
+				}
+						break;
 
 			/* Tetronimo 2 */
 			case 2:
@@ -65,12 +64,10 @@ int main(void) {
 						Tetronimo2.FillArrays();
 						Tetronimo2.RotationCounter = 0;
 						Rand = 2;
-						// GameBoard.CheckLineClear();
+					  GameBoard.CheckLineClear();
 				}
 					break;
 		}
-
-
 
 		glfwSwapBuffers(window);
 	}
