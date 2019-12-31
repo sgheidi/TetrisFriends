@@ -1,8 +1,10 @@
 # Fruit Tetris
 
-A simple, elegant Tetris implementation written in OpenGL/C++.
+A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framework.
 
 ## Setting up
+
+Before attempting to play the game, visit [glfw.org/](https://www.glfw.org/) and build the library from source using CMake.
 
 Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
