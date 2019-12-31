@@ -26,6 +26,6 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
 ## Other notes
 
-- Code is well commented, easy to read and modifya
+- Code is well commented, easy to read and modifyaaaa
 
 - Code broken up into classes and objects for good structure
