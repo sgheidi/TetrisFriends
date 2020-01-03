@@ -21,7 +21,7 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 - Down key: downward acceleration
 
 - *** Other game details ****
-- - Speed & score increases with each line clear!
+-- Speed & score increases with each line clear!
 
 ## Screenshots
 
@@ -33,10 +33,10 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
 ## Future goals
 
--
+- 
 
 - 'r': restart game
 
 - 'Next piece' feature shows next 4 pieces
 
-- 'Hold' feature: Press 'shift' to
+- 'Hold' feature: Press 'shift' to hold a piece, swapping the current piece the held piece. 
