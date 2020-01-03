@@ -47,7 +47,7 @@ int main(void) {
 						Tetronimo1.FillArrays();
 	          Tetronimo1.RotationCounter = 0;
 	          Rand = 1;
-	          GameBoard.CheckLineClear();
+	          GameBoard.DoLineClear();
 				}
 						break;
 
@@ -64,7 +64,7 @@ int main(void) {
 						Tetronimo2.FillArrays();
 						Tetronimo2.RotationCounter = 0;
 						Rand = 2;
-					  GameBoard.CheckLineClear();
+					  GameBoard.DoLineClear();
 				}
 					break;
 		}

@@ -20,7 +20,7 @@ class Board {
 
 		bool IsRowFull(int row);
 
-		void CheckLineClear();
+		void DoLineClear();
 
 };
 
