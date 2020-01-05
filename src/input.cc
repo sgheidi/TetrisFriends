@@ -6,38 +6,37 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	switch(Rand) {
 
-			/* Tetronimo 1 */
-			case 1:
-						/* collision detection with horizontal movement */
-						// right side
-						if (action != GLFW_RELEASE && Paused == false) {
-							if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
-							&& Tetronimo1.CheckCollisionRight() == false){
-									Util.GoRight();
-							}
-						// left side
-						else if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft()
-						&& Tetronimo1.CheckCollisionLeft() == false){
-									Util.GoLeft();
-						}
-						// rotatations
-						else if (key == GLFW_KEY_UP){
-							if(Tetronimo1.RotationCounter == 1) {
-								Tetronimo1.RotationCounter = 0;
-							}
-							else if(Tetronimo1.RotationCounter == 0) {
-								Tetronimo1.RotationCounter = 1;
-							}
-					 }
-		}
-				break;
+		/* Tetronimo 1 */
+		case 1:
+			if (action != GLFW_RELEASE && Paused == false) {
+				// right side collision check
+				if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
+				&& Tetronimo1.CheckCollisionRight() == false) {
+						Util.GoRight();
+			}
+				// left side collision check
+				else if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft()
+				&& Tetronimo1.CheckCollisionLeft() == false) {
+						Util.GoLeft();
+				}
+				// rotatations
+				else if (key == GLFW_KEY_UP){
+					if(Tetronimo1.RotationCounter == 1) {
+						Tetronimo1.RotationCounter = 0;
+					}
+					else if(Tetronimo1.RotationCounter == 0) {
+						Tetronimo1.RotationCounter = 1;
+					}
+			}
+	}
+			break;
 
 			/* Tetronimo 2 */
 			case 2:
 
 				/* collision detection with horizontal movement */
-						// right side
 						if (action != GLFW_RELEASE && Paused == false) {
+							// right side
 							if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight()
 							&& Tetronimo2.CheckCollisionRight() == false){
 								Util.GoRight();

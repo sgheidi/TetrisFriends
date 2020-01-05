@@ -93,26 +93,9 @@ bool Board::IsRowFull(int row) {
 }
 
 void Board::DoLineClear() {
-  int counter = 0;
-  int TopMostRow = 0;
-  bool rowcleared = false;
   for(int row=1;row<=20;row++){
     if(this->IsRowFull(row) == true) {
-      // grab the topmost row
-      // need this to bring all other blocks down
-      rowcleared = true;
-      TopMostRow = row - 1;
       this->ClearLine(row);
-    }
-  }
-  if(rowcleared) {
-    for (int row=1;row<=20;row++) {
-      for (int col=1;col<=10;col++) {
-        blocks[col][row+1] = blocks[col][row];
-        colors[col][row+1] = colors[col][row];
-        blocks[col][row] = 0;
-        colors[col][row] = 0;
-      }
     }
   }
 }
