@@ -7,19 +7,18 @@ class Board {
 
 		void DrawBoard();
 
-	  // draws a block that has already landed
+	  // Draws blocks that have already landed
 		void RenderDroppedBlocks();
 
 		void ResetUnits();
 
-		/* Helper functions */
+		// Helper functions
 		void PrintFilledBlocks();
 		void PrintCurrentPosition();
 
+		// line clearing functions
 		void ClearLine(int row);
-
 		bool IsRowFull(int row);
-
 		void DoLineClear();
 
 };

@@ -6,11 +6,8 @@ class Utility {
 	public:
 
 		void GoDown();
-
 		void AccelerateDown();
-
 		void GoRight();
-
 		void GoLeft();
 
 		// maps int to color

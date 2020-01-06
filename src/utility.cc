@@ -2,23 +2,23 @@
 #include "../include/common.h"
 
 void Utility::GoDown() {
-      y += unit;
-      row ++;
+  y += unit;
+  row ++;
 }
 
 void Utility::AccelerateDown() {
-      y += unit;
-      row ++;
+  y += unit;
+  row ++;
 }
 
 void Utility::GoRight() {
-      x += unit;
-      col ++;
+  x += unit;
+  col ++;
 }
 
 void Utility::GoLeft() {
-      x -= unit;
-      col --;
+  x -= unit;
+  col --;
 }
 
 // color mapping function
@@ -57,13 +57,13 @@ void Utility::FindColor(int color) {
 }
 
 void Utility::DrawSquare(int color) {
-      this->FindColor(color);
-			glBegin(GL_POLYGON);
+  this->FindColor(color);
+	glBegin(GL_POLYGON);
 
-			glVertex2f(x, y);
-			glVertex2f(x, y+unit);
-			glVertex2f(x+unit, y+unit);
-			glVertex2f(x+unit, y);
+	glVertex2f(x, y);
+	glVertex2f(x, y+unit);
+	glVertex2f(x+unit, y+unit);
+	glVertex2f(x+unit, y);
 
-			glEnd();
+	glEnd();
 }

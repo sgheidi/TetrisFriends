@@ -10,19 +10,20 @@ class Tetronimo_2 {
 		void RenderTetronimo();
 
 		bool InWindowRight();
-
 		bool InWindowLeft();
 
+		// fills arrays for 'dropped' tetronimos
 		void FillBlocks();
-
 		void FillColors();
-
-		bool CheckCollisionRight();
-
-		bool CheckCollisionLeft();
 
 		void FillArrays();
 
+		// collision detection functions
+		bool CheckCollisionRight();
+		bool CheckCollisionLeft();
+
+		// stacking
+		// returns true if a landing criteria is detected
 		bool LandingCriteria();
 
 };
