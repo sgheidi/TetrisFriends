@@ -37,35 +37,35 @@ int main(void) {
 
 			/* Tetronimo 1 */
 			case 1:
-				 Tetronimo1.RenderTetronimo();
-				 // timer function
-				 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
-					 NumberOfIterations = 0;
-					 Util.GoDown();
+				Tetronimo1.RenderTetronimo();
+				// timer function
+				if(NumberOfIterations % GameSpeed == 0 && Paused == false){
+					NumberOfIterations = 0;
+					Util.GoDown();
 				}
 				// Landing criteria
-				 if(Tetronimo1.LandingCriteria() == true) {
+				if(Tetronimo1.LandingCriteria() == true) {
 					Tetronimo1.FillArrays();
-				  Tetronimo1.RotationCounter = 0;
-				  Rand = 1;
-				  GameBoard.DoLineClear();
+					Tetronimo1.RotationCounter = 0;
+					Rand = 1;
+					GameBoard.DoLineClear();
 				}
 				break;
 
 			/* Tetronimo 2 */
 			case 2:
-				 Tetronimo2.RenderTetronimo();
-				 // timer function
-				 if(NumberOfIterations % GameSpeed == 0 && Paused == false){
-					 NumberOfIterations = 0;
-					 Util.GoDown();
-				 }
+				Tetronimo2.RenderTetronimo();
+				// timer function
+				if(NumberOfIterations % GameSpeed == 0 && Paused == false){
+					NumberOfIterations = 0;
+					Util.GoDown();
+				}
 				// check for stacking (start new block)
 				if (Tetronimo2.LandingCriteria() == true) {
-						Tetronimo2.FillArrays();
-						Tetronimo2.RotationCounter = 0;
-						Rand = 2;
-					  GameBoard.DoLineClear();
+					Tetronimo2.FillArrays();
+					Tetronimo2.RotationCounter = 0;
+					Rand = 2;
+					GameBoard.DoLineClear();
 				}
 				break;
 		}
