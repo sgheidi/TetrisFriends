@@ -34,7 +34,6 @@ int main(void) {
 
 		 switch(Rand){
 
-
 			/* Tetronimo 1 */
 			case 1:
 				Tetronimo1.RenderTetronimo();
