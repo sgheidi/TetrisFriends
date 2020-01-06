@@ -13,7 +13,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 				if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
 				&& Tetronimo1.CheckCollisionRight() == false) {
 						Util.GoRight();
-			}
+				}
 				// left side collision check
 				else if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft()
 				&& Tetronimo1.CheckCollisionLeft() == false) {
@@ -27,34 +27,32 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 					else if(Tetronimo1.RotationCounter == 0) {
 						Tetronimo1.RotationCounter = 1;
 					}
+				}
 			}
-	}
 			break;
 
 			/* Tetronimo 2 */
 			case 2:
-
-				/* collision detection with horizontal movement */
-						if (action != GLFW_RELEASE && Paused == false) {
-							// right side
-							if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight()
-							&& Tetronimo2.CheckCollisionRight() == false){
-								Util.GoRight();
-							}
-							// left side
-							else if (key == GLFW_KEY_LEFT && Tetronimo2.InWindowLeft()
-						&& Tetronimo2.CheckCollisionLeft() == false) {
-								Util.GoLeft();
-							}
-							// rotatations
-							else if (key == GLFW_KEY_UP){
-									if(Tetronimo2.RotationCounter < 3) {
-										Tetronimo2.RotationCounter ++;
-									}
-									else if(Tetronimo2.RotationCounter >= 3) {
-										Tetronimo2.RotationCounter = 0;
-									}
-							}
+				if (action != GLFW_RELEASE && Paused == false) {
+					// right side collision check
+					if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight()
+					&& Tetronimo2.CheckCollisionRight() == false) {
+						Util.GoRight();
+					}
+					// left side collision check
+					else if (key == GLFW_KEY_LEFT && Tetronimo2.InWindowLeft()
+					&& Tetronimo2.CheckCollisionLeft() == false) {
+						Util.GoLeft();
+					}
+					// rotatations
+					else if (key == GLFW_KEY_UP) {
+						if(Tetronimo2.RotationCounter < 3) {
+							Tetronimo2.RotationCounter ++;
+						}
+						else if(Tetronimo2.RotationCounter >= 3) {
+							Tetronimo2.RotationCounter = 0;
+						}
+					}
 				}
 				break;
 		}
@@ -82,6 +80,5 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			glfwDestroyWindow(window);
 			glfwTerminate();
 			exit(EXIT_SUCCESS);
-		}
-
+	}
 }
