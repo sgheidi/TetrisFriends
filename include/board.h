@@ -7,7 +7,7 @@ class Board {
 
 		void DrawBoard();
 
-	  // Draws blocks that have already landed
+		// Draws blocks that have already landed
 		void RenderDroppedBlocks();
 
 		void ResetUnits();
