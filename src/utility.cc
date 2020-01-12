@@ -58,12 +58,12 @@ void Utility::FindColor(int color) {
 
 void Utility::DrawSquare(int color) {
   this->FindColor(color);
-	glBegin(GL_POLYGON);
+  glBegin(GL_POLYGON);
 
-	glVertex2f(x, y);
-	glVertex2f(x, y+unit);
-	glVertex2f(x+unit, y+unit);
-	glVertex2f(x+unit, y);
+  glVertex2f(x, y);
+  glVertex2f(x, y+unit);
+  glVertex2f(x+unit, y+unit);
+  glVertex2f(x+unit, y);
 
-	glEnd();
+  glEnd();
 }

@@ -30,6 +30,8 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
 - Code broken up into classes and objects for good structure
 
+- All game options are stored in the file ```common.cc``` and can be modified
+
 ## Future goals
 
 - 'Space': 'hard' drops a piece, stacking it directly on board

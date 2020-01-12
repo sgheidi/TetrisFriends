@@ -21,7 +21,7 @@ int Rand = 0;
 
 // Decrease this to increase game speed
 // Default should be 50
-int GameSpeed = 5;
+int GameSpeed = 50;
 
 int row = 1;
 int col = 6;
