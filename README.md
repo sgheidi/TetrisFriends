@@ -34,7 +34,7 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 
 ## Future goals
 
-- 'Space': 'hard' drops a piece, stacking it directly on board
+- 'Space': 'hard' drops a piece, dropping it instantly
 
 - 'r': restart game
 

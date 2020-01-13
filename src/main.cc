@@ -24,7 +24,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen from 1-6
-	Rand = 1;
+	Rand = 2;
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
