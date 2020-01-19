@@ -10,7 +10,8 @@ class Board {
 		// Draws blocks that have already landed
 		void RenderDroppedBlocks();
 
-		void ResetUnits();
+		// initial setting of row/col (pivot: purple) based on Tetronimo piece (Rand)
+		void Init();
 
 		// Helper functions
 		void PrintFilledBlocks();
@@ -19,7 +20,7 @@ class Board {
 		// line clearing functions
 		void ClearLine(int row);
 		bool IsRowFull(int row);
-		void DoLineClear();
+		void LineClear();
 
 };
 

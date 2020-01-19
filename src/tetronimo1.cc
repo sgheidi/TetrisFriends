@@ -27,6 +27,13 @@ void Tetronimo_1::RenderTetronimo() {
   glPopMatrix();
 }
 
+void Tetronimo_1::ResetUnits(){
+  x = unit*5;
+  y= 0;
+  row = 1;
+  col = 6;
+}
+
 bool Tetronimo_1::InWindowLeft(){
   switch (Tetronimo1.RotationCounter) {
     case 0:
@@ -127,7 +134,6 @@ bool Tetronimo_1::CheckCollisionLeft() {
 void Tetronimo_1::FillArrays() {
   this->FillBlocks();
   this->FillColors();
-  GameBoard.ResetUnits();
 }
 
 bool Tetronimo_1::LandingCriteria(){

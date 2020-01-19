@@ -25,6 +25,7 @@ int main(void) {
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen from 1-6
 	Rand = 2;
+	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
@@ -47,8 +48,10 @@ int main(void) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
 					Rand = 1;
-					GameBoard.DoLineClear();
+				 	Tetronimo1.ResetUnits();
+					GameBoard.LineClear();
 				}
+
 				break;
 
 			/* Tetronimo 2 */
@@ -58,13 +61,15 @@ int main(void) {
 				if(NumberOfIterations % GameSpeed == 0 && Paused == false){
 					NumberOfIterations = 0;
 					Util.GoDown();
+					GameBoard.PrintCurrentPosition();
 				}
 				// check for stacking (start new block)
 				if (Tetronimo2.LandingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
 					Rand = 2;
-					GameBoard.DoLineClear();
+					Tetronimo2.ResetUnits();
+					GameBoard.LineClear();
 				}
 				break;
 		}

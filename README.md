@@ -2,6 +2,10 @@
 
 A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framework.
 
+## Screenshots
+
+![Alt text](screenshots/1.png?raw=true "Screenshot 1")
+
 ## Setting up
 
 Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
@@ -21,8 +25,6 @@ Play the game by running ``` make && ./FruitTetris ``` in the Linux terminal.
 - Down key: downward acceleration
 
 - Speed & score increases with each line clear!
-
-## Screenshots
 
 ## Other notes
 

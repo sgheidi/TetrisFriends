@@ -27,15 +27,15 @@ extern float unit;
 extern int blocks[11][21];
 extern int colors[11][21];
 
-// pivot coordinates of top-most block (pixels)
-extern float x;
-extern float y;
-
 extern int NumberOfIterations;
 extern bool Paused;
 extern int Rand;
 
 extern int GameSpeed;
+/* pivot is always purple block. */
+// pivot coordinates of top-most block (pixels)
+extern float x;
+extern float y;
 
 // pivot coordinates (block)
 extern int row;

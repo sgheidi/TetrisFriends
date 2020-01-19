@@ -23,5 +23,5 @@ int Rand = 0;
 // Default should be 50
 int GameSpeed = 50;
 
-int row = 1;
-int col = 6;
+int row = 0;
+int col = 0;

@@ -1,6 +1,35 @@
 #include "../include/board.h"
 #include "../include/common.h"
 
+void Board::Init(){
+  switch (Rand) {
+    case 1:
+      row = 1;
+      col = 6;
+      break;
+    case 2:
+      row = 2;
+      col = 6;
+      break;
+    case 3:
+      row = 1;
+      col = 6;
+      break;
+    case 4:
+      row = 1;
+      col = 6;
+      break;
+    case 5:
+      row = 1;
+      col = 6;
+      break;
+    case 6:
+      row = 1;
+      col = 6;
+      break;
+  }
+}
+
 void Board::DrawBoard() {
   float ratio;
   int width, height;
@@ -54,13 +83,6 @@ void Board::RenderDroppedBlocks() {
   }
 }
 
-void Board::ResetUnits(){
-  x = unit*5;
-  y= 0;
-  row = 1;
-  col = 6;
-}
-
 /* Helper functions */
 void Board::PrintFilledBlocks() {
   for(int x=1;x<=10;x++){
@@ -92,7 +114,7 @@ bool Board::IsRowFull(int row) {
   return true;
 }
 
-void Board::DoLineClear() {
+void Board::LineClear() {
   for(int row=1;row<=20;row++){
     if(this->IsRowFull(row) == true) {
       this->ClearLine(row);
