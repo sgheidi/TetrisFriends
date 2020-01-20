@@ -30,7 +30,7 @@ void Board::Init(){
   }
 }
 
-void Board::DrawBoard() {
+void Board::DrawGrid() {
   float ratio;
   int width, height;
   glfwGetFramebufferSize(window, &width, &height);
@@ -81,21 +81,6 @@ void Board::RenderDroppedBlocks() {
       }
     }
   }
-}
-
-/* Helper functions */
-void Board::PrintFilledBlocks() {
-  for(int x=1;x<=10;x++){
-    for(int y=1;y<=20;y++){
-      if(blocks[x][y] == 1){
-          cout << "blocks[" << x << "][" << y << "] is full"<<endl;
-      }
-    }
-  }
-}
-
-void Board::PrintCurrentPosition() {
-  cout << "Row " << row << "  Col " << col << endl;
 }
 
 void Board::ClearLine(int row) {

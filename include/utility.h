@@ -17,6 +17,9 @@ class Utility {
 		// draws single block with specified color
 		void DrawSquare(int color);
 
+		// Helper functions
+		void PrintFilledBlocks();
+		void PrintCurrentPosition();
 };
 
 extern Utility Util;

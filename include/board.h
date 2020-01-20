@@ -5,17 +5,13 @@ class Board {
 
 	public:
 
-		void DrawBoard();
+		void DrawGrid();
 
 		// Draws blocks that have already landed
 		void RenderDroppedBlocks();
 
 		// initial setting of row/col (pivot: purple) based on Tetronimo piece (Rand)
 		void Init();
-
-		// Helper functions
-		void PrintFilledBlocks();
-		void PrintCurrentPosition();
 
 		// line clearing functions
 		void ClearLine(int row);

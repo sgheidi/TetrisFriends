@@ -67,3 +67,18 @@ void Utility::DrawSquare(int color) {
 
   glEnd();
 }
+
+/* Helper functions */
+void Utility::PrintFilledBlocks() {
+  for(int x=1;x<=10;x++){
+    for(int y=1;y<=20;y++){
+      if(blocks[x][y] == 1){
+          cout << "blocks[" << x << "][" << y << "] is full"<<endl;
+      }
+    }
+  }
+}
+
+void Utility::PrintCurrentPosition() {
+  cout << "Row " << row << "  Col " << col << endl;
+}

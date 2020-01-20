@@ -30,7 +30,7 @@ int main(void) {
 	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
 		 NumberOfIterations ++;
-		 GameBoard.DrawBoard();
+		 GameBoard.DrawGrid();
 		 GameBoard.RenderDroppedBlocks();
 
 		 switch(Rand){
@@ -61,7 +61,7 @@ int main(void) {
 				if(NumberOfIterations % GameSpeed == 0 && Paused == false){
 					NumberOfIterations = 0;
 					Util.GoDown();
-					GameBoard.PrintCurrentPosition();
+					Util.PrintCurrentPosition();
 				}
 				// check for stacking (start new block)
 				if (Tetronimo2.LandingCriteria() == true) {
