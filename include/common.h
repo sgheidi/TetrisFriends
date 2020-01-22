@@ -27,7 +27,7 @@ extern float unit;
 extern int blocks[11][21];
 extern int colors[11][21];
 
-extern int NumberOfIterations;
+extern int NumIterations;
 extern bool Paused;
 extern int Rand;
 

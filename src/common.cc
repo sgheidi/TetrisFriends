@@ -15,7 +15,7 @@ int colors[11][21] = {0};
 float x = unit*5;
 float y = 0;
 
-int NumberOfIterations = 0;
+int NumIterations = 0;
 bool Paused = false;
 int Rand = 0;
 
