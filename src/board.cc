@@ -41,6 +41,30 @@ void Board::ResetUnits(){
     case 2:
       x = unit*5;
       y= 0;
+      row = 2;
+      col = 6;
+      break;
+    case 3:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 6;
+      break;
+    case 4:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 6;
+      break;
+    case 5:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 6;
+      break;
+    case 6:
+      x = unit*5;
+      y= 0;
       row = 1;
       col = 6;
       break;
@@ -84,7 +108,7 @@ void Board::RenderDroppedBlocks() {
   for(int i=1;i<=10;i++){
     for(int j=1;j<=20;j++){
       if(blocks[i][j] == 1){
-        Util.FindColor(colors[i][j]);
+        Util.ColorBuffer(colors[i][j]);
         glPushMatrix();
         glBegin(GL_POLYGON);
 

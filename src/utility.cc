@@ -22,7 +22,7 @@ void Utility::GoLeft() {
 }
 
 // colors the buffer with specified color
-void Utility::FindColor(int color) {
+void Utility::ColorBuffer(int color) {
   switch(color) {
     case BLACK:
       glColor3f(0.0f, 0.0f, 0.0f);
@@ -48,7 +48,7 @@ void Utility::FindColor(int color) {
 }
 
 void Utility::DrawSquare(int color) {
-  this->FindColor(color);
+  this->ColorBuffer(color);
   glBegin(GL_POLYGON);
 
   glVertex2f(x, y);

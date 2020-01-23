@@ -12,7 +12,7 @@ class Utility {
 
 		// maps int to color
 		// i.e outputs color with integer input
-		void FindColor(int color);
+		void ColorBuffer(int color);
 
 		// draws single block with specified color
 		void DrawSquare(int color);

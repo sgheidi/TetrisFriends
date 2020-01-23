@@ -5,43 +5,43 @@ void Tetronimo_2::RenderTetronimo() {
   glPushMatrix();
   switch(Tetronimo2.RotationCounter) {
     case 0:
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(-1*unit, unit, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       break;
     case 1:
       glTranslatef(-1*unit, unit, 0.0f);
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(unit, unit, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       break;
     case 2:
       glTranslatef(0.0f, 2*unit, 0.0f);
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(unit, -1*unit, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       break;
     case 3:
       glTranslatef(unit, unit, 0.0f);
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(-1*unit, -1*unit, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       break;
   }
   glPopMatrix();
@@ -113,10 +113,10 @@ void Tetronimo_2::FillBlocks(){
 void Tetronimo_2::FillColors(){
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      colors[col][row-1] = 3;
-      colors[col-1][row-2] = 1;
-      colors[col-1][row-1] = 4;
-      colors[col-2][row-1] = 2;
+      colors[col][row-1] = ORANGE;
+      colors[col-1][row-2] = GREEN;
+      colors[col-1][row-1] = PURPLE;
+      colors[col-2][row-1] = RED;
       break;
     case 1:
       colors[col][row-1] = PURPLE;
@@ -125,16 +125,16 @@ void Tetronimo_2::FillColors(){
       colors[col-1][row-1] = GREEN;
       break;
     case 2:
-      colors[col][row+1] = 1;
-      colors[col+1][row] = 2;
-      colors[col][row] = 4;
-      colors[col-1][row] = 3;
+      colors[col][row+1] = GREEN;
+      colors[col+1][row] = RED;
+      colors[col][row] = PURPLE;
+      colors[col-1][row] = ORANGE;
       break;
     case 3:
-      colors[col+1][row] = 1;
-      colors[col][row-1] = 2;
-      colors[col][row] = 4;
-      colors[col][row+1] = 3;
+      colors[col+1][row] = GREEN;
+      colors[col][row-1] = RED;
+      colors[col][row] = PURPLE;
+      colors[col][row+1] = ORANGE;
       break;
   }
 }
