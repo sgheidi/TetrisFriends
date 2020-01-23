@@ -20,6 +20,14 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 /* all global variables and options defined here */
 
+// color mapping variables
+#define BLACK 0
+#define GREEN 1
+#define RED 2
+#define ORANGE 3
+#define PURPLE 4
+#define YELLOW 5
+
 extern int ScreenX;
 extern int ScreenY;
 extern float unit;

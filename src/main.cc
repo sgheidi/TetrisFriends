@@ -24,7 +24,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen from 1-6
-	Rand = 2;
+	Rand = 1;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -32,12 +32,7 @@ int main(void) {
 		 NumIterations ++;
 		 GameBoard.DrawGrid();
 		 GameBoard.RenderDroppedBlocks();
-		 if (NewBlock) {
-			 switch (Rand) {
-				 case 1:
-				 case 2:
-			 }
-		 }
+
 		 switch(Rand){
 
 			/* Tetronimo 1 */
@@ -53,9 +48,9 @@ int main(void) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
 					Rand = 1;
+					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
-
 				break;
 
 			/* Tetronimo 2 */
@@ -72,6 +67,7 @@ int main(void) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
 					Rand = 2;
+					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
 				break;

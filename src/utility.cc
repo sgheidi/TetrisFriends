@@ -33,22 +33,22 @@ void Utility::FindColor(int color) {
   // 5: yellow
 
   switch(color) {
-    case 0:
+    case BLACK:
       glColor3f(0.0f, 0.0f, 0.0f);
       break;
-    case 1:
+    case GREEN:
       glColor3f(0.0f, 1.0f, 0.0f);
       break;
-    case 2:
+    case RED:
       glColor3f(1.0f, 0.0f, 0.0f);
       break;
-    case 3:
+    case ORANGE:
       glColor3f(1.0f, 0.5f, 0.0f);
       break;
-    case 4:
+    case PURPLE:
       glColor3f(1.0f, 0.5f, 1.5f);
       break;
-    case 5:
+    case YELLOW:
       glColor3f(1.0f, 1.0f, 0.0f);
       break;
     default:

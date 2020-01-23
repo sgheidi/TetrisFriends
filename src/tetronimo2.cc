@@ -47,26 +47,19 @@ void Tetronimo_2::RenderTetronimo() {
   glPopMatrix();
 }
 
-void Tetronimo_2::ResetUnits(){
-  x = unit*5;
-  y= 0;
-  row = 2;
-  col = 7;
-}
-
 bool Tetronimo_2::InWindowLeft(){
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      return col >= 4;
+      return col >= 3;
       break;
     case 1:
-      return col >= 4;
+      return col >= 3;
       break;
     case 2:
-      return col >= 4;
+      return col >= 5;
       break;
     case 3:
-      return col >= 3;
+      return col >= 4;
       break;
     }
 }
@@ -74,16 +67,16 @@ bool Tetronimo_2::InWindowLeft(){
 bool Tetronimo_2::InWindowRight() {
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      return col <= 9;
+      return col <= 8;
       break;
     case 1:
-      return col <= 10;
+      return col <= 9;
       break;
     case 2:
-      return col <= 9;
+      return col <= 8;
       break;
     case 3:
-      return col <= 9;
+      return col <= 8;
       break;
     }
 }
@@ -97,10 +90,10 @@ void Tetronimo_2::FillBlocks(){
       blocks[col-2][row-1] = 1;
       break;
     case 1:
-      blocks[col-1][row] = 1;
-      blocks[col][row+1] = 1;
-      blocks[col][row] = 1;
       blocks[col][row-1] = 1;
+      blocks[col][row] = 1;
+      blocks[col][row-2] = 1;
+      blocks[col-1][row-1] = 1;
       break;
     case 2:
       blocks[col][row+1] = 1;
@@ -120,28 +113,28 @@ void Tetronimo_2::FillBlocks(){
 void Tetronimo_2::FillColors(){
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      colors[col][row-1] = 4;
+      colors[col][row-1] = 3;
       colors[col-1][row-2] = 1;
-      colors[col-1][row-1] = 3;
+      colors[col-1][row-1] = 4;
       colors[col-2][row-1] = 2;
       break;
     case 1:
-      colors[col-1][row] = 1;
-      colors[col][row+1] = 2;
-      colors[col][row] = 3;
-      colors[col][row-1] = 4;
+      colors[col][row-1] = PURPLE;
+      colors[col][row] = RED;
+      colors[col][row-2] = ORANGE;
+      colors[col-1][row-1] = GREEN;
       break;
     case 2:
       colors[col][row+1] = 1;
       colors[col+1][row] = 2;
-      colors[col][row] = 3;
-      colors[col-1][row] = 4;
+      colors[col][row] = 4;
+      colors[col-1][row] = 3;
       break;
     case 3:
       colors[col+1][row] = 1;
       colors[col][row-1] = 2;
-      colors[col][row] = 3;
-      colors[col][row+1] = 4;
+      colors[col][row] = 4;
+      colors[col][row+1] = 3;
       break;
   }
 }
@@ -216,6 +209,7 @@ void Tetronimo_2::FillArrays() {
   this->FillColors();
 }
 
+// if any condition for stacking is detected, returns true
 bool Tetronimo_2::LandingCriteria(){
   switch(Tetronimo2.RotationCounter){
     case 0:
@@ -230,18 +224,18 @@ bool Tetronimo_2::LandingCriteria(){
           return true;
         }
         break;
-      // case 2:
-      //   if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-      //   || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
-      //     return true;
-      //   }
-      //   break;
-      // case 3:
-      //   if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-      //   || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
-      //     return true;
-      //   }
-      //   break;
+      case 2:
+        if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+        || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+          return true;
+        }
+        break;
+      case 3:
+        if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
+        || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+          return true;
+        }
+        break;
     }
       return false;
 }

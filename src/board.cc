@@ -30,6 +30,23 @@ void Board::Init(){
   }
 }
 
+void Board::ResetUnits(){
+  switch (Rand) {
+    case 1:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 6;
+      break;
+    case 2:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 6;
+      break;
+  }
+}
+
 void Board::DrawGrid() {
   float ratio;
   int width, height;
@@ -71,10 +88,10 @@ void Board::RenderDroppedBlocks() {
         glPushMatrix();
         glBegin(GL_POLYGON);
 
-        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f((i*unit)+unit, (j*unit)-unit);
+        glVertex2f((i*unit)+unit, j*unit);
         glVertex2f(i*unit, j*unit);
-        glVertex2f((i*unit)-unit, j*unit);
-        glVertex2f((i*unit)-unit, (j*unit)-unit);
+        glVertex2f(i*unit, (j*unit)-unit);
 
         glEnd();
         glPopMatrix();

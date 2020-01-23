@@ -16,8 +16,6 @@ class Tetronimo_2 {
 		void FillBlocks();
 		void FillColors();
 
-		void ResetUnits();
-
 		void FillArrays();
 
 		// collision detection functions

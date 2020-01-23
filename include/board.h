@@ -13,6 +13,8 @@ class Board {
 		// initial setting of row/col (pivot: purple) based on Tetronimo piece (Rand)
 		void Init();
 
+		void ResetUnits();
+
 		// line clearing functions
 		void ClearLine(int row);
 		bool IsRowFull(int row);

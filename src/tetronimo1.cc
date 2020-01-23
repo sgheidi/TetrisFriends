@@ -5,33 +5,26 @@ void Tetronimo_1::RenderTetronimo() {
   glPushMatrix();
   switch (Tetronimo1.RotationCounter) {
     case 0:
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       break;
     case 1:
       glTranslatef(unit, unit, 0.0f);
-      Util.DrawSquare(1);
+      Util.DrawSquare(GREEN);
       glTranslatef(-unit, 0.0f, 0.0f);
-      Util.DrawSquare(2);
+      Util.DrawSquare(RED);
       glTranslatef(-unit, 0.0f, 0.0f);
-      Util.DrawSquare(3);
+      Util.DrawSquare(ORANGE);
       glTranslatef(-unit, 0.0f, 0.0f);
-      Util.DrawSquare(4);
+      Util.DrawSquare(PURPLE);
       break;
     }
   glPopMatrix();
-}
-
-void Tetronimo_1::ResetUnits(){
-  x = unit*5;
-  y= 0;
-  row = 1;
-  col = 6;
 }
 
 bool Tetronimo_1::InWindowLeft(){
@@ -76,16 +69,16 @@ void Tetronimo_1::FillBlocks(){
 void Tetronimo_1::FillColors(){
   switch (Tetronimo1.RotationCounter) {
     case 0:
-      colors[col][row-1] = 1;
-      colors[col][row] = 2;
-      colors[col][row+1] = 3;
-      colors[col][row+2] = 4;
+      colors[col][row-1] = GREEN;
+      colors[col][row] = RED;
+      colors[col][row+1] = ORANGE;
+      colors[col][row+2] = PURPLE;
         break;
     case 1:
-      colors[col+1][row] = 1;
-      colors[col][row] = 2;
-      colors[col-1][row] = 3;
-      colors[col-2][row] = 4;
+      colors[col+1][row] = GREEN;
+      colors[col][row] = RED;
+      colors[col-1][row] = ORANGE;
+      colors[col-2][row] = PURPLE;
       break;
   }
 }
@@ -93,21 +86,21 @@ void Tetronimo_1::FillColors(){
 /* Collision functions return true if a potential collision is detected */
 bool Tetronimo_1::CheckCollisionRight() {
   switch (Tetronimo1.RotationCounter) {
-      case 0:
-          if(blocks[col+1][row] == 1 || blocks[col+1][row+1] == 1
-          || blocks[col+1][row+2] == 1
-          || blocks[col+1][row+3] == 1) {
-            return true;
-          }
-          return false;
-          break;
-      case 1:
-          if(blocks[col+2][row] == 1){
-                return true;
-          }
-          return false;
-          break;
-    }
+    case 0:
+        if(blocks[col+1][row] == 1 || blocks[col+1][row+1] == 1
+        || blocks[col+1][row+2] == 1
+        || blocks[col+1][row+3] == 1) {
+          return true;
+        }
+        return false;
+        break;
+    case 1:
+        if(blocks[col+2][row] == 1){
+              return true;
+        }
+        return false;
+        break;
+  }
 }
 
 bool Tetronimo_1::CheckCollisionLeft() {
