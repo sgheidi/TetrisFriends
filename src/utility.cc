@@ -21,17 +21,8 @@ void Utility::GoLeft() {
   col --;
 }
 
-// color mapping function
-// outputs color from color number
+// colors the buffer with specified color
 void Utility::FindColor(int color) {
-
-  // 0/default: black
-  // 1: green
-  // 2: red
-  // 3: orange
-  // 4: purple
-  // 5: yellow
-
   switch(color) {
     case BLACK:
       glColor3f(0.0f, 0.0f, 0.0f);

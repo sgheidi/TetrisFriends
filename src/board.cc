@@ -88,10 +88,10 @@ void Board::RenderDroppedBlocks() {
         glPushMatrix();
         glBegin(GL_POLYGON);
 
-        glVertex2f((i*unit)+unit, (j*unit)-unit);
-        glVertex2f((i*unit)+unit, j*unit);
-        glVertex2f(i*unit, j*unit);
         glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
 
         glEnd();
         glPopMatrix();
