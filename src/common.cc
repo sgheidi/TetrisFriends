@@ -2,6 +2,7 @@
 
 GLFWwindow* window;
 
+
 // screen width & height (pixels)
 const int ScreenX = 250;
 const int ScreenY = 500;
