@@ -1,7 +1,6 @@
 #include "../include/board.h"
 #include "../include/common.h"
 
-
 void Board::Init(){
   switch (Rand) {
     case 1:
