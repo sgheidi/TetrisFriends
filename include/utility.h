@@ -17,6 +17,8 @@ class Utility {
 		// draws single block with specified color
 		void DrawSquare(int color);
 
+		void ZeroArrays();
+
 		// Helper functions
 		void PrintFilledBlocks();
 		void PrintCurrentPosition();

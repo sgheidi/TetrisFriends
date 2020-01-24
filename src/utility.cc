@@ -59,6 +59,15 @@ void Utility::DrawSquare(int color) {
   glEnd();
 }
 
+void Utility::ZeroArrays(){
+  for(int i=1;i<=10;i++){
+    for(int j=1;j<=20;j++){
+      blocks[i][j] = 0;
+      colors[i][j] = 0;
+    }
+  }
+}
+
 /* Helper functions */
 void Utility::PrintFilledBlocks() {
   for(int x=1;x<=10;x++){

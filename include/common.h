@@ -18,7 +18,7 @@ using namespace std;
 extern GLFWwindow* window;
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 
-/* all global variables and options defined here */
+/* all global variables and options declared here */
 
 // color mapping directives
 #define BLACK 0
@@ -28,9 +28,9 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 #define PURPLE 4
 #define YELLOW 5
 
-extern int ScreenX;
-extern int ScreenY;
-extern float unit;
+extern const int ScreenX;
+extern const int ScreenY;
+extern const float unit;
 
 extern int blocks[11][21];
 extern int colors[11][21];

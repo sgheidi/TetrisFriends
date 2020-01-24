@@ -3,7 +3,7 @@
 /* input handling & collision detection here */
 
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	
+
 	switch(Rand) {
 
 		/* Tetronimo 1 */
@@ -63,6 +63,16 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			Util.AccelerateDown();
 		}
 	}
+
+
+	// reset
+	// if (action != GLFW_RELEASE) {
+	// 	if (key == GLFW_KEY_R){
+	// 		Util.ZeroArrays();
+	// 		Rand = 1;
+	// 		GameBoard.Init();
+	// 	}
+	// }
 
 	// pause
 	if (action != GLFW_RELEASE) {

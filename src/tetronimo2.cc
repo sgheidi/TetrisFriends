@@ -56,10 +56,10 @@ bool Tetronimo_2::InWindowLeft(){
       return col >= 3;
       break;
     case 2:
-      return col >= 5;
+      return col >= 3;
       break;
     case 3:
-      return col >= 4;
+      return col >= 2;
       break;
     }
 }
@@ -85,9 +85,9 @@ void Tetronimo_2::FillBlocks(){
   switch (Tetronimo2.RotationCounter) {
     case 0:
       blocks[col][row-1] = 1;
-      blocks[col-1][row-2] = 1;
       blocks[col-1][row-1] = 1;
-      blocks[col-2][row-1] = 1;
+      blocks[col+1][row-1] = 1;
+      blocks[col][row-2] = 1;
       break;
     case 1:
       blocks[col][row-1] = 1;
@@ -96,16 +96,16 @@ void Tetronimo_2::FillBlocks(){
       blocks[col-1][row-1] = 1;
       break;
     case 2:
-      blocks[col][row+1] = 1;
-      blocks[col+1][row] = 1;
-      blocks[col][row] = 1;
-      blocks[col-1][row] = 1;
-      break;
-    case 3:
-      blocks[col+1][row] = 1;
+      blocks[col+1][row-1] = 1;
       blocks[col][row-1] = 1;
       blocks[col][row] = 1;
-      blocks[col][row+1] = 1;
+      blocks[col-1][row-1] = 1;
+      break;
+    case 3:
+      blocks[col+1][row-1] = 1;
+      blocks[col][row-1] = 1;
+      blocks[col][row] = 1;
+      blocks[col][row-2] = 1;
       break;
   }
 }
@@ -113,10 +113,10 @@ void Tetronimo_2::FillBlocks(){
 void Tetronimo_2::FillColors(){
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      colors[col][row-1] = ORANGE;
-      colors[col-1][row-2] = GREEN;
-      colors[col-1][row-1] = PURPLE;
-      colors[col-2][row-1] = RED;
+      colors[col+1][row-1] = ORANGE;
+      colors[col][row-2] = GREEN;
+      colors[col][row-1] = PURPLE;
+      colors[col-1][row-1] = RED;
       break;
     case 1:
       colors[col][row-1] = PURPLE;
@@ -125,16 +125,16 @@ void Tetronimo_2::FillColors(){
       colors[col-1][row-1] = GREEN;
       break;
     case 2:
-      colors[col][row+1] = GREEN;
-      colors[col+1][row] = RED;
-      colors[col][row] = PURPLE;
-      colors[col-1][row] = ORANGE;
+      colors[col][row] = GREEN;
+      colors[col+1][row-1] = RED;
+      colors[col][row-1] = PURPLE;
+      colors[col-1][row-1] = ORANGE;
       break;
     case 3:
-      colors[col+1][row] = GREEN;
-      colors[col][row-1] = RED;
-      colors[col][row] = PURPLE;
-      colors[col][row+1] = ORANGE;
+      colors[col+1][row-1] = GREEN;
+      colors[col][row-2] = RED;
+      colors[col][row-1] = PURPLE;
+      colors[col][row] = ORANGE;
       break;
   }
 }
@@ -143,63 +143,55 @@ void Tetronimo_2::FillColors(){
 bool Tetronimo_2::CheckCollisionRight() {
   switch (Tetronimo2.RotationCounter){
     case 0:
-      if(blocks[col+1][row] == 1 || blocks[col+1][row+1] == 1
-      || blocks[col+1][row+2] == 1
-      || blocks[col+1][row+3] == 1) {
+      if(blocks[col+2][row-1] == 1) {
         return true;
       }
-      return false;
       break;
     case 1:
-      if(blocks[col+2][row] == 1){
+      if(blocks[col+1][row] == 1 || blocks[col+1][row-1] == 1
+      || blocks[col+1][row-2] == 1){
         return true;
       }
-      return false;
       break;
     case 2:
-      if(blocks[col+2][row] == 1){
+      if(blocks[col+2][row-1] == 1){
         return true;
       }
-      return false;
       break;
     case 3:
-      if(blocks[col+2][row] == 1){
+      if(blocks[col+2][row-1] == 1){
         return true;
       }
-      return false;
       break;
   }
+  return false;
 }
 
 bool Tetronimo_2::CheckCollisionLeft() {
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      if(blocks[col-1][row] == 1 || blocks[col-1][row+1] == 1
-      || blocks[col-1][row+2] == 1
-      || blocks[col-1][row+3] == 1){
+      if(blocks[col-2][row-1] == 1){
         return true;
       }
-      return false;
       break;
     case 1:
-      if(blocks[col-3][row] == 1){
+      if(blocks[col-2][row-1] == 1){
         return true;
       }
-      return false;
       break;
     case 2:
-      if(blocks[col-3][row] == 1){
+      if(blocks[col-2][row-1] == 1 || blocks[col+2][row-1] == 1){
         return true;
       }
-      return false;
       break;
     case 3:
-      if(blocks[col-3][row] == 1){
+      if(blocks[col-1][row] == 1 || blocks[col-1][row-1] == 1
+      || blocks[col-1][row-2] == 1){
         return true;
       }
-      return false;
       break;
   }
+  return false;
 }
 
 // Fill blocks and colors
@@ -213,26 +205,24 @@ void Tetronimo_2::FillArrays() {
 bool Tetronimo_2::LandingCriteria(){
   switch(Tetronimo2.RotationCounter){
     case 0:
-        if (row >= 21 || blocks[col][row+1] == 1 || blocks[col-1][row+1] == 1
-        || blocks[col-2][row+1] == 1) {
+        if (row >= 21 || blocks[col-1][row] == 1 || blocks[col][row] == 1
+        || blocks[col+1][row] == 1) {
           return true;
         }
         break;
       case 1:
-        if (row >= 20 || blocks[col-2][row+2] == 1 || blocks[col-1][row+2] == 1
-        || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+        if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row+1] == 1) {
           return true;
         }
         break;
       case 2:
-        if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-        || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+        if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row+1] == 1
+        || blocks[col+1][row] == 1) {
           return true;
         }
         break;
       case 3:
-        if (row >= 20 || blocks[col-2][row+1] == 1 || blocks[col-1][row+1] == 1
-        || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
+        if (row >= 20 || blocks[col][row+1] == 1 || blocks[col+1][row] == 1) {
           return true;
         }
         break;

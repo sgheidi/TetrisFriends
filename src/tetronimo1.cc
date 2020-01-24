@@ -87,20 +87,19 @@ void Tetronimo_1::FillColors(){
 bool Tetronimo_1::CheckCollisionRight() {
   switch (Tetronimo1.RotationCounter) {
     case 0:
-        if(blocks[col+1][row] == 1 || blocks[col+1][row+1] == 1
-        || blocks[col+1][row+2] == 1
-        || blocks[col+1][row+3] == 1) {
-          return true;
-        }
-        return false;
-        break;
+      if(blocks[col+1][row] == 1 || blocks[col+1][row+1] == 1
+      || blocks[col+1][row+2] == 1
+      || blocks[col+1][row+3] == 1) {
+        return true;
+      }
+      break;
     case 1:
-        if(blocks[col+2][row] == 1){
-              return true;
-        }
-        return false;
-        break;
+      if(blocks[col+2][row] == 1){
+        return true;
+      }
+      break;
   }
+  return false;
 }
 
 bool Tetronimo_1::CheckCollisionLeft() {
@@ -111,15 +110,14 @@ bool Tetronimo_1::CheckCollisionLeft() {
       || blocks[col-1][row+3] == 1) {
         return true;
       }
-      return false;
       break;
     case 1:
       if(blocks[col-3][row] == 1) {
         return true;
       }
-      return false;
       break;
   }
+  return false;
 }
 
 // Fill blocks and colors

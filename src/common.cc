@@ -3,11 +3,11 @@
 GLFWwindow* window;
 
 // screen width & height (pixels)
-int ScreenX = 250;
-int ScreenY = 500;
+const int ScreenX = 250;
+const int ScreenY = 500;
 
 // Area of 1 block (pixels)
-float unit = ScreenX/10;
+const float unit = ScreenX/10;
 
 int blocks[11][21] = {0};
 int colors[11][21] = {0};
