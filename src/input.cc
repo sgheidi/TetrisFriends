@@ -3,6 +3,7 @@
 /* input handling & collision detection here */
 
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	
 	switch(Rand) {
 
 		/* Tetronimo 1 */
