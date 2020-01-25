@@ -7,21 +7,21 @@ void Tetronimo_1::RenderTetronimo() {
     case 0:
       Util.DrawSquare(GREEN);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare(PURPLE);
       glTranslatef(0.0f, unit, 0.0f);
       Util.DrawSquare(ORANGE);
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare(RED);
       break;
     case 1:
       glTranslatef(unit, unit, 0.0f);
       Util.DrawSquare(GREEN);
       glTranslatef(-unit, 0.0f, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare(PURPLE);
       glTranslatef(-unit, 0.0f, 0.0f);
       Util.DrawSquare(ORANGE);
       glTranslatef(-unit, 0.0f, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare(RED);
       break;
     }
   glPopMatrix();
@@ -84,6 +84,7 @@ void Tetronimo_1::FillColors(){
 }
 
 /* Collision functions return true if a potential collision is detected */
+// note that pivot coordinates are blocks[col][row]
 bool Tetronimo_1::CheckCollisionRight() {
   switch (Tetronimo1.RotationCounter) {
     case 0:
@@ -102,6 +103,7 @@ bool Tetronimo_1::CheckCollisionRight() {
   return false;
 }
 
+// note that pivot coordinates are blocks[col][row]
 bool Tetronimo_1::CheckCollisionLeft() {
   switch (Tetronimo1.RotationCounter) {
     case 0:

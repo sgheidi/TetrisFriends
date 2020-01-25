@@ -23,8 +23,8 @@ int main(void) {
 	glfwSwapInterval(1);
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
-	// random number is the Tetronimo piece number chosen from 1-6
-	Rand = 2;
+	// random number is the Tetronimo piece number chosen randomly from 1-6
+	Rand = 1;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -42,6 +42,7 @@ int main(void) {
 				if(NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
+					Util.PrintCurrentPosition();
 				}
 				// Landing criteria
 				if(Tetronimo1.LandingCriteria() == true) {

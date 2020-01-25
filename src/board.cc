@@ -4,7 +4,7 @@
 void Board::Init(){
   switch (Rand) {
     case 1:
-      row = 1;
+      row = 2;
       col = 6;
       break;
     case 2:
@@ -35,7 +35,7 @@ void Board::ResetUnits(){
     case 1:
       x = unit*5;
       y= 0;
-      row = 1;
+      row = 2;
       col = 6;
       break;
     case 2:

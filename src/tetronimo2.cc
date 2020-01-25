@@ -140,27 +140,28 @@ void Tetronimo_2::FillColors(){
 }
 
 /* Collision functions return true if a potential collision is detected */
+// note that pivot coordinates are blocks[col][row]
 bool Tetronimo_2::CheckCollisionRight() {
   switch (Tetronimo2.RotationCounter){
     case 0:
-      if(blocks[col+2][row-1] == 1 || blocks[col+2][row-1] == 1) {
+      if(blocks[col+2][row] == 1 || blocks[col+1][row-1] == 1) {
         return true;
       }
       break;
     case 1:
-      if(blocks[col+1][row] == 1 || blocks[col+1][row-1] == 1
-      || blocks[col+1][row-2] == 1){
+      if(blocks[col+1][row-1] == 1 || blocks[col+1][row] == 1
+      || blocks[col+1][row+1] == 1){
         return true;
       }
       break;
     case 2:
-      if(blocks[col+2][row-1] == 1 || blocks[col+1][row] == 1){
+      if(blocks[col+2][row] == 1 || blocks[col+1][row+1] == 1){
         return true;
       }
       break;
     case 3:
-      if(blocks[col+2][row-1] == 1 || blocks[col+1][row] == 1
-      || blocks[col+1][row-2] == 1){
+      if(blocks[col+2][row] == 1 || blocks[col+1][row+1] == 1
+      || blocks[col+1][row-1] == 1){
         return true;
       }
       break;
@@ -168,27 +169,28 @@ bool Tetronimo_2::CheckCollisionRight() {
   return false;
 }
 
+// note that pivot coordinates are blocks[col][row]
 bool Tetronimo_2::CheckCollisionLeft() {
   switch (Tetronimo2.RotationCounter) {
     case 0:
-      if(blocks[col-2][row-1] == 1 || blocks[col-1][row-2] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row-1] == 1){
         return true;
       }
       break;
     case 1:
-      if(blocks[col-2][row-1] == 1 || blocks[col-1][row-2] == 1
-      || blocks[col-1][row] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row-1] == 1
+      || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
     case 2:
-      if(blocks[col-2][row-1] == 1 || blocks[col-1][row] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
     case 3:
-      if(blocks[col-1][row] == 1 || blocks[col-1][row-1] == 1
-      || blocks[col-1][row-2] == 1){
+      if(blocks[col-1][row-1] == 1 || blocks[col-1][row] == 1
+      || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
