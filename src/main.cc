@@ -60,7 +60,6 @@ int main(void) {
 				if(NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
-					Util.PrintCurrentPosition();
 				}
 				// check for stacking (start new block)
 				if (Tetronimo2.LandingCriteria() == true) {

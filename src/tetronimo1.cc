@@ -127,6 +127,7 @@ void Tetronimo_1::FillArrays() {
   this->FillColors();
 }
 
+// if any condition for stacking is detected, returns true
 bool Tetronimo_1::LandingCriteria(){
   switch(Tetronimo1.RotationCounter) {
     case 0:

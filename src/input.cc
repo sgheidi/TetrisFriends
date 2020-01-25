@@ -64,15 +64,28 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		}
 	}
 
-
 	// reset
-	// if (action != GLFW_RELEASE) {
-	// 	if (key == GLFW_KEY_R){
-	// 		Util.ZeroArrays();
-	// 		Rand = 1;
-	// 		GameBoard.Init();
-	// 	}
-	// }
+	if (action != GLFW_RELEASE && key == GLFW_KEY_R) {
+		switch (Rand) {
+			case 1:
+				Tetronimo1.RotationCounter = 0;
+			case 2:
+				Tetronimo2.RotationCounter = 0;
+			case 3:
+				Tetronimo1.RotationCounter = 0;
+			case 4:
+				Tetronimo1.RotationCounter = 0;
+			case 5:
+				Tetronimo1.RotationCounter = 0;
+			case 6:
+				Tetronimo1.RotationCounter = 0;
+		}
+		Rand = 1;
+		GameBoard.ResetUnits();
+		Util.ZeroArrays();
+		GameBoard.Init();
+		Paused = false;
+	}
 
 	// pause
 	if (action != GLFW_RELEASE) {
