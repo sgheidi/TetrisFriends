@@ -21,8 +21,8 @@ class Tetronimo_7 {
 		bool CheckCollisionLeft();
 
 		// stacking
-		// returns true if a landing criteria is detected
-		bool LandingCriteria();
+		// returns true if a stacking criteria is detected
+		bool StackingCriteria();
 
 };
 

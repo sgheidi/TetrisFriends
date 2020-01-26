@@ -207,7 +207,7 @@ void Tetronimo_5::FillArrays() {
 }
 
 // if any condition for stacking is detected, returns true
-bool Tetronimo_5::LandingCriteria(){
+bool Tetronimo_5::StackingCriteria(){
   switch (Tetronimo5.RotationCounter) {
     case 0:
       if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row] == 1

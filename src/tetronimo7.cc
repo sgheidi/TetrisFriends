@@ -60,7 +60,7 @@ void Tetronimo_7::FillArrays() {
 }
 
 // if any condition for stacking is detected, returns true
-bool Tetronimo_7::LandingCriteria(){
+bool Tetronimo_7::StackingCriteria(){
   if (row >= 20 || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
     return true;
   }
