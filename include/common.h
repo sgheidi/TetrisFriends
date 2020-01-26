@@ -12,6 +12,7 @@
 #include "board.h"
 #include "tetronimo1.h"
 #include "tetronimo2.h"
+#include "tetronimo3.h"
 
 using namespace std;
 

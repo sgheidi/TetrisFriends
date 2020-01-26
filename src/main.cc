@@ -3,6 +3,7 @@
 Utility Util;
 Tetronimo_1 Tetronimo1;
 Tetronimo_2 Tetronimo2;
+Tetronimo_3 Tetronimo3;
 Board GameBoard;
 
 static void error_callback(int error, const char* description) {
@@ -24,7 +25,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen randomly from 1-6
-	Rand = 1;
+	Rand = 3;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -66,6 +67,24 @@ int main(void) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
 					Rand = 2;
+					GameBoard.ResetUnits();
+					GameBoard.LineClear();
+				}
+				break;
+
+			/* Tetronimo 3 */
+			case 3:
+				Tetronimo3.RenderTetronimo();
+				// timer function
+				if(NumIterations % GameSpeed == 0 && Paused == false){
+					NumIterations = 0;
+					Util.GoDown();
+				}
+				// landing criteria
+				if (Tetronimo3.LandingCriteria() == true) {
+					Tetronimo3.FillArrays();
+					Tetronimo3.RotationCounter = 0;
+					Rand = 3;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
