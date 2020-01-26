@@ -20,7 +20,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 						Util.GoLeft();
 				}
 				// rotatations
-				else if (key == GLFW_KEY_UP){
+				else if (key == GLFW_KEY_UP) {
 					if(Tetronimo1.RotationCounter == 1) {
 						Tetronimo1.RotationCounter = 0;
 					}
@@ -55,6 +55,31 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 				}
 			}
 			break;
+
+		/* Tetronimo 3 */
+		case 3:
+			if (action != GLFW_RELEASE && Paused == false) {
+				// right side collision check
+				if (key == GLFW_KEY_RIGHT && Tetronimo3.InWindowRight()
+				&& Tetronimo3.CheckCollisionRight() == false) {
+					Util.GoRight();
+				}
+				// left side collision check
+				else if (key == GLFW_KEY_LEFT && Tetronimo3.InWindowLeft()
+				&& Tetronimo3.CheckCollisionLeft() == false) {
+					Util.GoLeft();
+				}
+				// rotatations
+				else if (key == GLFW_KEY_UP) {
+					if(Tetronimo3.RotationCounter == 1) {
+						Tetronimo3.RotationCounter = 0;
+					}
+					else if(Tetronimo3.RotationCounter == 0) {
+						Tetronimo3.RotationCounter = 1;
+					}
+				}
+			}
+			break;
 		}
 
 	// acceleration
@@ -72,7 +97,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			case 2:
 				Tetronimo2.RotationCounter = 0;
 			case 3:
-				Tetronimo1.RotationCounter = 0;
+				Tetronimo3.RotationCounter = 0;
 			case 4:
 				Tetronimo1.RotationCounter = 0;
 			case 5:
@@ -80,7 +105,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			case 6:
 				Tetronimo1.RotationCounter = 0;
 		}
-		Rand = 1;
+		Rand = 3;
 		GameBoard.ResetUnits();
 		Util.ZeroArrays();
 		GameBoard.Init();

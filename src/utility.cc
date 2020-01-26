@@ -23,7 +23,7 @@ void Utility::GoLeft() {
 
 // colors the buffer with specified color
 void Utility::ColorBuffer(int color) {
-  switch(color) {
+  switch (color) {
     case BLACK:
       glColor3f(0.0f, 0.0f, 0.0f);
       break;
@@ -47,6 +47,8 @@ void Utility::ColorBuffer(int color) {
   }
 }
 
+// core function that draws individual blocks
+// with specified color
 void Utility::DrawSquare(int color) {
   this->ColorBuffer(color);
   glBegin(GL_POLYGON);

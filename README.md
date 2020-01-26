@@ -28,6 +28,8 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Other notes
 
+- Code follows Google C++ Style Guide
+
 - Code is well commented, easy to read and modify
 
 - Code broken up into classes and objects for good structure
