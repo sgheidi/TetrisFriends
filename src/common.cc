@@ -17,6 +17,7 @@ float y = 0;
 
 int NumIterations = 0;
 bool Paused = false;
+bool GameOver = false;
 int Rand = 0;
 
 // Decrease this to increase game speed

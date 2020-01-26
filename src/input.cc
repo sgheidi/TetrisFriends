@@ -88,7 +88,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	}
 
 	// pause
-	if (action != GLFW_RELEASE) {
+	if (action != GLFW_RELEASE && GameOver == false) {
 		if (key == GLFW_KEY_P && Paused == false){
 			Paused = true;
 		}

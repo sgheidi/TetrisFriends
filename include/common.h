@@ -37,6 +37,7 @@ extern int colors[11][21];
 
 extern int NumIterations;
 extern bool Paused;
+extern bool GameOver;
 extern int Rand;
 
 extern int GameSpeed;

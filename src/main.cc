@@ -42,7 +42,6 @@ int main(void) {
 				if(NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
-					Util.PrintCurrentPosition();
 				}
 				// Landing criteria
 				if(Tetronimo1.LandingCriteria() == true) {
@@ -62,7 +61,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// check for stacking (start new block)
+				// landing criteria
 				if (Tetronimo2.LandingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
@@ -71,6 +70,13 @@ int main(void) {
 					GameBoard.LineClear();
 				}
 				break;
+		}
+
+		// if topmost block is full, freeze the game permanently
+		// (game over)
+		if (blocks[6][1] == 1) {
+			Paused = true;
+			GameOver = true;
 		}
 
 		glfwSwapBuffers(window);
