@@ -4,7 +4,7 @@ A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framewo
 
 ## Screenshots
 
-![Alt text](screenshots/3.png?raw=true "Screenshot 1") &nbsp &nbsp &nbsp ![Alt text](screenshots/4.png?raw=true "T-Spin!")
+![Alt text](screenshots/3.png?raw=true "Screenshot 1") &nbsp; &nbsp; &nbsp; ![Alt text](screenshots/4.png?raw=true "T-Spin!")
 
 ## Setting up
 
