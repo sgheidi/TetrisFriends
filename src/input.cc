@@ -201,6 +201,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		Util.ZeroArrays();
 		GameBoard.Init();
 		Paused = false;
+		GameOver = false;
 	}
 
 	// pause

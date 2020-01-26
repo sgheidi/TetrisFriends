@@ -145,7 +145,6 @@ int main(void) {
 				if (NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
-					Util.PrintCurrentPosition();
 				}
 				// Landing criteria
 				if (Tetronimo7.LandingCriteria() == true) {

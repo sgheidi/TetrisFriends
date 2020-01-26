@@ -6,6 +6,8 @@ A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framewo
 
 ![Alt text](screenshots/1.png?raw=true "Screenshot 1")
 
+![Alt text](screenshots/2.png?raw=true "Screenshot 2")
+
 ## Setting up
 
 Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
@@ -40,8 +42,10 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Future goals
 
-- 'Space': 'hard' drops a piece, dropping it instantly
+- 'Spacebar': 'hard' drops a piece, dropping it instantly
 
 - 'Shift': holds a piece, swapping the current piece the held piece
 
-- 'Next piece' feature shows next 4 pieces
+- 'Next piece feature': shows next 4 pieces
+
+- 'Outline feature': Outline the region where the current tetronimo would drop if 'spacebar' was pressed
