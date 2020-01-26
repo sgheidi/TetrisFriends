@@ -1,7 +1,7 @@
-#ifndef Tetronimo3_H
-#define Tetronimo3_H
+#ifndef TETRONIMO5_H
+#define TETRONIMO5_H
 
-class Tetronimo_3 {
+class Tetronimo_5 {
 
 	public:
 
@@ -28,6 +28,6 @@ class Tetronimo_3 {
 
 };
 
-extern Tetronimo_3 Tetronimo3;
+extern Tetronimo_5 Tetronimo5;
 
-#endif // TETRONIMO3_H
+#endif // TETRONIMO5_H

@@ -24,4 +24,4 @@ class Board {
 
 extern Board GameBoard;
 
-#endif
+#endif // BOARD_H

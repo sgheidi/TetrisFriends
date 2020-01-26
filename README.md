@@ -16,6 +16,8 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - 'p': pause
 
+- 'r': restart
+
 - 'q' or 'ESC': exit
 
 - Up key: rotate piece
@@ -28,7 +30,7 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Other notes
 
-- Code follows Google C++ Style Guide
+- Code follows Google C++ Style
 
 - Code is well commented, easy to read and modify
 

@@ -132,16 +132,16 @@ void Tetronimo_3::FillArrays() {
 bool Tetronimo_3::LandingCriteria(){
   switch(Tetronimo3.RotationCounter){
     case 0:
-        if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row+1] == 1
-        || blocks[col+1][row] == 1) {
-          return true;
-        }
-        break;
-      case 1:
-        if (row >= 20 || blocks[col][row] == 1 || blocks[col+1][row+1] == 1) {
-          return true;
-        }
-        break;
+      if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row+1] == 1
+      || blocks[col+1][row] == 1) {
+        return true;
+      }
+      break;
+    case 1:
+      if (row >= 20 || blocks[col][row] == 1 || blocks[col+1][row+1] == 1) {
+        return true;
+      }
+      break;
     }
       return false;
 }

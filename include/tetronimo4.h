@@ -30,4 +30,4 @@ class Tetronimo_4 {
 
 extern Tetronimo_4 Tetronimo4;
 
-#endif
+#endif // TETRONIMO4_H

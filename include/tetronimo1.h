@@ -9,8 +9,8 @@ class Tetronimo_1 {
 
 		void RenderTetronimo();
 
-		bool InWindowLeft();
 		bool InWindowRight();
+		bool InWindowLeft();
 
 		// fills arrays for 'dropped' tetronimos
 		void FillBlocks();
@@ -30,4 +30,4 @@ class Tetronimo_1 {
 
 extern Tetronimo_1 Tetronimo1;
 
-#endif
+#endif // TETRONIMO1_H

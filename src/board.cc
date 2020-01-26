@@ -1,6 +1,7 @@
 #include "../include/board.h"
 #include "../include/common.h"
 
+// units are assigned based on Tetronimo piece
 void Board::Init(){
   switch (Rand) {
     case 1:
@@ -26,6 +27,10 @@ void Board::Init(){
     case 6:
       row = 1;
       col = 6;
+      break;
+    case 7:
+      row = 1;
+      col = 5;
       break;
   }
 }
@@ -67,6 +72,12 @@ void Board::ResetUnits(){
       y= 0;
       row = 1;
       col = 6;
+      break;
+    case 7:
+      x = unit*5;
+      y= 0;
+      row = 1;
+      col = 5;
       break;
   }
 }

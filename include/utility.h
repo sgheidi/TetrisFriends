@@ -26,4 +26,4 @@ class Utility {
 
 extern Utility Util;
 
-#endif
+#endif // UTILITY_H

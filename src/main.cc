@@ -1,12 +1,5 @@
 #include "../include/common.h"
 
-Utility Util;
-Tetronimo_1 Tetronimo1;
-Tetronimo_2 Tetronimo2;
-Tetronimo_3 Tetronimo3;
-Tetronimo_4 Tetronimo4;
-Board GameBoard;
-
 static void error_callback(int error, const char* description) {
 	fputs(description, stderr);
 }
@@ -25,8 +18,8 @@ int main(void) {
 	glfwSwapInterval(1);
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
-	// random number is the Tetronimo piece number chosen randomly from 1-6
-	Rand = 4;
+	// random number is the Tetronimo piece number chosen randomly from 1-7
+	Rand = (rand()%7)+1;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -49,7 +42,7 @@ int main(void) {
 				if (Tetronimo1.LandingCriteria() == true) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
-					Rand = 1;
+					Rand = (rand()%7)+1;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -67,7 +60,7 @@ int main(void) {
 				if (Tetronimo2.LandingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
-					Rand = 2;
+					Rand = (rand()%7)+1;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -80,13 +73,12 @@ int main(void) {
 				if(NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
-					Util.PrintCurrentPosition();
 				}
 				// landing criteria
 				if (Tetronimo3.LandingCriteria() == true) {
 					Tetronimo3.FillArrays();
 					Tetronimo3.RotationCounter = 0;
-					Rand = 3;
+					Rand = (rand()%7)+1;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -99,13 +91,66 @@ int main(void) {
 				if(NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
 					Util.GoDown();
-					Util.PrintCurrentPosition();
 				}
 				// landing criteria
 				if (Tetronimo4.LandingCriteria() == true) {
 					Tetronimo4.FillArrays();
 					Tetronimo4.RotationCounter = 0;
-					Rand = 3;
+					Rand = (rand()%7)+1;
+					GameBoard.ResetUnits();
+					GameBoard.LineClear();
+				}
+				break;
+
+			/* Tetronimo 5 */
+			case 5:
+				Tetronimo5.RenderTetronimo();
+				// timer function
+				if(NumIterations % GameSpeed == 0 && Paused == false){
+					NumIterations = 0;
+					Util.GoDown();
+				}
+				// landing criteria
+				if (Tetronimo5.LandingCriteria() == true) {
+					Tetronimo5.FillArrays();
+					Tetronimo5.RotationCounter = 0;
+					Rand = (rand()%7)+1;
+					GameBoard.ResetUnits();
+					GameBoard.LineClear();
+				}
+				break;
+
+			/* Tetronimo 6 */
+			case 6:
+				Tetronimo6.RenderTetronimo();
+				// timer function
+				if(NumIterations % GameSpeed == 0 && Paused == false){
+					NumIterations = 0;
+					Util.GoDown();
+				}
+				// landing criteria
+				if (Tetronimo6.LandingCriteria() == true) {
+					Tetronimo6.FillArrays();
+					Tetronimo6.RotationCounter = 0;
+					Rand = (rand()%7)+1;
+					GameBoard.ResetUnits();
+					GameBoard.LineClear();
+				}
+				break;
+
+			/* Tetronimo 7 */
+			case 7:
+				Tetronimo7.RenderTetronimo();
+				// timer function
+				if (NumIterations % GameSpeed == 0 && Paused == false){
+					NumIterations = 0;
+					Util.GoDown();
+					Util.PrintCurrentPosition();
+				}
+				// Landing criteria
+				if (Tetronimo7.LandingCriteria() == true) {
+					Tetronimo7.FillArrays();
+					Rand = (rand()%7)+1;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -117,6 +162,7 @@ int main(void) {
 		if (blocks[6][1] == 1) {
 			Paused = true;
 			GameOver = true;
+			Rand = 8;
 		}
 
 		glfwSwapBuffers(window);

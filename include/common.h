@@ -14,6 +14,9 @@
 #include "tetronimo2.h"
 #include "tetronimo3.h"
 #include "tetronimo4.h"
+#include "tetronimo5.h"
+#include "tetronimo6.h"
+#include "tetronimo7.h"
 
 using namespace std;
 
@@ -52,4 +55,4 @@ extern float y;
 extern int row;
 extern int col;
 
-#endif
+#endif // COMMON_H

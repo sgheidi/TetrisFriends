@@ -34,7 +34,7 @@ bool Tetronimo_4::InWindowLeft(){
       return col >= 3;
       break;
     case 1:
-      return col >= 2;
+      return col >= 3;
       break;
     }
 }
@@ -45,7 +45,7 @@ bool Tetronimo_4::InWindowRight() {
       return col <= 8;
       break;
     case 1:
-      return col <= 8;
+      return col <= 9;
       break;
     }
 }
@@ -53,14 +53,14 @@ bool Tetronimo_4::InWindowRight() {
 void Tetronimo_4::FillBlocks(){
   switch (Tetronimo4.RotationCounter) {
     case 0:
-      blocks[col-1][row] = 1;
+      blocks[col+1][row] = 1;
       blocks[col][row] = 1;
       blocks[col][row-1] = 1;
-      blocks[col+1][row-1] = 1;
+      blocks[col-1][row-1] = 1;
       break;
     case 1:
-      blocks[col+1][row] = 1;
-      blocks[col+1][row-1] = 1;
+      blocks[col-1][row] = 1;
+      blocks[col-1][row-1] = 1;
       blocks[col][row-1] = 1;
       blocks[col][row-2] = 1;
       break;
@@ -70,16 +70,16 @@ void Tetronimo_4::FillBlocks(){
 void Tetronimo_4::FillColors(){
   switch (Tetronimo4.RotationCounter) {
     case 0:
-      colors[col+1][row-1] = ORANGE;
+      colors[col-1][row-1] = YELLOW;
       colors[col][row-1] = PURPLE;
-      colors[col][row] = YELLOW;
-      colors[col-1][row] = RED;
+      colors[col][row] = ORANGE;
+      colors[col+1][row] = GREEN;
       break;
     case 1:
-      colors[col][row-2] = ORANGE;
+      colors[col-1][row] = GREEN;
+      colors[col-1][row-1] = ORANGE;
       colors[col][row-1] = PURPLE;
-      colors[col+1][row-1] = YELLOW;
-      colors[col+1][row] = RED;
+      colors[col][row-2] = YELLOW;
       break;
   }
 }
@@ -89,13 +89,13 @@ void Tetronimo_4::FillColors(){
 bool Tetronimo_4::CheckCollisionRight() {
   switch (Tetronimo4.RotationCounter){
     case 0:
-      if(blocks[col+2][row] == 1 || blocks[col+1][row+1] == 1) {
+      if(blocks[col+1][row] == 1 || blocks[col+2][row+1] == 1) {
         return true;
       }
       break;
     case 1:
-      if(blocks[col+1][row-1] == 1 || blocks[col+2][row] == 1
-      || blocks[col+2][row+1] == 1){
+      if(blocks[col][row+1] == 1 || blocks[col+1][row] == 1
+      || blocks[col+1][row-1] == 1){
         return true;
       }
       break;
@@ -107,13 +107,13 @@ bool Tetronimo_4::CheckCollisionRight() {
 bool Tetronimo_4::CheckCollisionLeft() {
   switch (Tetronimo4.RotationCounter) {
     case 0:
-      if(blocks[col-2][row+1] == 1 || blocks[col-1][row] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
     case 1:
-      if(blocks[col-1][row-1] == 1 || blocks[col-1][row] == 1
-      || blocks[col][row+1] == 1){
+      if(blocks[col-1][row-1] == 1 || blocks[col-2][row] == 1
+      || blocks[col-2][row+1] == 1){
         return true;
       }
       break;
@@ -132,16 +132,16 @@ void Tetronimo_4::FillArrays() {
 bool Tetronimo_4::LandingCriteria(){
   switch(Tetronimo4.RotationCounter){
     case 0:
-        if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row+1] == 1
-        || blocks[col+1][row] == 1) {
+        if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row+1] == 1
+        || blocks[col+1][row+1] == 1) {
           return true;
         }
-        break;
-      case 1:
-        if (row >= 20 || blocks[col][row] == 1 || blocks[col+1][row+1] == 1) {
-          return true;
-        }
-        break;
+      break;
+    case 1:
+      if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row] == 1) {
+        return true;
+      }
+      break;
     }
       return false;
 }

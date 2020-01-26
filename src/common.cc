@@ -1,5 +1,16 @@
 #include "../include/common.h"
 
+// initialize global classes
+Utility Util;
+Tetronimo_1 Tetronimo1;
+Tetronimo_2 Tetronimo2;
+Tetronimo_3 Tetronimo3;
+Tetronimo_4 Tetronimo4;
+Tetronimo_5 Tetronimo5;
+Tetronimo_6 Tetronimo6;
+Tetronimo_7 Tetronimo7;
+Board GameBoard;
+
 GLFWwindow* window;
 
 // screen width & height (pixels)
@@ -22,7 +33,7 @@ int Rand = 0;
 
 // Decrease this to increase game speed
 // Default should be 50
-int GameSpeed = 50;
+int GameSpeed = 30;
 
 int row = 0;
 int col = 0;

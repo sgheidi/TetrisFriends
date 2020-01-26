@@ -1,11 +1,9 @@
-#ifndef Tetronimo3_H
-#define Tetronimo3_H
+#ifndef TETRONIMO7_H
+#define TETRONIMO7_H
 
-class Tetronimo_3 {
+class Tetronimo_7 {
 
 	public:
-
-		int RotationCounter;
 
 		void RenderTetronimo();
 
@@ -28,6 +26,6 @@ class Tetronimo_3 {
 
 };
 
-extern Tetronimo_3 Tetronimo3;
+extern Tetronimo_7 Tetronimo7;
 
-#endif // TETRONIMO3_H
+#endif // TETRONIMO7_H
