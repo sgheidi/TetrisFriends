@@ -19,7 +19,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// random number is the Tetronimo piece number chosen randomly from 1-7
-	Rand = (rand()%7)+1;
+	Rand = 2;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -60,7 +60,7 @@ int main(void) {
 				if (Tetronimo2.StackingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
-					Rand = (rand()%7)+1;
+					Rand = 2;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
