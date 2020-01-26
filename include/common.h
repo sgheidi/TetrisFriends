@@ -13,6 +13,7 @@
 #include "tetronimo1.h"
 #include "tetronimo2.h"
 #include "tetronimo3.h"
+#include "tetronimo4.h"
 
 using namespace std;
 

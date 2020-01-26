@@ -1,4 +1,4 @@
-SOURCE= src/main.cc src/utility.cc src/common.cc src/board.cc src/input.cc src/tetronimo1.cc src/tetronimo2.cc src/tetronimo3.cc
+SOURCE= src/main.cc src/utility.cc src/common.cc src/board.cc src/input.cc src/tetronimo1.cc src/tetronimo2.cc src/tetronimo3.cc src/tetronimo4.cc
 
 CC= g++
 
