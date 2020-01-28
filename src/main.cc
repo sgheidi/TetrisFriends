@@ -38,7 +38,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// Landing criteria
+				// stacking criteria
 				if (Tetronimo1.StackingCriteria() == true) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
@@ -56,7 +56,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// landing criteria
+				// stacking criteria
 				if (Tetronimo2.StackingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
@@ -74,7 +74,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// landing criteria
+				// stacking criteria
 				if (Tetronimo3.StackingCriteria() == true) {
 					Tetronimo3.FillArrays();
 					Tetronimo3.RotationCounter = 0;
@@ -92,7 +92,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// landing criteria
+				// stacking criteria
 				if (Tetronimo4.StackingCriteria() == true) {
 					Tetronimo4.FillArrays();
 					Tetronimo4.RotationCounter = 0;
@@ -110,7 +110,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// landing criteria
+				// stacking criteria
 				if (Tetronimo5.StackingCriteria() == true) {
 					Tetronimo5.FillArrays();
 					Tetronimo5.RotationCounter = 0;
@@ -128,7 +128,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// landing criteria
+				// stacking criteria
 				if (Tetronimo6.StackingCriteria() == true) {
 					Tetronimo6.FillArrays();
 					Tetronimo6.RotationCounter = 0;
@@ -146,7 +146,7 @@ int main(void) {
 					NumIterations = 0;
 					Util.GoDown();
 				}
-				// Landing criteria
+				// stacking criteria
 				if (Tetronimo7.StackingCriteria() == true) {
 					Tetronimo7.FillArrays();
 					Rand = (rand()%7)+1;
