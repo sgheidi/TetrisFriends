@@ -18,6 +18,7 @@ class Board {
 		// line clearing functions
 		void ClearLine(int row);
 		bool IsRowFull(int row);
+		void BringLinesDown(int y, int NumLines);
 		void LineClear();
 
 };
