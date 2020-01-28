@@ -1,4 +1,3 @@
-#include "../include/utility.h"
 #include "../include/common.h"
 
 void Tetronimo_5::RenderTetronimo() {

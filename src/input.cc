@@ -173,6 +173,15 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			break;
 		}
 
+	 // 'hard' drop
+	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE) {
+		 int y = Util.FindTopMostRow(col);
+		 switch (Rand) {
+			 case 1:
+			 	break;
+		 }
+	 }
+	 
 	// acceleration
 	if (action != GLFW_RELEASE) {
 		if (key == GLFW_KEY_DOWN && Paused == false){

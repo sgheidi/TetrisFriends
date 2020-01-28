@@ -61,16 +61,30 @@ void Utility::DrawSquare(int color) {
   glEnd();
 }
 
-void Utility::ZeroArrays(){
+// empty the board by zero-ing
+// both 'blocks' and 'colors' arrays
+void Utility::ZeroArrays() {
   for(int i=1;i<=10;i++){
     for(int j=1;j<=20;j++){
       blocks[i][j] = 0;
-      colors[i][j] = 0;
+      colors[i][j] = BLACK;
     }
   }
 }
 
-/* Helper functions */
+// this function returns the top-most row
+// of a specified column
+// (used for 'hard' dropping tetronimos)
+int Utility::FindTopMostRow(int x) {
+  for (int i=20;i>=1;i--) {
+    if (blocks[x][i] == 0) {
+      return i;
+    }
+  }
+  return 20;
+}
+
+/* Helper functions to track pivot position */
 void Utility::PrintFilledBlocks() {
   for(int x=1;x<=10;x++){
     for(int y=1;y<=20;y++){

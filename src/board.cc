@@ -114,7 +114,7 @@ void Board::DrawGrid() {
   glFlush();
 }
 
-// draws a block that has already landed
+// draws all blocks that have already landed
 void Board::RenderDroppedBlocks() {
   for(int i=1;i<=10;i++){
     for(int j=1;j<=20;j++){

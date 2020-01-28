@@ -19,6 +19,8 @@ class Utility {
 
 		void ZeroArrays();
 
+		int FindTopMostRow(int x);
+
 		// Helper functions
 		void PrintFilledBlocks();
 		void PrintCurrentPosition();
