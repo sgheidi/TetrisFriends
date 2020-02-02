@@ -20,7 +20,7 @@ int main(void) {
 	srand(time(NULL));
 	// use testing flag to test a particular tetronimo
 	Testing = true;
-	TestRand = 2;
+	TestRand = 1;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
 	if (Testing) Rand = TestRand;
@@ -172,7 +172,7 @@ int main(void) {
 		if (blocks[6][1] == 1) {
 			Paused = true;
 			GameOver = true;
-			Rand = 8;
+			Rand = -1;
 		}
 
 		glfwSwapBuffers(window);

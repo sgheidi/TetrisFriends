@@ -286,6 +286,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		GameBoard.Init();
 		Paused = false;
 		GameOver = false;
+		GameSpeed = DEFAULT_GAME_SPEED;
 	}
 
 	// pause

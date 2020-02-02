@@ -34,8 +34,8 @@ int Rand = 0;
 int TestRand = 0;
 
 // Decrease this to increase game speed
-// Default should be 50
-int GameSpeed = 30;
+// Default should be 30
+int GameSpeed = DEFAULT_GAME_SPEED;
 
 int row = 0;
 int col = 0;

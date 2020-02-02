@@ -34,6 +34,8 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 #define PURPLE 4
 #define YELLOW 5
 
+#define DEFAULT_GAME_SPEED 30
+
 extern const int ScreenX;
 extern const int ScreenY;
 extern const float unit;
