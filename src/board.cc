@@ -1,4 +1,3 @@
-#include "../include/board.h"
 #include "../include/common.h"
 
 // units are assigned based on Tetronimo piece

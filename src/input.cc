@@ -174,14 +174,88 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		}
 
 	 // 'hard' drop
-	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE) {
-		 int y = Util.FindTopMostRow(col);
+	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE && Paused == false) {
+		 int TopRow = 0;
 		 switch (Rand) {
+
+			 /* Tetronimo 1 */
 			 case 1:
-			 	break;
+			 		switch (Tetronimo1.RotationCounter) {
+						case 0:
+							TopRow = Util.FindTopRow_Single(col) - 1;
+							y = TopRow * unit;
+							row = TopRow;
+							break;
+						case 1:
+							TopRow = Util.FindTopRow_Between(col-2, col+1) + 1;
+							y = TopRow * unit;
+							row = TopRow;
+							break;
+					}
+					Tetronimo1.FillArrays();
+					Tetronimo1.RotationCounter = 0;
+					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
+					GameBoard.ResetUnits();
+					GameBoard.LineClear();
+					break;
+
+					/* Tetronimo 2 */
+	 			 case 2:
+	 			 		switch (Tetronimo2.RotationCounter) {
+	 						case 0:
+	 							TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+	 						case 1:
+	 							TopRow = Util.FindTopRow_Between(col-1, col) + 1;
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+							case 2:
+	 							TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+							case 3:
+	 							TopRow = Util.FindTopRow_Between(col, col+1) + 1;
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+	 					}
+	 					Tetronimo2.FillArrays();
+	 					Tetronimo2.RotationCounter = 0;
+						Rand = (rand()%7)+1;
+						if (Testing) Rand = TestRand;
+	 					GameBoard.ResetUnits();
+	 					GameBoard.LineClear();
+	 					break;
+
+					/* Tetronimo 3 */
+	 			 case 3:
+	 			 		switch (Tetronimo3.RotationCounter) {
+	 						case 0:
+	 							TopRow = Util.FindTopRow_Between(col-1, col+1);
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+	 						case 1:
+	 							TopRow = Util.FindTopRow_Between(col, col+1);
+	 							y = TopRow * unit;
+	 							row = TopRow;
+	 							break;
+	 					}
+	 					Tetronimo3.FillArrays();
+	 					Tetronimo3.RotationCounter = 0;
+						Rand = (rand()%7)+1;
+						if (Testing) Rand = TestRand;
+	 					GameBoard.ResetUnits();
+	 					GameBoard.LineClear();
+	 					break;
 		 }
 	 }
-	 
+
 	// acceleration
 	if (action != GLFW_RELEASE) {
 		if (key == GLFW_KEY_DOWN && Paused == false){
@@ -206,6 +280,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 				Tetronimo6.RotationCounter = 0;
 		}
 		Rand = (rand()%7)+1;
+		if (Testing) Rand = TestRand;
 		GameBoard.ResetUnits();
 		Util.ZeroArrays();
 		GameBoard.Init();

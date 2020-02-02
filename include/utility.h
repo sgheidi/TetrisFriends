@@ -19,7 +19,8 @@ class Utility {
 
 		void ZeroArrays();
 
-		int FindTopMostRow(int x);
+		int FindTopRow_Single(int x);
+		int FindTopRow_Between(int StartCol, int EndCol);
 
 		// Helper functions
 		void PrintFilledBlocks();

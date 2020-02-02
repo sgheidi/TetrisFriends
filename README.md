@@ -44,6 +44,8 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - 'Shift': holds a piece, swapping the current piece the held piece
 
-- 'Next piece feature': shows next 4 pieces
+- 'Next piece' feature: shows next 4 pieces
 
-- 'Outline feature': Outline the region where the current tetronimo would drop if 'spacebar' was pressed
+- 'Outline' feature: Outline the region where the current tetronimo would drop if 'spacebar' was pressed
+
+- 'Tab': Use an 'item' which temporarily grants a special ability

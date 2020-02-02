@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <time.h>
+#include <assert.h>
 
 #include "utility.h"
 #include "board.h"
@@ -43,9 +44,12 @@ extern int colors[11][21];
 extern int NumIterations;
 extern bool Paused;
 extern bool GameOver;
+extern bool Testing;
 extern int Rand;
 
+extern int TestRand;
 extern int GameSpeed;
+
 /* pivot is always purple block. */
 // pivot coordinates of top-most block (pixels)
 extern float x;

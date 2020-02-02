@@ -18,8 +18,12 @@ int main(void) {
 	glfwSwapInterval(1);
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
+	// use testing flag to test a particular tetronimo
+	Testing = true;
+	TestRand = 2;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
+	if (Testing) Rand = TestRand;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
@@ -43,6 +47,7 @@ int main(void) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -61,6 +66,7 @@ int main(void) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -79,6 +85,7 @@ int main(void) {
 					Tetronimo3.FillArrays();
 					Tetronimo3.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -97,6 +104,7 @@ int main(void) {
 					Tetronimo4.FillArrays();
 					Tetronimo4.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -115,6 +123,7 @@ int main(void) {
 					Tetronimo5.FillArrays();
 					Tetronimo5.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -133,6 +142,7 @@ int main(void) {
 					Tetronimo6.FillArrays();
 					Tetronimo6.RotationCounter = 0;
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}
@@ -150,6 +160,7 @@ int main(void) {
 				if (Tetronimo7.StackingCriteria() == true) {
 					Tetronimo7.FillArrays();
 					Rand = (rand()%7)+1;
+					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
 					GameBoard.LineClear();
 				}

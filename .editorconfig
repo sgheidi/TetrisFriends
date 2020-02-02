@@ -1,3 +1,5 @@
+# .editorconfig file for consistent formatting when viewing on Github
+
 root = true
 
 [*]

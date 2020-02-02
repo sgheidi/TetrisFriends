@@ -1,4 +1,3 @@
-#include "../include/utility.h"
 #include "../include/common.h"
 
 void Utility::GoDown() {
@@ -72,16 +71,36 @@ void Utility::ZeroArrays() {
   }
 }
 
-// this function returns the top-most row
-// of a specified column
-// (used for 'hard' dropping tetronimos)
-int Utility::FindTopMostRow(int x) {
-  for (int i=20;i>=1;i--) {
-    if (blocks[x][i] == 0) {
-      return i;
+// returns the top-most row of a single column
+// i.e the last occurance of a non-filled block
+int Utility::FindTopRow_Single(int x) {
+  int last = 20;
+  for (int i=20;i>=row;i--) {
+    if (blocks[x][i] == 0 && blocks[x][i+1] == 1) {
+      last = i;
+      switch (Rand) {
+        case 2:
+          switch (Tetronimo2.RotationCounter) {
+            case 0:
+              break;
+          }
+          break;
+      }
     }
   }
-  return 20;
+  return last;
+}
+
+// returns top-most row between columns StarCol and EndCol
+int Utility::FindTopRow_Between(int StartCol, int EndCol) {
+  assert(StartCol <= EndCol);
+  int min = FindTopRow_Single(StartCol);
+  for (int i=StartCol;i<=EndCol;i++) {
+    if (FindTopRow_Single(i) < min) {
+      min = FindTopRow_Single(i);
+    }
+  }
+  return min;
 }
 
 /* Helper functions to track pivot position */
