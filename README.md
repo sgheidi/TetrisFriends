@@ -42,10 +42,10 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - 'Spacebar': 'hard' drops a piece, dropping it instantly
 
-- 'Shift': holds a piece, swapping the current piece the held piece
-
-- 'Next piece' feature: shows next 4 pieces
-
 - 'Outline' feature: Outline the region where the current tetronimo would drop if 'spacebar' was pressed
+
+- 'Shift': holds a piece, swapping current piece with held piece (in a queue)
+
+- 'Next piece' feature: shows next 4 pieces in queue
 
 - 'Tab': Use an 'item' which temporarily grants a special ability
