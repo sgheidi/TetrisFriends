@@ -48,4 +48,4 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - 'Next piece' feature: shows next 4 pieces in queue
 
-- 'Tab': Use an 'item' which temporarily grants a special ability
+- 'Tab': Use an 'item' which temporarily grants a special ability (i.e only long pieces for 10 seconds, clears 7 of the bottom lines, etc)

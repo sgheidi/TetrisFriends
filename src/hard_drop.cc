@@ -24,10 +24,6 @@ void HardDrop() {
        }
        Tetronimo1.FillArrays();
        Tetronimo1.RotationCounter = 0;
-       Rand = (rand()%7)+1;
-       if (Testing) Rand = TestRand;
-       GameBoard.ResetUnits();
-       GameBoard.LineClear();
        break;
 
        /* Tetronimo 2 */
@@ -61,10 +57,6 @@ void HardDrop() {
          }
          Tetronimo2.FillArrays();
          Tetronimo2.RotationCounter = 0;
-         Rand = (rand()%7)+1;
-         if (Testing) Rand = TestRand;
-         GameBoard.ResetUnits();
-         GameBoard.LineClear();
          break;
 
        /* Tetronimo 3 */
@@ -87,10 +79,6 @@ void HardDrop() {
          }
          Tetronimo3.FillArrays();
          Tetronimo3.RotationCounter = 0;
-         Rand = (rand()%7)+1;
-         if (Testing) Rand = TestRand;
-         GameBoard.ResetUnits();
-         GameBoard.LineClear();
          break;
 
        /* Tetronimo 4 */
@@ -113,10 +101,6 @@ void HardDrop() {
          }
          Tetronimo4.FillArrays();
          Tetronimo4.RotationCounter = 0;
-         Rand = (rand()%7)+1;
-         if (Testing) Rand = TestRand;
-         GameBoard.ResetUnits();
-         GameBoard.LineClear();
          break;
 
        /* Tetronimo 5 */
@@ -155,10 +139,10 @@ void HardDrop() {
          }
          Tetronimo5.FillArrays();
          Tetronimo5.RotationCounter = 0;
-         Rand = (rand()%7)+1;
-         if (Testing) Rand = TestRand;
-         GameBoard.ResetUnits();
-         GameBoard.LineClear();
          break;
   }
+  Rand = (rand()%7)+1;
+  if (Testing) Rand = TestRand;
+  GameBoard.ResetUnits();
+  GameBoard.LineClear();
 }
