@@ -4,7 +4,7 @@
 
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
-	switch(Rand) {
+	switch (Rand) {
 
 		/* Tetronimo 1 */
 		case 1:
@@ -174,6 +174,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		}
 
 	 // 'hard' drop
+	 // note that pivot is blocks[col][row-1]
 	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE && Paused == false) {
 		 int TopRow = 0;
 		 switch (Rand) {
@@ -183,12 +184,10 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			 		switch (Tetronimo1.RotationCounter) {
 						case 0:
 							TopRow = Util.FindTopRow_Single(col) - 1;
-							y = TopRow * unit;
 							row = TopRow;
 							break;
 						case 1:
 							TopRow = Util.FindTopRow_Between(col-2, col+1) + 1;
-							y = TopRow * unit;
 							row = TopRow;
 							break;
 					}
@@ -205,23 +204,28 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	 			 		switch (Tetronimo2.RotationCounter) {
 	 						case 0:
 	 							TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
-	 							y = TopRow * unit;
 	 							row = TopRow;
 	 							break;
 	 						case 1:
-	 							TopRow = Util.FindTopRow_Between(col-1, col) + 1;
-	 							y = TopRow * unit;
+	 							TopRow = Util.FindTopRow_Between(col-1, col);
 	 							row = TopRow;
+								if (blocks[col-1][row] == 0 && blocks[col][row+1] == 0) {
+									row ++;
+								}
 	 							break;
 							case 2:
-	 							TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
-	 							y = TopRow * unit;
+	 							TopRow = Util.FindTopRow_Between(col-1, col+1);
 	 							row = TopRow;
+								if (blocks[col][row+1] == 0) {
+									row ++;
+								}
 	 							break;
 							case 3:
-	 							TopRow = Util.FindTopRow_Between(col, col+1) + 1;
-	 							y = TopRow * unit;
+	 							TopRow = Util.FindTopRow_Between(col, col+1);
 	 							row = TopRow;
+								if (blocks[col+1][row] == 0 && blocks[col][row+1] == 0) {
+									row ++;
+								}
 	 							break;
 	 					}
 	 					Tetronimo2.FillArrays();
@@ -237,13 +241,17 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	 			 		switch (Tetronimo3.RotationCounter) {
 	 						case 0:
 	 							TopRow = Util.FindTopRow_Between(col-1, col+1);
-	 							y = TopRow * unit;
 	 							row = TopRow;
+								if (blocks[col][row+1] == 0 && blocks[col-1][row+1] == 0 && blocks[col+1][row+1] == 1) {
+									row ++;
+								}
 	 							break;
 	 						case 1:
 	 							TopRow = Util.FindTopRow_Between(col, col+1);
-	 							y = TopRow * unit;
 	 							row = TopRow;
+								if (blocks[col+1][row+1] == 0 && blocks[col][row+1] == 1) {
+									row ++;
+								}
 	 							break;
 	 					}
 	 					Tetronimo3.FillArrays();
@@ -253,6 +261,72 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	 					GameBoard.ResetUnits();
 	 					GameBoard.LineClear();
 	 					break;
+
+					/* Tetronimo 4 */
+				 case 4:
+						switch (Tetronimo4.RotationCounter) {
+							case 0:
+								TopRow = Util.FindTopRow_Between(col-1, col+1);
+								row = TopRow;
+								if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 0 && blocks[col-1][row+1] == 1) {
+									row ++;
+								}
+								break;
+							case 1:
+								TopRow = Util.FindTopRow_Between(col-1, col);
+								row = TopRow;
+								if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
+									row ++;
+								}
+								break;
+						}
+						Tetronimo4.FillArrays();
+						Tetronimo4.RotationCounter = 0;
+						Rand = (rand()%7)+1;
+						if (Testing) Rand = TestRand;
+						GameBoard.ResetUnits();
+						GameBoard.LineClear();
+						break;
+
+					/* Tetronimo 5 */
+				 case 5:
+						switch (Tetronimo5.RotationCounter) {
+							case 0:
+								TopRow = Util.FindTopRow_Between(col-1, col+1);
+								row = TopRow;
+								if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 0 && blocks[col-1][row+1] == 1) {
+									row ++;
+								}
+								break;
+							case 1:
+								TopRow = Util.FindTopRow_Between(col-1, col);
+								row = TopRow;
+								if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
+									row ++;
+								}
+								break;
+							case 2:
+								TopRow = Util.FindTopRow_Between(col-1, col);
+								row = TopRow;
+								if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
+									row ++;
+								}
+								break;
+							case 3:
+								TopRow = Util.FindTopRow_Between(col-1, col);
+								row = TopRow;
+								if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
+									row ++;
+								}
+								break;
+						}
+						Tetronimo5.FillArrays();
+						Tetronimo5.RotationCounter = 0;
+						Rand = (rand()%7)+1;
+						if (Testing) Rand = TestRand;
+						GameBoard.ResetUnits();
+						GameBoard.LineClear();
+						break;
 		 }
 	 }
 

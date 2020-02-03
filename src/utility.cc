@@ -78,14 +78,6 @@ int Utility::FindTopRow_Single(int x) {
   for (int i=20;i>=row;i--) {
     if (blocks[x][i] == 0 && blocks[x][i+1] == 1) {
       last = i;
-      switch (Rand) {
-        case 2:
-          switch (Tetronimo2.RotationCounter) {
-            case 0:
-              break;
-          }
-          break;
-      }
     }
   }
   return last;

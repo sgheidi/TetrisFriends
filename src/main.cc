@@ -20,7 +20,7 @@ int main(void) {
 	srand(time(NULL));
 	// use testing flag to test a particular tetronimo
 	Testing = true;
-	TestRand = 1;
+	TestRand = 5;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
 	if (Testing) Rand = TestRand;
@@ -32,7 +32,7 @@ int main(void) {
 		 GameBoard.DrawGrid();
 		 GameBoard.RenderDroppedBlocks();
 
-		 switch (Rand){
+		 switch (Rand) {
 
 			/* Tetronimo 1 */
 			case 1:
