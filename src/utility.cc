@@ -73,6 +73,7 @@ void Utility::ZeroArrays() {
 
 // returns the top-most row of a single column
 // i.e the last occurance of a non-filled block
+// that has a filled block before it
 int Utility::FindTopRow_Single(int x) {
   int last = 20;
   for (int i=20;i>=row;i--) {
