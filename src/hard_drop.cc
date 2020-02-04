@@ -1,8 +1,13 @@
 #include "../include/common.h"
 
 /*
- * this function handles 'hard-dropping' tetronimos
- * which can be done by pressing 'Space' key
+ * This function handles 'hard-dropping' tetronimos
+ * which can be done by pressing 'Space' key.
+ *
+ * Procedure: Find the highest row between the pivot's
+ * columns in the current tetronimo. Then, make a minor
+ * adjustment according to the surrounding free/filled blocks.
+ * Calculate the new pivot position based on this.
  */
 
 // note that pivot is blocks[col][row-1]
@@ -110,7 +115,7 @@ void Hard_Drop::HardDrop() {
              TopRow = Util.FindTopRow_Between(col-1, col+1);
              row = TopRow;
              if ((blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1 && blocks[col+1][row+1] == 1)
-           || (blocks[col+1][row+1] == 1 && blocks[col][row+1] == 0)) {
+             || (blocks[col+1][row+1] == 1 && blocks[col][row+1] == 0)) {
                row ++;
              }
              break;
@@ -125,14 +130,52 @@ void Hard_Drop::HardDrop() {
            case 3:
              TopRow = Util.FindTopRow_Between(col-1, col);
              row = TopRow;
-             // if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
-             //   row ++;
-             // }
+             if (blocks[col][row+1] == 0 && blocks[col-1][row+1] == 1) {
+               row += 2;
+             }
              break;
          }
          Tetronimo5.FillArrays();
          Tetronimo5.RotationCounter = 0;
          break;
+
+       /* Tetronimo 6 */
+      case 6:
+         switch (Tetronimo6.RotationCounter) {
+           case 0:
+             TopRow = Util.FindTopRow_Between(col-1, col+1);
+             row = TopRow;
+             if ((blocks[col][row+1] == 1 && blocks[col+1][row+1] == 0)
+             || (blocks[col-1][row+1] == 1 && blocks[col+1][row+1] == 0)) {
+               row ++;
+             }
+             break;
+           case 1:
+             TopRow = Util.FindTopRow_Between(col-1, col);
+             row = TopRow;
+             break;
+           case 2:
+             TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
+             row = TopRow;
+             break;
+           case 3:
+             TopRow = Util.FindTopRow_Between(col, col+1);
+             row = TopRow;
+             if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 1) {
+               row += 2;
+             }
+             break;
+         }
+         Tetronimo6.FillArrays();
+         Tetronimo6.RotationCounter = 0;
+         break;
+
+       /* Tetronimo 7 */
+       case 7:
+          TopRow = Util.FindTopRow_Between(col, col+1);
+          row = TopRow;
+          Tetronimo7.FillArrays();
+          break;
   }
   Rand = (rand()%7)+1;
   if (Testing) Rand = TestRand;
