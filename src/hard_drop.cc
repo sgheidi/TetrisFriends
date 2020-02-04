@@ -6,7 +6,7 @@
  */
 
 // note that pivot is blocks[col][row-1]
-void HardDrop() {
+void Hard_Drop::HardDrop() {
   int TopRow = 0;
   switch (Rand) {
 
@@ -114,27 +114,20 @@ void HardDrop() {
                row ++;
              }
              break;
-             // TODO from here
            case 1:
              TopRow = Util.FindTopRow_Between(col, col+1);
              row = TopRow;
-             if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
-               row ++;
-             }
              break;
            case 2:
-             TopRow = Util.FindTopRow_Between(col-1, col+1);
+             TopRow = Util.FindTopRow_Between(col-1, col+1) + 1;
              row = TopRow;
-             if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
-               row ++;
-             }
              break;
            case 3:
              TopRow = Util.FindTopRow_Between(col-1, col);
              row = TopRow;
-             if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
-               row ++;
-             }
+             // if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
+             //   row ++;
+             // }
              break;
          }
          Tetronimo5.FillArrays();
@@ -145,4 +138,10 @@ void HardDrop() {
   if (Testing) Rand = TestRand;
   GameBoard.ResetUnits();
   GameBoard.LineClear();
+}
+
+// colors the tiles (grey) in which the current tetronimo
+// would drop if player hard-dropped
+void Hard_Drop::Outline() {
+
 }

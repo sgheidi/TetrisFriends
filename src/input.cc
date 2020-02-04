@@ -175,7 +175,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	 // 'hard' drop; see hard_drop.cc
 	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE && Paused == false) {
-		 HardDrop();
+		 HardDropper.HardDrop();
 	 }
 
 	// acceleration

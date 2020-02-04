@@ -10,6 +10,7 @@ Tetronimo_5 Tetronimo5;
 Tetronimo_6 Tetronimo6;
 Tetronimo_7 Tetronimo7;
 Board GameBoard;
+Hard_Drop HardDropper;
 
 GLFWwindow* window;
 
