@@ -6,6 +6,7 @@ class Tetronimo_7 {
 	public:
 
 		void RenderTetronimo();
+		void RenderOutline(int TopRow);
 
 		bool InWindowRight();
 		bool InWindowLeft();
@@ -13,6 +14,8 @@ class Tetronimo_7 {
 		// fills arrays for 'dropped' tetronimos
 		void FillBlocks();
 		void FillColors();
+
+		void OutlineBlocks(int NewRow);
 
 		void FillArrays();
 

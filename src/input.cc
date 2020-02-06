@@ -223,7 +223,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	// quit
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) glfwSetWindowShouldClose(window, GL_TRUE);
-	if(action != GLFW_RELEASE && key == GLFW_KEY_Q) {
+	if (action != GLFW_RELEASE && key == GLFW_KEY_Q) {
 			glfwDestroyWindow(window);
 			glfwTerminate();
 			exit(EXIT_SUCCESS);

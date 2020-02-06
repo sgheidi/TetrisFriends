@@ -7,7 +7,7 @@ class Hard_Drop {
 
 		void HardDrop();
 
-		void Outline();
+		void OutlineTetronimo();
 
 };
 

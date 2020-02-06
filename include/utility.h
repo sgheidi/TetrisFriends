@@ -16,6 +16,7 @@ class Utility {
 
 		// draws single block with specified color
 		void DrawSquare(int color);
+		void OutlineSquare(int _row_);
 
 		void ZeroArrays();
 

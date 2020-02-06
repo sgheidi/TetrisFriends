@@ -41,6 +41,9 @@ void Utility::ColorBuffer(int color) {
     case YELLOW:
       glColor3f(1.0f, 1.0f, 0.0f);
       break;
+    case GREY:
+      glColor3f(0.65f, 0.65f, 0.65f);
+      break;
     default:
       glColor3f(0.0f, 0.0f, 0.0f);
   }
@@ -56,6 +59,21 @@ void Utility::DrawSquare(int color) {
   glVertex2f(x, y+unit);
   glVertex2f(x+unit, y+unit);
   glVertex2f(x+unit, y);
+
+  glEnd();
+}
+
+// Core function for drawing the grey blocks
+// for hard-dropping
+void Utility::OutlineSquare(int _row_) {
+  _row_--;
+  this->ColorBuffer(GREY);
+  glBegin(GL_POLYGON);
+
+  glVertex2f(x, (unit*_row_)-unit);
+  glVertex2f(x, unit*_row_);
+  glVertex2f(x+unit, unit*_row_);
+  glVertex2f(x+unit, (unit*_row_)-unit);
 
   glEnd();
 }

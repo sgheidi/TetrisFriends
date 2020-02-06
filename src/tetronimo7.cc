@@ -14,26 +14,47 @@ void Tetronimo_7::RenderTetronimo() {
   glPopMatrix();
 }
 
-bool Tetronimo_7::InWindowLeft(){
+void Tetronimo_7::RenderOutline(int TopRow) {
+  glPushMatrix();
+
+  Util.OutlineSquare(TopRow);
+  glTranslatef(-1*unit, 0.0f, 0.0f);
+  Util.OutlineSquare(TopRow);
+  glTranslatef(0.0f, unit, 0.0f);
+  Util.OutlineSquare(TopRow);
+  glTranslatef(unit, 0.0f, 0.0f);
+  Util.OutlineSquare(TopRow);
+
+  glPopMatrix();
+}
+
+bool Tetronimo_7::InWindowLeft() {
   return col >= 2;
 }
 
-bool Tetronimo_7::InWindowRight(){
+bool Tetronimo_7::InWindowRight() {
   return col <= 8;
 }
 
-void Tetronimo_7::FillBlocks(){
+void Tetronimo_7::FillBlocks() {
   blocks[col][row-1] = 1;
   blocks[col][row] = 1;
   blocks[col+1][row-1] = 1;
   blocks[col+1][row] = 1;
 }
 
-void Tetronimo_7::FillColors(){
+void Tetronimo_7::FillColors() {
   colors[col][row-1] = PURPLE;
   colors[col][row] = RED;
   colors[col+1][row-1] = YELLOW;
   colors[col+1][row] = ORANGE;
+}
+
+void Tetronimo_7::OutlineBlocks(int NewRow) {
+  colors[col][NewRow-1] = GREY;
+  colors[col][NewRow] = GREY;
+  colors[col+1][NewRow-1] = GREY;
+  colors[col+1][NewRow] = GREY;
 }
 
 /* Collision functions return true if a potential collision is detected */
@@ -59,7 +80,7 @@ void Tetronimo_7::FillArrays() {
 }
 
 // if any condition for stacking is detected, returns true
-bool Tetronimo_7::StackingCriteria(){
+bool Tetronimo_7::StackingCriteria() {
   if (row >= 20 || blocks[col][row+1] == 1 || blocks[col+1][row+1] == 1) {
     return true;
   }

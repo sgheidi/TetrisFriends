@@ -35,6 +35,7 @@ void HardDrop();
 #define ORANGE 3
 #define PURPLE 4
 #define YELLOW 5
+#define GREY 10
 
 #define DEFAULT_GAME_SPEED 30
 

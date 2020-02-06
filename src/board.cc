@@ -117,7 +117,7 @@ void Board::DrawGrid() {
 void Board::RenderDroppedBlocks() {
   for(int i=1;i<=10;i++){
     for(int j=1;j<=20;j++){
-      if(blocks[i][j] == 1){
+      if(blocks[i][j] == 1 || colors[i][j] == GREY) {
         Util.ColorBuffer(colors[i][j]);
         glPushMatrix();
         glBegin(GL_POLYGON);
@@ -155,7 +155,7 @@ bool Board::IsRowFull(int row) {
 
 // y (row) is the row that the lines should be brought down to
 // and NumLines is the number of rows they should come down
-void Board::BringLinesDown(int y, int NumLines){
+void Board::BringLinesDown(int y, int NumLines) {
   for(int x=1;x<=10;x++){
     for(int vert=y;vert>=1;vert--){
       if (blocks[x][vert] == 1) {
@@ -181,6 +181,6 @@ void Board::LineClear() {
   }
   if (LinesCleared >=1) {
     this->BringLinesDown(TopMostRow, LinesCleared);
-    GameSpeed -= LinesCleared;
+    if (GameSpeed>LinesCleared) GameSpeed -= LinesCleared;
   }
 }
