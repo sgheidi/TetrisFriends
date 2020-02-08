@@ -81,8 +81,8 @@ void Utility::OutlineSquare(int _row_) {
 // empty the board by zero-ing
 // both 'blocks' and 'colors' arrays
 void Utility::ZeroArrays() {
-  for(int i=1;i<=10;i++){
-    for(int j=1;j<=20;j++){
+  for(int i=0;i<=10;i++){
+    for(int j=0;j<=20;j++){
       blocks[i][j] = 0;
       colors[i][j] = BLACK;
     }

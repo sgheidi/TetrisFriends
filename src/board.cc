@@ -117,7 +117,7 @@ void Board::DrawGrid() {
 void Board::RenderDroppedBlocks() {
   for(int i=1;i<=10;i++){
     for(int j=1;j<=20;j++){
-      if(blocks[i][j] == 1 || colors[i][j] == GREY) {
+      if(blocks[i][j] == 1) {
         Util.ColorBuffer(colors[i][j]);
         glPushMatrix();
         glBegin(GL_POLYGON);

@@ -32,7 +32,7 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Other notes
 
-- Entire codebase written from scratch and follows Google C++ Style
+- Entire codebase written from scratch and closely follows Google C++ Style
 
 - Code is well commented, easy to read and modify
 
@@ -42,9 +42,9 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Future goals
 
-- Render text to show 'combos', pausing, restarting, staring & losing.
+- Render text to show 'combos', pausing, restarting, staring & losing
 
-- Play sounds to indicate that a player has done a 'combo' (i.e clearing lines consecutively on each piece)
+- Play sounds to indicate that a player has done a 'combo' (i.e clearing lines consecutively on each piece, T-spins)
 
 - 'Shift': holds a piece, swapping current piece with held piece (in a queue)
 

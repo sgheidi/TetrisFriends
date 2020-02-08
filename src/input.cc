@@ -4,11 +4,13 @@
 
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
+	if (action == GLFW_RELEASE) return;
+
 	switch (Rand) {
 
 		/* Tetronimo 1 */
 		case 1:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
 				&& Tetronimo1.CheckCollisionRight() == false) {
@@ -33,7 +35,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 2 */
 		case 2:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo2.InWindowRight()
 				&& Tetronimo2.CheckCollisionRight() == false) {
@@ -58,7 +60,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 3 */
 		case 3:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo3.InWindowRight()
 				&& Tetronimo3.CheckCollisionRight() == false) {
@@ -83,7 +85,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 4 */
 		case 4:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo4.InWindowRight()
 				&& Tetronimo4.CheckCollisionRight() == false) {
@@ -108,7 +110,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 5 */
 		case 5:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo5.InWindowRight()
 				&& Tetronimo5.CheckCollisionRight() == false) {
@@ -133,7 +135,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 6 */
 		case 6:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo6.InWindowRight()
 				&& Tetronimo6.CheckCollisionRight() == false) {
@@ -158,7 +160,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 		/* Tetronimo 7 */
 		case 7:
-			if (action != GLFW_RELEASE && Paused == false) {
+			if (Paused == false) {
 				// right side collision check
 				if (key == GLFW_KEY_RIGHT && Tetronimo7.InWindowRight()
 				&& Tetronimo7.CheckCollisionRight() == false) {
@@ -174,19 +176,17 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		}
 
 	 // 'hard' drop; see hard_drop.cc
-	 if (action != GLFW_RELEASE && key == GLFW_KEY_SPACE && Paused == false) {
+	 if (key == GLFW_KEY_SPACE && Paused == false) {
 		 HardDropper.HardDrop();
 	 }
 
 	// acceleration
-	if (action != GLFW_RELEASE) {
 		if (key == GLFW_KEY_DOWN && Paused == false){
 			Util.AccelerateDown();
-		}
 	}
 
 	// reset
-	if (action != GLFW_RELEASE && key == GLFW_KEY_R) {
+	if (key == GLFW_KEY_R) {
 		switch (Rand) {
 			case 1:
 				Tetronimo1.RotationCounter = 0;
@@ -212,7 +212,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	}
 
 	// pause
-	if (action != GLFW_RELEASE && GameOver == false) {
+	if (GameOver == false) {
 		if (key == GLFW_KEY_P && Paused == false){
 			Paused = true;
 		}
@@ -222,8 +222,8 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	}
 
 	// quit
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) glfwSetWindowShouldClose(window, GL_TRUE);
-	if (action != GLFW_RELEASE && key == GLFW_KEY_Q) {
+	if (key == GLFW_KEY_ESCAPE) glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key == GLFW_KEY_Q) {
 			glfwDestroyWindow(window);
 			glfwTerminate();
 			exit(EXIT_SUCCESS);
