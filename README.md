@@ -28,7 +28,7 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - 'Space' key: 'hard' drops a piece, dropping it instantly
 
-- ***Speed & score increases with each line clear!***
+- **Speed & score increases with each line clear!**
 
 ## Other notes
 
