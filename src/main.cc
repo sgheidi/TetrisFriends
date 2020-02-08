@@ -19,8 +19,8 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// use testing flag to test a particular tetronimo
-	Testing = true;
-	TestRand = 1;
+	Testing = false;
+	TestRand = 6;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
 	if (Testing) Rand = TestRand;
@@ -166,7 +166,7 @@ int main(void) {
 				}
 				break;
 		}
-		HardDropper.OutlineTetronimo();
+		HardDropper.OutlineTetronimos();
 
 		// if topmost block is full, freeze the game permanently
 		// (game over)

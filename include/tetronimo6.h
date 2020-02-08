@@ -8,6 +8,7 @@ class Tetronimo_6 {
 		int RotationCounter;
 
 		void RenderTetronimo();
+		void RenderOutline(int TopRow);
 
 		bool InWindowRight();
 		bool InWindowLeft();

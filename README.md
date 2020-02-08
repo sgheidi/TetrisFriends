@@ -26,7 +26,9 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - Down key: downward acceleration
 
-- Speed & score increases with each line clear!
+- 'Space' key: 'hard' drops a piece, dropping it instantly
+
+- ***Speed & score increases with each line clear!***
 
 ## Other notes
 
@@ -40,9 +42,9 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Future goals
 
-- 'Spacebar': 'hard' drops a piece, dropping it instantly
+- Render text to show 'combos', pausing, restarting, staring & losing.
 
-- 'Outline' feature: Outline the region where the current tetronimo would drop if 'spacebar' was pressed
+- Play sounds to indicate that a player has done a 'combo' (i.e clearing lines consecutively on each piece)
 
 - 'Shift': holds a piece, swapping current piece with held piece (in a queue)
 

@@ -10,7 +10,6 @@
  * Calculate the new pivot position based on this.
  */
 
-// note that pivot is blocks[col][row-1]
 void Hard_Drop::HardDrop() {
   int TopRow = 0;
   switch (Rand) {
@@ -41,21 +40,24 @@ void Hard_Drop::HardDrop() {
            case 1:
              TopRow = Util.FindTopRow_Between(col-1, col);
              row = TopRow;
-             if (blocks[col-1][row] == 0 && blocks[col][row+1] == 0) {
+             if (blocks[col-1][row] == 0 && blocks[col][row+1] == 0
+             && blocks[col-1][row+1] == 1) {
                row ++;
              }
              break;
            case 2:
              TopRow = Util.FindTopRow_Between(col-1, col+1);
              row = TopRow;
-             if (blocks[col][row+1] == 0) {
+             if (blocks[col][row+1] == 0 && (blocks[col+1][row+1] == 1
+             || blocks[col-1][row+1] == 1)) {
                row ++;
              }
              break;
            case 3:
              TopRow = Util.FindTopRow_Between(col, col+1);
              row = TopRow;
-             if (blocks[col+1][row] == 0 && blocks[col][row+1] == 0) {
+             if (blocks[col+1][row] == 0 && blocks[col][row+1] == 0
+             && blocks[col+1][row+1] == 1) {
                row ++;
              }
              break;
@@ -114,8 +116,8 @@ void Hard_Drop::HardDrop() {
            case 0:
              TopRow = Util.FindTopRow_Between(col-1, col+1);
              row = TopRow;
-             if ((blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1 && blocks[col+1][row+1] == 1)
-             || (blocks[col+1][row+1] == 1 && blocks[col][row+1] == 0)) {
+             if (blocks[col-1][row+1] == 0 && (blocks[col][row+1] == 1
+             || blocks[col+1][row+1] == 1)) {
                row ++;
              }
              break;
@@ -130,8 +132,17 @@ void Hard_Drop::HardDrop() {
            case 3:
              TopRow = Util.FindTopRow_Between(col-1, col);
              row = TopRow;
-             if (blocks[col][row+1] == 0 && blocks[col-1][row+1] == 1) {
-               row += 2;
+             if (blocks[col][row+1] == 0 && blocks[col][row+2] == 0
+             && blocks[col-1][row+1] == 1 && row < 19) {
+               row +=2;
+             }
+             else if (blocks[col][row+1] == 0 && blocks[col][row+2] == 1
+             && blocks[col-1][row+1] == 1) {
+               row ++;
+             }
+             else if (row >= 19 && blocks[col][row+1] == 0
+             && blocks[col-1][row+1] == 1) {
+               row ++;
              }
              break;
          }
@@ -145,8 +156,8 @@ void Hard_Drop::HardDrop() {
            case 0:
              TopRow = Util.FindTopRow_Between(col-1, col+1);
              row = TopRow;
-             if ((blocks[col][row+1] == 1 && blocks[col+1][row+1] == 0)
-             || (blocks[col-1][row+1] == 1 && blocks[col+1][row+1] == 0)) {
+             if (blocks[col+1][row+1] == 0 && (blocks[col][row+1] == 1
+             || blocks[col-1][row+1] == 1)) {
                row ++;
              }
              break;
@@ -161,8 +172,17 @@ void Hard_Drop::HardDrop() {
            case 3:
              TopRow = Util.FindTopRow_Between(col, col+1);
              row = TopRow;
-             if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 1) {
-               row += 2;
+             if (blocks[col][row+1] == 0 && blocks[col][row+2] == 0
+             && blocks[col+1][row+1] == 1 && row < 19) {
+               row +=2;
+             }
+             else if (blocks[col][row+1] == 0 && blocks[col][row+2] == 1
+             && blocks[col+1][row+1] == 1) {
+               row ++;
+             }
+             else if (row >= 19 && blocks[col][row+1] == 0
+             && blocks[col+1][row+1] == 1) {
+               row ++;
              }
              break;
          }
@@ -187,11 +207,11 @@ void Hard_Drop::HardDrop() {
  * would drop if player hard-dropped.
  *
  * Works similar to above but instead of filling arrays,
- * only fills the color array with grey color. Does not
- * modify 'blocks' array.
+ * just temporarily draws the blocks on the lowest row
+ * it would fall if hard-dropped.
  */
 
-void Hard_Drop::OutlineTetronimo() {
+void Hard_Drop::OutlineTetronimos() {
   int TopRow = 0;
   switch (Rand) {
 
@@ -216,23 +236,27 @@ void Hard_Drop::OutlineTetronimo() {
                  break;
                case 1:
                  TopRow = Util.FindTopRow_Between(col-1, col);
-                 if (blocks[col-1][row] == 0 && blocks[col][row+1] == 0) {
-                   row ++;
+                 if (blocks[col-1][TopRow] == 0 && blocks[col][TopRow+1] == 0
+                 && blocks[col-1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
                case 2:
                  TopRow = Util.FindTopRow_Between(col-1, col+1);
-                 if (blocks[col][row+1] == 0) {
-                   row ++;
+                 if (blocks[col][TopRow+1] == 0 && (blocks[col+1][TopRow+1] == 1
+                 || blocks[col-1][TopRow+1] == 1)) {
+                   TopRow ++;
                  }
                  break;
                case 3:
                  TopRow = Util.FindTopRow_Between(col, col+1);
-                 if (blocks[col+1][row] == 0 && blocks[col][row+1] == 0) {
-                   row ++;
+                 if (blocks[col+1][TopRow] == 0 && blocks[col][TopRow+1] == 0
+                 && blocks[col+1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
              }
+             Tetronimo2.RenderOutline(TopRow-1);
              break;
 
            /* Tetronimo 3 */
@@ -240,17 +264,18 @@ void Hard_Drop::OutlineTetronimo() {
              switch (Tetronimo3.RotationCounter) {
                case 0:
                  TopRow = Util.FindTopRow_Between(col-1, col+1);
-                 if (blocks[col][row+1] == 0 && blocks[col-1][row+1] == 0 && blocks[col+1][row+1] == 1) {
-                   row ++;
+                 if (blocks[col][TopRow+1] == 0 && blocks[col-1][TopRow+1] == 0 && blocks[col+1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
                case 1:
                  TopRow = Util.FindTopRow_Between(col, col+1);
-                 if (blocks[col+1][row+1] == 0 && blocks[col][row+1] == 1) {
-                   row ++;
+                 if (blocks[col+1][TopRow+1] == 0 && blocks[col][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
              }
+             Tetronimo3.RenderOutline(TopRow);
              break;
 
            /* Tetronimo 4 */
@@ -258,17 +283,18 @@ void Hard_Drop::OutlineTetronimo() {
              switch (Tetronimo4.RotationCounter) {
                case 0:
                  TopRow = Util.FindTopRow_Between(col-1, col+1);
-                 if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 0 && blocks[col-1][row+1] == 1) {
-                   row ++;
+                 if (blocks[col][TopRow+1] == 0 && blocks[col+1][TopRow+1] == 0 && blocks[col-1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
                case 1:
                  TopRow = Util.FindTopRow_Between(col-1, col);
-                 if (blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1) {
-                   row ++;
+                 if (blocks[col-1][TopRow+1] == 0 && blocks[col][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
              }
+             Tetronimo4.RenderOutline(TopRow);
              break;
 
            /* Tetronimo 5 */
@@ -276,9 +302,9 @@ void Hard_Drop::OutlineTetronimo() {
              switch (Tetronimo5.RotationCounter) {
                case 0:
                  TopRow = Util.FindTopRow_Between(col-1, col+1);
-                 if ((blocks[col-1][row+1] == 0 && blocks[col][row+1] == 1 && blocks[col+1][row+1] == 1)
-                 || (blocks[col+1][row+1] == 1 && blocks[col][row+1] == 0)) {
-                   row ++;
+                 if (blocks[col-1][TopRow+1] == 0 && (blocks[col][TopRow+1] == 1
+                 || blocks[col+1][TopRow+1] == 1)) {
+                   TopRow ++;
                  }
                  break;
                case 1:
@@ -289,11 +315,21 @@ void Hard_Drop::OutlineTetronimo() {
                  break;
                case 3:
                  TopRow = Util.FindTopRow_Between(col-1, col);
-                 if (blocks[col][row+1] == 0 && blocks[col-1][row+1] == 1) {
-                   row += 2;
+                 if (blocks[col][TopRow+1] == 0 && blocks[col][TopRow+2] == 0
+                 && blocks[col-1][TopRow+1] == 1 && TopRow < 19) {
+                   TopRow +=2;
+                 }
+                 else if (blocks[col][TopRow+1] == 0 && blocks[col][TopRow+2] == 1
+                 && blocks[col-1][TopRow+1] == 1) {
+                   TopRow ++;
+                 }
+                 else if (TopRow >= 19 && blocks[col][TopRow+1] == 0
+                 && blocks[col-1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
              }
+             Tetronimo5.RenderOutline(TopRow);
              break;
 
            /* Tetronimo 6 */
@@ -301,9 +337,9 @@ void Hard_Drop::OutlineTetronimo() {
              switch (Tetronimo6.RotationCounter) {
                case 0:
                  TopRow = Util.FindTopRow_Between(col-1, col+1);
-                 if ((blocks[col][row+1] == 1 && blocks[col+1][row+1] == 0)
-                 || (blocks[col-1][row+1] == 1 && blocks[col+1][row+1] == 0)) {
-                   row ++;
+                 if (blocks[col+1][TopRow+1] == 0 && (blocks[col][TopRow+1] == 1
+                 || blocks[col-1][TopRow+1] == 1)) {
+                   TopRow ++;
                  }
                  break;
                case 1:
@@ -314,11 +350,21 @@ void Hard_Drop::OutlineTetronimo() {
                  break;
                case 3:
                  TopRow = Util.FindTopRow_Between(col, col+1);
-                 if (blocks[col][row+1] == 0 && blocks[col+1][row+1] == 1) {
-                   row += 2;
+                 if (blocks[col][TopRow+1] == 0 && blocks[col][TopRow+2] == 0
+                 && blocks[col+1][TopRow+1] == 1 && TopRow < 19) {
+                   TopRow +=2;
+                 }
+                 else if (blocks[col][TopRow+1] == 0 && blocks[col][TopRow+2] == 1
+                 && blocks[col+1][TopRow+1] == 1) {
+                   TopRow ++;
+                 }
+                 else if (TopRow >= 19 && blocks[col][TopRow+1] == 0
+                 && blocks[col+1][TopRow+1] == 1) {
+                   TopRow ++;
                  }
                  break;
              }
+             Tetronimo6.RenderOutline(TopRow);
              break;
 
        /* Tetronimo 7 */

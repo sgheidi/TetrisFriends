@@ -47,6 +47,53 @@ void Tetronimo_6::RenderTetronimo() {
   glPopMatrix();
 }
 
+void Tetronimo_6::RenderOutline(int TopRow) {
+  glPushMatrix();
+  switch(Tetronimo6.RotationCounter) {
+    case 0:
+      glTranslatef(unit, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, -1*unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      break;
+    case 1:
+      glTranslatef(-1*unit, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, -1*unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, -1*unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      break;
+    case 2:
+      glTranslatef(-1*unit, -1*unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      break;
+    case 3:
+      glTranslatef(unit, -1*unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(0.0f, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      break;
+  }
+  glPopMatrix();
+}
+
 bool Tetronimo_6::InWindowLeft(){
   switch (Tetronimo6.RotationCounter) {
     case 0:
