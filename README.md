@@ -9,7 +9,6 @@ A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framewo
 ## Setting up
 
 Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
-
 Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## How to play
@@ -29,12 +28,9 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 ## Other notes
 
 - Entire codebase written from scratch and closely follows Google C++ Style
-
-- Code is well commented, easy to read and modify
-
-- Code broken up into classes and objects for good structure
-
-- All game options are stored in the file ```common.cc``` and can be modified
+  - Code is well commented, easy to read and modify
+  - Code broken up into classes and objects for good structure
+* All game options are stored in the file ```common.cc``` and can be modified
 
 ## Future goals
 
