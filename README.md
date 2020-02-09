@@ -28,13 +28,14 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 - Entire codebase written from scratch and closely follows Google C++ Style
   - Code is well commented, easy to read and modify
-  - Code broken up into classes and objects for good structure
+  - Code also broken up into classes and objects for good structure
 - All game options are stored in the file ```common.cc``` and can be modified
 
 ## Future goals
 
 - Render text to show 'combos', pausing, restarting, staring & losing
 - Play sounds to indicate that a player has done a 'combo' (i.e clearing lines consecutively on each piece, T-spins)
-- 'Shift': holds a piece, swapping current piece with held piece (in a queue)
-- 'Next piece' feature: shows next 4 pieces in queue
+- Viewing & ability to swap with a tetronimo that the player has in their queue
+  - 'Shift': holds a piece, swapping current piece with held piece (in a queue)
+  - 'Next piece' feature: shows next 4 pieces in queue
 - 'Tab': Use an 'item' which temporarily grants a special ability (i.e only long pieces for 10 seconds, clears 7 of the bottom lines, etc)
