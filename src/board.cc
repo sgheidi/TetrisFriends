@@ -181,6 +181,8 @@ void Board::LineClear() {
   }
   if (LinesCleared >=1) {
     this->BringLinesDown(TopMostRow, LinesCleared);
-    if (GameSpeed > LinesCleared) GameSpeed -= LinesCleared;
+    if (GameSpeed > LinesCleared) {
+      GameSpeed -= LinesCleared;
+    }
   }
 }

@@ -14,21 +14,17 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## How to play
 
-- 'p': pause
+* Special keys
+  * 'p': pause
+  * 'r': restart
+  * 'q' or 'ESC': exit
+  * 'Space' key: 'hard' drops a piece, dropping it instantly
+* Movements
+  * Up key: rotate piece
+  * Left/right keys: horizontal movement
+  * Down key: downward acceleration
 
-- 'r': restart
-
-- 'q' or 'ESC': exit
-
-- Up key: rotate piece
-
-- Left/right keys: horizontal movement
-
-- Down key: downward acceleration
-
-- 'Space' key: 'hard' drops a piece, dropping it instantly
-
-- **Speed & score increases with each line clear!**
+- **Note: Speed & score increases with each line clear!**
 
 ## Other notes
 

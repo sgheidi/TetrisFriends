@@ -24,7 +24,6 @@ using namespace std;
 
 extern GLFWwindow* window;
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
-void HardDrop();
 
 /* all global variables and options declared here */
 
