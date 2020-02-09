@@ -33,9 +33,10 @@ Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
 
 ## Future goals
 
-- Render text to show 'combos', pausing, restarting, staring & losing
+- Render text to show 'combos', pausing, restarting, starting, losing and # of lines cleared
 - Play sounds to indicate that a player has done a 'combo' (i.e clearing lines consecutively on each piece, T-spins)
-- Viewing & ability to swap with a tetronimo that the player has in their queue
-  - 'Shift': holds a piece, swapping current piece with held piece (in a queue)
+- Viewing next pieces & swapping current tetronimo with 'held' piece
   - 'Next piece' feature: shows next 4 pieces in queue
+  - 'Shift': holds a piece, swapping current piece with held piece (in a queue)
 - 'Tab': Use an 'item' which temporarily grants a special ability (i.e only long pieces for 10 seconds, clears 7 of the bottom lines, etc)
+- Provide different 'map' options with command line arguments
