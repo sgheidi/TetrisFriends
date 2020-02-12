@@ -1,6 +1,6 @@
 # Fruit Tetris
 
-A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW framework.
+A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW.
 
 ## Screenshots
 

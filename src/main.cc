@@ -8,7 +8,7 @@ int main(void) {
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
-	window = glfwCreateWindow(ScreenX, ScreenY, "Fruit Tetris", NULL, NULL);
+	window = glfwCreateWindow(ScreenX+(ScreenX/2), ScreenY, "Fruit Tetris", NULL, NULL);
 	glfwSetWindowPos(window, 650, 80);
 	if (!window) {
 		glfwTerminate();

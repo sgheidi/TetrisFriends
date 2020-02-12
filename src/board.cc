@@ -1,7 +1,7 @@
 #include "../include/common.h"
 
 // units are assigned based on Tetronimo piece
-void Board::Init(){
+void Board::Init() {
   switch (Rand) {
     case 1:
       row = 2;
@@ -34,7 +34,7 @@ void Board::Init(){
   }
 }
 
-void Board::ResetUnits(){
+void Board::ResetUnits() {
   switch (Rand) {
     case 1:
       x = unit*5;
@@ -94,6 +94,7 @@ void Board::DrawGrid() {
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glColor3f(1.0f, 1.0f, 1.0f);
+  glTranslatef(ScreenX/4, 0.0f, 0.0f);
   glBegin(GL_LINES);
   // horizontal lines
   glVertex2f(0, 1);
@@ -103,8 +104,6 @@ void Board::DrawGrid() {
     glVertex2f(ScreenX, i);
   }
   // vertical lines
-  glVertex2f(0, 1);
-  glVertex2f(1, ScreenY);
   for (int i = 0; i < ScreenX + 20; i += unit) {
     glVertex2f(i, 0);
     glVertex2f(i, ScreenY);
@@ -115,8 +114,8 @@ void Board::DrawGrid() {
 
 // draws all blocks that have already landed
 void Board::RenderDroppedBlocks() {
-  for(int i=1;i<=10;i++){
-    for(int j=1;j<=20;j++){
+  for(int i=1;i<=10;i++) {
+    for(int j=1;j<=20;j++) {
       if(blocks[i][j] == 1) {
         Util.ColorBuffer(colors[i][j]);
         glPushMatrix();
@@ -138,14 +137,14 @@ void Board::RenderDroppedBlocks() {
 /* line clearing functions below */
 //
 void Board::ClearLine(int row) {
-  for(int col=1;col<=10;col++){
+  for(int col=1;col<=10;col++) {
     blocks[col][row] = 0;
     colors[col][row] = 0;
   }
 }
 
 bool Board::IsRowFull(int row) {
-  for(int col=1;col<=10;col++){
+  for(int col=1;col<=10;col++) {
     if(blocks[col][row] == 0) {
       return false;
     }
@@ -156,8 +155,8 @@ bool Board::IsRowFull(int row) {
 // y (row) is the row that the lines should be brought down to
 // and NumLines is the number of rows they should come down
 void Board::BringLinesDown(int y, int NumLines) {
-  for(int x=1;x<=10;x++){
-    for(int vert=y;vert>=1;vert--){
+  for(int x=1;x<=10;x++) {
+    for(int vert=y;vert>=1;vert--) {
       if (blocks[x][vert] == 1) {
         blocks[x][vert + NumLines] = 1;
         colors[x][vert + NumLines] = colors[x][vert];
@@ -172,7 +171,7 @@ void Board::BringLinesDown(int y, int NumLines) {
 void Board::LineClear() {
   int TopMostRow = 0;
   int LinesCleared = 0;
-  for(int y=20;y>=1;y--){
+  for(int y=20;y>=1;y--) {
     if(this->IsRowFull(y) == true) {
       this->ClearLine(y);
       LinesCleared ++;
