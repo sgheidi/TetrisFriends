@@ -18,16 +18,16 @@ int main(void) {
 	glfwSwapInterval(1);
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
-	// use testing flag to test a particular tetronimo
-	Testing = false;
-	TestRand = 6;
+	// uncomment the following line to test a particular tetronimo
+	// Testing = true;
+	TestRand = 2;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
 	if (Testing) Rand = TestRand;
 	GameBoard.Init();
 
 	while (!glfwWindowShouldClose(window)) {
-		glfwPollEvents();
+		 glfwPollEvents();
 		 NumIterations ++;
 		 GameBoard.DrawGrid();
 		 GameBoard.RenderDroppedBlocks();
@@ -40,10 +40,16 @@ int main(void) {
 				// timer function
 				if (NumIterations % GameSpeed == 0 && Paused == false){
 					NumIterations = 0;
-					Util.GoDown();
+					if (blocks[col][row+1] == 1) {
+						_Next_Full_ = true;
+					}
+					else {
+						_Next_Full_= false;
+						Util.GoDown();
+					}
 				}
 				// stacking criteria
-				if (Tetronimo1.StackingCriteria() == true) {
+				if (Tetronimo1.StackingCriteria() == true && (_Next_Full_ == true || row < 18)) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
 					Rand = (rand()%7)+1;

@@ -2,26 +2,27 @@
 
 void Tetronimo_4::RenderTetronimo() {
   glPushMatrix();
+  Util.ColorBuffer(TETRONIMO_4_COLOR);
   switch (Tetronimo4.RotationCounter) {
     case 0:
       glTranslatef(unit, unit, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f , 0.0f);
-      Util.DrawSquare(ORANGE);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       break;
     case 1:
       glTranslatef(-1*unit, unit, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit , 0.0f);
-      Util.DrawSquare(ORANGE);
+      Util.DrawSquare();
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       break;
   }
   glPopMatrix();
@@ -96,16 +97,16 @@ void Tetronimo_4::FillBlocks(){
 void Tetronimo_4::FillColors(){
   switch (Tetronimo4.RotationCounter) {
     case 0:
-      colors[col-1][row-1] = YELLOW;
-      colors[col][row-1] = PURPLE;
-      colors[col][row] = ORANGE;
-      colors[col+1][row] = GREEN;
+      colors[col-1][row-1] = TETRONIMO_4_COLOR;
+      colors[col][row-1] = TETRONIMO_4_COLOR;
+      colors[col][row] = TETRONIMO_4_COLOR;
+      colors[col+1][row] = TETRONIMO_4_COLOR;
       break;
     case 1:
-      colors[col-1][row] = GREEN;
-      colors[col-1][row-1] = ORANGE;
-      colors[col][row-1] = PURPLE;
-      colors[col][row-2] = YELLOW;
+      colors[col-1][row] = TETRONIMO_4_COLOR;
+      colors[col-1][row-1] = TETRONIMO_4_COLOR;
+      colors[col][row-1] = TETRONIMO_4_COLOR;
+      colors[col][row-2] = TETRONIMO_4_COLOR;
       break;
   }
 }

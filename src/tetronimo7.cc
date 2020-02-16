@@ -3,13 +3,14 @@
 void Tetronimo_7::RenderTetronimo() {
   glPushMatrix();
 
-  Util.DrawSquare(YELLOW);
+  Util.ColorBuffer(TETRONIMO_7_COLOR);
+  Util.DrawSquare();
   glTranslatef(-1*unit, 0.0f, 0.0f);
-  Util.DrawSquare(PURPLE);
+  Util.DrawSquare();
   glTranslatef(0.0f, unit, 0.0f);
-  Util.DrawSquare(RED);
+  Util.DrawSquare();
   glTranslatef(unit, 0.0f, 0.0f);
-  Util.DrawSquare(ORANGE);
+  Util.DrawSquare();
 
   glPopMatrix();
 }
@@ -44,10 +45,10 @@ void Tetronimo_7::FillBlocks() {
 }
 
 void Tetronimo_7::FillColors() {
-  colors[col][row-1] = PURPLE;
-  colors[col][row] = RED;
-  colors[col+1][row-1] = YELLOW;
-  colors[col+1][row] = ORANGE;
+  colors[col][row-1] = TETRONIMO_7_COLOR;
+  colors[col][row] = TETRONIMO_7_COLOR;
+  colors[col+1][row-1] = TETRONIMO_7_COLOR;
+  colors[col+1][row] = TETRONIMO_7_COLOR;
 }
 
 void Tetronimo_7::OutlineBlocks(int NewRow) {

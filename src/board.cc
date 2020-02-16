@@ -114,9 +114,9 @@ void Board::DrawGrid() {
 
 // draws all blocks that have already landed
 void Board::RenderDroppedBlocks() {
-  for(int i=1;i<=10;i++) {
-    for(int j=1;j<=20;j++) {
-      if(blocks[i][j] == 1) {
+  for (int i=1;i<=10;i++) {
+    for (int j=1;j<=20;j++) {
+      if (blocks[i][j] == 1) {
         Util.ColorBuffer(colors[i][j]);
         glPushMatrix();
         glBegin(GL_POLYGON);
@@ -137,15 +137,15 @@ void Board::RenderDroppedBlocks() {
 /* line clearing functions below */
 //
 void Board::ClearLine(int row) {
-  for(int col=1;col<=10;col++) {
+  for (int col=1;col<=10;col++) {
     blocks[col][row] = 0;
     colors[col][row] = 0;
   }
 }
 
 bool Board::IsRowFull(int row) {
-  for(int col=1;col<=10;col++) {
-    if(blocks[col][row] == 0) {
+  for (int col=1;col<=10;col++) {
+    if (blocks[col][row] == 0) {
       return false;
     }
   }
@@ -155,8 +155,8 @@ bool Board::IsRowFull(int row) {
 // y (row) is the row that the lines should be brought down to
 // and NumLines is the number of rows they should come down
 void Board::BringLinesDown(int y, int NumLines) {
-  for(int x=1;x<=10;x++) {
-    for(int vert=y;vert>=1;vert--) {
+  for (int x=1;x<=10;x++) {
+    for (int vert=y;vert>=1;vert--) {
       if (blocks[x][vert] == 1) {
         blocks[x][vert + NumLines] = 1;
         colors[x][vert + NumLines] = colors[x][vert];
@@ -171,14 +171,14 @@ void Board::BringLinesDown(int y, int NumLines) {
 void Board::LineClear() {
   int TopMostRow = 0;
   int LinesCleared = 0;
-  for(int y=20;y>=1;y--) {
-    if(this->IsRowFull(y) == true) {
+  for (int y=20;y>=1;y--) {
+    if (this->IsRowFull(y) == true) {
       this->ClearLine(y);
       LinesCleared ++;
       TopMostRow = y-1;
     }
   }
-  if (LinesCleared >=1) {
+  if (LinesCleared >=1 ) {
     this->BringLinesDown(TopMostRow, LinesCleared);
     if (GameSpeed > LinesCleared) {
       GameSpeed -= LinesCleared;

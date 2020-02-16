@@ -2,46 +2,47 @@
 
 void Tetronimo_5::RenderTetronimo() {
   glPushMatrix();
+  Util.ColorBuffer(TETRONIMO_5_COLOR);
   switch(Tetronimo5.RotationCounter) {
     case 0:
       glTranslatef(-1*unit, unit, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare();
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       break;
     case 1:
       glTranslatef(unit, unit, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       break;
     case 2:
       glTranslatef(unit, -1*unit, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       break;
     case 3:
       glTranslatef(-1*unit, -1*unit, 0.0f);
-      Util.DrawSquare(YELLOW);
+      Util.DrawSquare();
       glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare(RED);
+      Util.DrawSquare();
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(PURPLE);
+      Util.DrawSquare();
       glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare(GREEN);
+      Util.DrawSquare();
       break;
   }
   glPopMatrix();
@@ -160,28 +161,28 @@ void Tetronimo_5::FillBlocks(){
 void Tetronimo_5::FillColors(){
   switch (Tetronimo5.RotationCounter) {
     case 0:
-      colors[col-1][row] = YELLOW;
-      colors[col-1][row-1] = RED;
-      colors[col][row-1] = PURPLE;
-      colors[col+1][row-1] = GREEN;
+      colors[col-1][row] = TETRONIMO_5_COLOR;
+      colors[col-1][row-1] = TETRONIMO_5_COLOR;
+      colors[col][row-1] = TETRONIMO_5_COLOR;
+      colors[col+1][row-1] = TETRONIMO_5_COLOR;
       break;
     case 1:
-      colors[col+1][row] = YELLOW;
-      colors[col][row] = RED;
-      colors[col][row-1] = PURPLE;
-      colors[col][row-2] = GREEN;
+      colors[col+1][row] = TETRONIMO_5_COLOR;
+      colors[col][row] = TETRONIMO_5_COLOR;
+      colors[col][row-1] = TETRONIMO_5_COLOR;
+      colors[col][row-2] = TETRONIMO_5_COLOR;
       break;
     case 2:
-      colors[col+1][row-2] = YELLOW;
-      colors[col+1][row-1] = RED;
-      colors[col][row-1] = PURPLE;
-      colors[col-1][row-1] = GREEN;
+      colors[col+1][row-2] = TETRONIMO_5_COLOR;
+      colors[col+1][row-1] = TETRONIMO_5_COLOR;
+      colors[col][row-1] = TETRONIMO_5_COLOR;
+      colors[col-1][row-1] = TETRONIMO_5_COLOR;
       break;
     case 3:
-      colors[col-1][row-2] = YELLOW;
-      colors[col][row-2] = RED;
-      colors[col][row-1] = PURPLE;
-      colors[col][row] = GREEN;
+      colors[col-1][row-2] = TETRONIMO_5_COLOR;
+      colors[col][row-2] = TETRONIMO_5_COLOR;
+      colors[col][row-1] = TETRONIMO_5_COLOR;
+      colors[col][row] = TETRONIMO_5_COLOR;
       break;
   }
 }

@@ -33,6 +33,7 @@ bool GameOver = false;
 bool Testing = false;
 int Rand = 0;
 int TestRand = 0;
+bool _Next_Full_ = false;
 
 // Decrease this to increase game speed
 // Default should be 30

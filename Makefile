@@ -8,7 +8,7 @@ SOURCE += src/tetronimo3.cc src/tetronimo4.cc src/tetronimo5.cc src/tetronimo6.c
 
 CC= g++
 
-EXECUTABLE= FruitTetris
+EXECUTABLE= TetrisFriends
 
 LDFLAGS = -lglfw -lGLU -lGL -lm
 

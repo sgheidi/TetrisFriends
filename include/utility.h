@@ -14,8 +14,8 @@ class Utility {
 		// i.e outputs color with integer input
 		void ColorBuffer(int color);
 
-		// draws single block with specified color
-		void DrawSquare(int color);
+		// draws single block
+		void DrawSquare();
 		void OutlineSquare(int _row_);
 
 		void ZeroArrays();

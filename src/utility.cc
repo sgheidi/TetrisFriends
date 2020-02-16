@@ -27,32 +27,36 @@ void Utility::ColorBuffer(int color) {
       glColor3f(0.0f, 0.0f, 0.0f);
       break;
     case GREEN:
-      glColor3f(0.0f, 1.0f, 0.0f);
+      glColor3f(0.0f, 0.8f, 0.0f);
       break;
     case RED:
-      glColor3f(1.0f, 0.0f, 0.0f);
+      glColor3f(0.8f, 0.0f, 0.0f);
       break;
     case ORANGE:
-      glColor3f(1.0f, 0.5f, 0.0f);
+      glColor3f(0.8f, 0.3f, 0.0f);
       break;
     case PURPLE:
-      glColor3f(1.0f, 0.5f, 1.5f);
+      glColor3f(0.8f, 0.3f, 0.8f);
       break;
     case YELLOW:
-      glColor3f(1.0f, 1.0f, 0.0f);
+      glColor3f(0.8f, 0.8f, 0.0f);
+      break;
+    case BLUE:
+      glColor3f(0.0f, 0.0f, 0.7f);
+      break;
+    case CYAN:
+      glColor3f(0.2f, 0.9f, 0.85f);
       break;
     case GREY:
-      glColor3f(0.65f, 0.65f, 0.65f);
+      glColor3f(0.75f, 0.75f, 0.75f);
       break;
     default:
       glColor3f(0.0f, 0.0f, 0.0f);
   }
 }
 
-// core function that draws individual blocks
-// with specified color
-void Utility::DrawSquare(int color) {
-  this->ColorBuffer(color);
+// core function that draws individual (moving) blocks
+void Utility::DrawSquare() {
   glBegin(GL_POLYGON);
 
   glVertex2f(x, y);
@@ -116,15 +120,15 @@ int Utility::FindTopRow_Between(int StartCol, int EndCol) {
 
 /* Helper functions to track pivot position */
 void Utility::PrintFilledBlocks() {
-  for(int x=1;x<=10;x++){
-    for(int y=1;y<=20;y++){
-      if(blocks[x][y] == 1){
-          cout << "blocks[" << x << "][" << y << "] is full"<<endl;
+  for(int x=1;x<=10;x++) {
+    for(int y=1;y<=20;y++) {
+      if(blocks[x][y] == 1) {
+        std::cout << "blocks[" << x << "][" << y << "] is full"<< std::endl;
       }
     }
   }
 }
 
 void Utility::PrintCurrentPosition() {
-  cout << "Row " << row << "  Col " << col << endl;
+  std::cout << "Row " << row << "  Col " << col << std::endl;
 }

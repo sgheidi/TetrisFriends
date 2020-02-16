@@ -1,6 +1,6 @@
-# Fruit Tetris
+# Tetris Friends
 
-A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW.
+Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Screenshots
 
@@ -9,7 +9,7 @@ A simple, elegant Tetris implementation written in OpenGL/C++ using GLFW.
 ## Setting up
 
 Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
-Play the game by running ```make && ./FruitTetris``` in the Linux terminal.
+Play the game by running ```make && ./TetrisFriends``` in the Linux terminal.
 
 ## How to play
 
