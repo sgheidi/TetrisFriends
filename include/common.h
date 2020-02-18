@@ -12,13 +12,13 @@
 #include "utility.h"
 #include "board.h"
 #include "hard_drop.h"
-#include "tetronimo1.h"
-#include "tetronimo2.h"
-#include "tetronimo3.h"
-#include "tetronimo4.h"
-#include "tetronimo5.h"
-#include "tetronimo6.h"
-#include "tetronimo7.h"
+#include "tetronimos/tetronimo1.h"
+#include "tetronimos/tetronimo2.h"
+#include "tetronimos/tetronimo3.h"
+#include "tetronimos/tetronimo4.h"
+#include "tetronimos/tetronimo5.h"
+#include "tetronimos/tetronimo6.h"
+#include "tetronimos/tetronimo7.h"
 
 extern GLFWwindow* window;
 void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);

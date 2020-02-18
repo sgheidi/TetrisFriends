@@ -81,6 +81,10 @@ void Board::ResetUnits() {
   }
 }
 
+// void Board::DrawSides() {
+//
+// }
+
 void Board::DrawGrid() {
   float ratio;
   int width, height;

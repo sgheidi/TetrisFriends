@@ -1,23 +1,22 @@
-#include "../include/common.h"
+#include "../../include/common.h"
 
-void Tetronimo_6::RenderTetronimo() {
+void Tetronimo_2::RenderTetronimo() {
   glPushMatrix();
-  Util.ColorBuffer(TETRONIMO_6_COLOR);
-  switch(Tetronimo6.RotationCounter) {
+  Util.ColorBuffer(TETRONIMO_2_COLOR);
+  switch(Tetronimo2.RotationCounter) {
     case 0:
-      glTranslatef(unit, unit, 0.0f);
       Util.DrawSquare();
-      glTranslatef(0.0f, -1*unit, 0.0f);
+      glTranslatef(-1*unit, unit, 0.0f);
       Util.DrawSquare();
-      glTranslatef(-1*unit, 0.0f, 0.0f);
+      glTranslatef(unit, 0.0f, 0.0f);
       Util.DrawSquare();
-      glTranslatef(-1*unit, 0.0f, 0.0f);
+      glTranslatef(unit, 0.0f, 0.0f);
       Util.DrawSquare();
       break;
     case 1:
       glTranslatef(-1*unit, unit, 0.0f);
       Util.DrawSquare();
-      glTranslatef(unit, 0.0f, 0.0f);
+      glTranslatef(unit, unit, 0.0f);
       Util.DrawSquare();
       glTranslatef(0.0f, -1*unit, 0.0f);
       Util.DrawSquare();
@@ -25,19 +24,19 @@ void Tetronimo_6::RenderTetronimo() {
       Util.DrawSquare();
       break;
     case 2:
-      glTranslatef(-1*unit, -1*unit, 0.0f);
+      glTranslatef(0.0f, 2*unit, 0.0f);
       Util.DrawSquare();
-      glTranslatef(0.0f, unit, 0.0f);
-      Util.DrawSquare();
-      glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare();
-      glTranslatef(unit, 0.0f, 0.0f);
-      Util.DrawSquare();
-      break;
-    case 3:
       glTranslatef(unit, -1*unit, 0.0f);
       Util.DrawSquare();
       glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.DrawSquare();
+      glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.DrawSquare();
+      break;
+    case 3:
+      glTranslatef(unit, unit, 0.0f);
+      Util.DrawSquare();
+      glTranslatef(-1*unit, -1*unit, 0.0f);
       Util.DrawSquare();
       glTranslatef(0.0f, unit, 0.0f);
       Util.DrawSquare();
@@ -48,23 +47,22 @@ void Tetronimo_6::RenderTetronimo() {
   glPopMatrix();
 }
 
-void Tetronimo_6::RenderOutline(int TopRow) {
+void Tetronimo_2::RenderOutline(int TopRow) {
   glPushMatrix();
-  switch(Tetronimo6.RotationCounter) {
+  switch(Tetronimo2.RotationCounter) {
     case 0:
-      glTranslatef(unit, unit, 0.0f);
       Util.OutlineSquare(TopRow);
-      glTranslatef(0.0f, -1*unit, 0.0f);
+      glTranslatef(-1*unit, unit, 0.0f);
       Util.OutlineSquare(TopRow);
-      glTranslatef(-1*unit, 0.0f, 0.0f);
+      glTranslatef(unit, 0.0f, 0.0f);
       Util.OutlineSquare(TopRow);
-      glTranslatef(-1*unit, 0.0f, 0.0f);
+      glTranslatef(unit, 0.0f, 0.0f);
       Util.OutlineSquare(TopRow);
       break;
     case 1:
       glTranslatef(-1*unit, unit, 0.0f);
       Util.OutlineSquare(TopRow);
-      glTranslatef(unit, 0.0f, 0.0f);
+      glTranslatef(unit, unit, 0.0f);
       Util.OutlineSquare(TopRow);
       glTranslatef(0.0f, -1*unit, 0.0f);
       Util.OutlineSquare(TopRow);
@@ -72,19 +70,19 @@ void Tetronimo_6::RenderOutline(int TopRow) {
       Util.OutlineSquare(TopRow);
       break;
     case 2:
-      glTranslatef(-1*unit, -1*unit, 0.0f);
+      glTranslatef(0.0f, 2*unit, 0.0f);
       Util.OutlineSquare(TopRow);
-      glTranslatef(0.0f, unit, 0.0f);
-      Util.OutlineSquare(TopRow);
-      glTranslatef(unit, 0.0f, 0.0f);
-      Util.OutlineSquare(TopRow);
-      glTranslatef(unit, 0.0f, 0.0f);
-      Util.OutlineSquare(TopRow);
-      break;
-    case 3:
       glTranslatef(unit, -1*unit, 0.0f);
       Util.OutlineSquare(TopRow);
       glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(-1*unit, 0.0f, 0.0f);
+      Util.OutlineSquare(TopRow);
+      break;
+    case 3:
+      glTranslatef(unit, unit, 0.0f);
+      Util.OutlineSquare(TopRow);
+      glTranslatef(-1*unit, -1*unit, 0.0f);
       Util.OutlineSquare(TopRow);
       glTranslatef(0.0f, unit, 0.0f);
       Util.OutlineSquare(TopRow);
@@ -95,8 +93,8 @@ void Tetronimo_6::RenderOutline(int TopRow) {
   glPopMatrix();
 }
 
-bool Tetronimo_6::InWindowLeft(){
-  switch (Tetronimo6.RotationCounter) {
+bool Tetronimo_2::InWindowLeft(){
+  switch (Tetronimo2.RotationCounter) {
     case 0:
       return col >= 3;
       break;
@@ -112,8 +110,8 @@ bool Tetronimo_6::InWindowLeft(){
     }
 }
 
-bool Tetronimo_6::InWindowRight() {
-  switch (Tetronimo6.RotationCounter) {
+bool Tetronimo_2::InWindowRight() {
+  switch (Tetronimo2.RotationCounter) {
     case 0:
       return col <= 8;
       break;
@@ -129,70 +127,70 @@ bool Tetronimo_6::InWindowRight() {
     }
 }
 
-void Tetronimo_6::FillBlocks(){
-  switch (Tetronimo6.RotationCounter) {
+void Tetronimo_2::FillBlocks(){
+  switch (Tetronimo2.RotationCounter) {
     case 0:
-      blocks[col-1][row-1] = 1;
       blocks[col][row-1] = 1;
+      blocks[col-1][row-1] = 1;
       blocks[col+1][row-1] = 1;
-      blocks[col+1][row] = 1;
+      blocks[col][row-2] = 1;
       break;
     case 1:
-      blocks[col][row-2] = 1;
       blocks[col][row-1] = 1;
       blocks[col][row] = 1;
-      blocks[col-1][row] = 1;
+      blocks[col][row-2] = 1;
+      blocks[col-1][row-1] = 1;
       break;
     case 2:
-      blocks[col-1][row-2] = 1;
-      blocks[col-1][row-1] = 1;
-      blocks[col][row-1] = 1;
       blocks[col+1][row-1] = 1;
-      break;
-    case 3:
-      blocks[col+1][row-2] = 1;
-      blocks[col][row-2] = 1;
       blocks[col][row-1] = 1;
       blocks[col][row] = 1;
+      blocks[col-1][row-1] = 1;
+      break;
+    case 3:
+      blocks[col+1][row-1] = 1;
+      blocks[col][row-1] = 1;
+      blocks[col][row] = 1;
+      blocks[col][row-2] = 1;
       break;
   }
 }
 
-void Tetronimo_6::FillColors(){
-  switch (Tetronimo6.RotationCounter) {
+void Tetronimo_2::FillColors(){
+  switch (Tetronimo2.RotationCounter) {
     case 0:
-      colors[col-1][row-1] = TETRONIMO_6_COLOR;
-      colors[col][row-1] = TETRONIMO_6_COLOR;
-      colors[col+1][row-1] = TETRONIMO_6_COLOR;
-      colors[col+1][row] = TETRONIMO_6_COLOR;
+      colors[col+1][row-1] = TETRONIMO_2_COLOR;
+      colors[col][row-2] = TETRONIMO_2_COLOR;
+      colors[col][row-1] = TETRONIMO_2_COLOR;
+      colors[col-1][row-1] = TETRONIMO_2_COLOR;
       break;
     case 1:
-      colors[col-1][row] = TETRONIMO_6_COLOR;
-      colors[col][row] = TETRONIMO_6_COLOR;
-      colors[col][row-1] = TETRONIMO_6_COLOR;
-      colors[col][row-2] = TETRONIMO_6_COLOR;
+      colors[col][row-1] = TETRONIMO_2_COLOR;
+      colors[col][row] = TETRONIMO_2_COLOR;
+      colors[col][row-2] = TETRONIMO_2_COLOR;
+      colors[col-1][row-1] = TETRONIMO_2_COLOR;
       break;
     case 2:
-      colors[col-1][row-2] = TETRONIMO_6_COLOR;
-      colors[col-1][row-1] = TETRONIMO_6_COLOR;
-      colors[col][row-1] = TETRONIMO_6_COLOR;
-      colors[col+1][row-1] = TETRONIMO_6_COLOR;
+      colors[col][row] = TETRONIMO_2_COLOR;
+      colors[col+1][row-1] = TETRONIMO_2_COLOR;
+      colors[col][row-1] = TETRONIMO_2_COLOR;
+      colors[col-1][row-1] = TETRONIMO_2_COLOR;
       break;
     case 3:
-      colors[col+1][row-2] = TETRONIMO_6_COLOR;
-      colors[col][row-2] = TETRONIMO_6_COLOR;
-      colors[col][row-1] = TETRONIMO_6_COLOR;
-      colors[col][row] = TETRONIMO_6_COLOR;
+      colors[col+1][row-1] = TETRONIMO_2_COLOR;
+      colors[col][row-2] = TETRONIMO_2_COLOR;
+      colors[col][row-1] = TETRONIMO_2_COLOR;
+      colors[col][row] = TETRONIMO_2_COLOR;
       break;
   }
 }
 
 /* Collision functions return true if a potential collision is detected */
 // note that pivot coordinates are blocks[col][row]
-bool Tetronimo_6::CheckCollisionRight() {
-  switch (Tetronimo6.RotationCounter){
+bool Tetronimo_2::CheckCollisionRight() {
+  switch (Tetronimo2.RotationCounter){
     case 0:
-      if(blocks[col+2][row] == 1 || blocks[col+2][row+1] == 1) {
+      if(blocks[col+2][row] == 1 || blocks[col+1][row-1] == 1) {
         return true;
       }
       break;
@@ -203,13 +201,13 @@ bool Tetronimo_6::CheckCollisionRight() {
       }
       break;
     case 2:
-      if(blocks[col][row-1] == 1 || blocks[col+2][row] == 1){
+      if(blocks[col+2][row] == 1 || blocks[col+1][row+1] == 1){
         return true;
       }
       break;
     case 3:
-      if(blocks[col+1][row+1] == 1 || blocks[col+1][row] == 1
-      || blocks[col+2][row-1] == 1){
+      if(blocks[col+2][row] == 1 || blocks[col+1][row+1] == 1
+      || blocks[col+1][row-1] == 1){
         return true;
       }
       break;
@@ -218,21 +216,21 @@ bool Tetronimo_6::CheckCollisionRight() {
 }
 
 // note that pivot coordinates are blocks[col][row]
-bool Tetronimo_6::CheckCollisionLeft() {
-  switch (Tetronimo6.RotationCounter) {
+bool Tetronimo_2::CheckCollisionLeft() {
+  switch (Tetronimo2.RotationCounter) {
     case 0:
-      if(blocks[col-2][row] == 1 || blocks[col][row+1] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row-1] == 1){
         return true;
       }
       break;
     case 1:
-      if(blocks[col-2][row+1] == 1 || blocks[col-1][row] == 1
-      || blocks[col-1][row-1] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row-1] == 1
+      || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
     case 2:
-      if(blocks[col-2][row-1] == 1 || blocks[col-2][row] == 1){
+      if(blocks[col-2][row] == 1 || blocks[col-1][row+1] == 1){
         return true;
       }
       break;
@@ -248,33 +246,33 @@ bool Tetronimo_6::CheckCollisionLeft() {
 
 // Fill blocks and colors
 // Used when a tetronimo 'drops' on board
-void Tetronimo_6::FillArrays() {
+void Tetronimo_2::FillArrays() {
   this->FillBlocks();
   this->FillColors();
 }
 
 // if any condition for stacking is detected, returns true
-bool Tetronimo_6::StackingCriteria(){
-  switch (Tetronimo6.RotationCounter) {
+bool Tetronimo_2::StackingCriteria(){
+  switch(Tetronimo2.RotationCounter){
     case 0:
-      if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row] == 1
-      || blocks[col+1][row+1] == 1) {
-        return true;
-      }
-      break;
-    case 1:
-      if (row >= 20 || blocks[col-1][row+1] == 1 || blocks[col][row+1] == 1) {
-        return true;
-      }
-      break;
-    case 2:
       if (row >= 21 || blocks[col-1][row] == 1 || blocks[col][row] == 1
       || blocks[col+1][row] == 1) {
         return true;
       }
       break;
+    case 1:
+      if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row+1] == 1) {
+        return true;
+      }
+      break;
+    case 2:
+      if (row >= 20 || blocks[col-1][row] == 1 || blocks[col][row+1] == 1
+      || blocks[col+1][row] == 1) {
+        return true;
+      }
+      break;
     case 3:
-      if (row >= 20 || blocks[col][row+1] == 1 || blocks[col+1][row-1] == 1) {
+      if (row >= 20 || blocks[col][row+1] == 1 || blocks[col+1][row] == 1) {
         return true;
       }
       break;
