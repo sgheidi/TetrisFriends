@@ -36,12 +36,7 @@ int TestRand = 0;
 
 struct _timer_ Timer = {
   0,
-  DEFAULT_GAME_SPEED,
-  false,
-  0,
-  30,
-  80,
-  0
+  DEFAULT_GAME_SPEED
 };
 
 int row = 0;

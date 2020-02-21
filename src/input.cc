@@ -15,13 +15,11 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 				if (key == GLFW_KEY_RIGHT && Tetronimo1.InWindowRight()
 				&& Tetronimo1.CheckCollisionRight() == false) {
 						Util.GoRight();
-						Timer.NF_Iter = 0;
 				}
 				// left side collision check
 				else if (key == GLFW_KEY_LEFT && Tetronimo1.InWindowLeft()
 				&& Tetronimo1.CheckCollisionLeft() == false) {
 						Util.GoLeft();
-						Timer.NF_Iter = 0;
 				}
 				// rotatations
 				else if (key == GLFW_KEY_UP) {

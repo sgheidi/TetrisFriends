@@ -65,11 +65,6 @@ extern int TestRand;
 struct _timer_ {
   int NumIterations;
   int GameSpeed;
-  bool _Next_Full_;
-  int NF_Iter;
-  int NF_Speed;
-  int thresh;
-  int NF_thresh;
 };
 
 extern struct _timer_ Timer;
