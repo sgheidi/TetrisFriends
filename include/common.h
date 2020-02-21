@@ -25,7 +25,6 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 /* all global variables and options declared here */
 
-// speed
 #define DEFAULT_GAME_SPEED 30
 
 // color mapping macros
@@ -75,8 +74,7 @@ struct _timer_ {
 
 extern struct _timer_ Timer;
 
-/* pivot is always purple block. */
-// pivot coordinates of top-most block (pixels)
+// pivot coordinates (pixels)
 extern float x;
 extern float y;
 
