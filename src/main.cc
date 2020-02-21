@@ -19,7 +19,7 @@ int main(void) {
 	glfwSetKeyCallback(window, inputK);
 	srand(time(NULL));
 	// uncomment the following line to test a particular tetronimo
-	Testing = true;
+	// Testing = true;
 	TestRand = 1;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
@@ -37,30 +37,13 @@ int main(void) {
 			/* Tetronimo 1 */
 			case 1:
 				Tetronimo1.RenderTetronimo();
-				// set a small timer if any of the next blocks after the current
-				// tetronimo is full
-				if (blocks[col][row+3] == 1) {
-					Timer._Next_Full_ = true;
-					Timer.NF_Iter ++;
-					Timer.NF_thresh ++;
-					if (Timer.NF_Iter % Timer.NF_Speed == 0 || Timer.NF_thresh % Timer.thresh == 0) {
-						Util.GoDown();
-						Timer._Next_Full_ = false;
-						Timer.NF_Iter = 0;
-					}
-				}
-				else {
-					Timer._Next_Full_ = false;
-				}
-				// main timer function
+				// timer function
 				if (Timer.NumIterations % Timer.GameSpeed == 0 && Paused == false){
 					Timer.NumIterations = 0;
-					if (Timer._Next_Full_ == false)
-						Util.GoDown();
+					Util.GoDown();
 				}
 				// stacking criteria
 				if (Tetronimo1.StackingCriteria() == true) {
-					Fill:
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
 					Rand = (rand()%7)+1;
