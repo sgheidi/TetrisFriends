@@ -27,17 +27,22 @@ int colors[11][21] = {0};
 float x = unit*5;
 float y = 0;
 
-int NumIterations = 0;
 bool Paused = false;
 bool GameOver = false;
-bool Testing = false;
 int Rand = 0;
-int TestRand = 0;
-bool _Next_Full_ = false;
 
-// Decrease this to increase game speed
-// Default should be 30
-int GameSpeed = DEFAULT_GAME_SPEED;
+bool Testing = false;
+int TestRand = 0;
+
+struct _timer_ Timer = {
+  0,
+  DEFAULT_GAME_SPEED,
+  false,
+  0,
+  30,
+  80,
+  0
+};
 
 int row = 0;
 int col = 0;

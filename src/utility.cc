@@ -42,7 +42,7 @@ void Utility::ColorBuffer(int color) {
       glColor3f(0.8f, 0.8f, 0.0f);
       break;
     case BLUE:
-      glColor3f(0.0f, 0.0f, 0.7f);
+      glColor3f(0.15f, 0.5f, 1.0f);
       break;
     case CYAN:
       glColor3f(0.2f, 0.9f, 0.85f);

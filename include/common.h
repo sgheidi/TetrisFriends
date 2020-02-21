@@ -28,7 +28,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 // speed
 #define DEFAULT_GAME_SPEED 30
 
-// color mapping directives
+// color mapping macros
 // for definitions see Utility::ColorBuffer
 #define BLACK 0
 #define GREEN 1
@@ -40,7 +40,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods);
 #define CYAN 7
 #define GREY 10
 
-// define global constants for each tetronimo's color
+// define macros for each tetronimo's color
 #define TETRONIMO_1_COLOR GREEN
 #define TETRONIMO_2_COLOR CYAN
 #define TETRONIMO_3_COLOR ORANGE
@@ -56,15 +56,24 @@ extern const float unit;
 extern int blocks[11][21];
 extern int colors[11][21];
 
-extern int NumIterations;
 extern bool Paused;
 extern bool GameOver;
-extern bool Testing;
 extern int Rand;
-extern bool _Next_Full_;
 
+extern bool Testing;
 extern int TestRand;
-extern int GameSpeed;
+
+struct _timer_ {
+  int NumIterations;
+  int GameSpeed;
+  bool _Next_Full_;
+  int NF_Iter;
+  int NF_Speed;
+  int thresh;
+  int NF_thresh;
+};
+
+extern struct _timer_ Timer;
 
 /* pivot is always purple block. */
 // pivot coordinates of top-most block (pixels)

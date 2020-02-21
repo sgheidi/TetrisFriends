@@ -1,6 +1,6 @@
 #include "../include/common.h"
 
-// units are assigned based on Tetronimo piece
+// initial coordinates are assigned based on Tetronimo piece
 void Board::Init() {
   switch (Rand) {
     case 1:
@@ -98,7 +98,7 @@ void Board::DrawGrid() {
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glColor3f(1.0f, 1.0f, 1.0f);
-  glTranslatef(ScreenX/4, 0.0f, 0.0f);
+  glTranslatef(3*unit, 0.0f, 0.0f);
   glBegin(GL_LINES);
   // horizontal lines
   glVertex2f(0, 1);
@@ -184,8 +184,8 @@ void Board::LineClear() {
   }
   if (LinesCleared >=1 ) {
     this->BringLinesDown(TopMostRow, LinesCleared);
-    if (GameSpeed > LinesCleared) {
-      GameSpeed -= LinesCleared;
+    if (Timer.GameSpeed > LinesCleared) {
+      Timer.GameSpeed -= LinesCleared;
     }
   }
 }
