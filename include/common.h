@@ -12,6 +12,7 @@
 #include "utility.h"
 #include "board.h"
 #include "hard_drop.h"
+#include "lineclear.h"
 #include "tetronimos/tetronimo1.h"
 #include "tetronimos/tetronimo2.h"
 #include "tetronimos/tetronimo3.h"
@@ -52,8 +53,11 @@ extern const int ScreenX;
 extern const int ScreenY;
 extern const float unit;
 
+// arrays keeping track of filled/nonfilled
+// and colors of each block
 extern int blocks[11][21];
 extern int colors[11][21];
+extern int holdcolors[5][5];
 
 extern bool Paused;
 extern bool GameOver;

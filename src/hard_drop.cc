@@ -200,7 +200,7 @@ void Hard_Drop::HardDrop() {
   Rand = (rand()%7)+1;
   if (Testing) Rand = TestRand;
   GameBoard.ResetUnits();
-  GameBoard.LineClear();
+  LineClearer.LineClear();
 }
 
 /* Colors the tiles (grey) in which the current tetronimo

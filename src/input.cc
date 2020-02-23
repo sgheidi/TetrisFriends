@@ -180,9 +180,14 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		 HardDropper.HardDrop();
 	 }
 
+	 // hold tetronimo
+	 if (key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) {
+		 GameBoard.SwitchTetronimo();
+	 }
+
 	// acceleration
-		if (key == GLFW_KEY_DOWN && Paused == false){
-			Util.AccelerateDown();
+	if (key == GLFW_KEY_DOWN && Paused == false){
+		Util.AccelerateDown();
 	}
 
 	// reset
@@ -208,6 +213,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		GameBoard.Init();
 		Paused = false;
 		GameOver = false;
+		GameBoard.InQueue = 0;
 		Timer.GameSpeed = DEFAULT_GAME_SPEED;
 	}
 

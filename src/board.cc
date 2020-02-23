@@ -81,9 +81,24 @@ void Board::ResetUnits() {
   }
 }
 
-// void Board::DrawSides() {
-//
-// }
+// draw n horizontal lines with beginning & end coordinates
+void Board::Horizontal(int startX, int endX, int startY, int endY) {
+  glBegin(GL_LINES);
+  for (auto i = startY; i <= endY + unit; i += unit) {
+    glVertex2f(startX, i);
+    glVertex2f(endX, i);
+  }
+  glEnd();
+}
+
+void Board::Vertical(int startX, int endX, int startY, int endY) {
+  glBegin(GL_LINES);
+  for (auto i = startX; i <= endX; i += unit) {
+    glVertex2f(i, startY);
+    glVertex2f(i, endY);
+  }
+  glEnd();
+}
 
 void Board::DrawGrid() {
   float ratio;
@@ -98,26 +113,27 @@ void Board::DrawGrid() {
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glColor3f(1.0f, 1.0f, 1.0f);
-  glTranslatef(3*unit, 0.0f, 0.0f);
-  glBegin(GL_LINES);
-  // horizontal lines
-  glVertex2f(0, 1);
-  glVertex2f(ScreenX, 1);
-  for (int i = 0; i < ScreenY + 20; i += unit) {
-    glVertex2f(0, i);
-    glVertex2f(ScreenX, i);
-  }
-  // vertical lines
-  for (int i = 0; i < ScreenX + 20; i += unit) {
-    glVertex2f(i, 0);
-    glVertex2f(i, ScreenY);
-  }
-  glEnd();
+  // draw a small 3x3 box on left side
+  // to show held piece in queue
+  this->Horizontal(unit/2, 4.5*unit, 3*unit, 6*unit);
+  this->Vertical(unit/2, 4.5*unit, 3*unit, 7*unit);
+  // draw main board
+  glTranslatef(5*unit, 0.0f, 0.0f);
+  this->Horizontal(0, ScreenX, 1, ScreenY);
+  this->Vertical(0 , ScreenX, 0, ScreenY);
+  // draw 4 3x3 boxes on right side
+  // to show the 4 next pieces in queue
+  glPushMatrix();
+  glTranslatef(ScreenX, 0.0f, 0.0f);
+  this->Horizontal(unit/2, 4.5*unit, unit, 4*unit);
+  this->Vertical(unit/2, 4.5*unit, unit, 5*unit);
+  glPopMatrix();
   glFlush();
 }
 
 // draws all blocks that have already landed
-void Board::RenderDroppedBlocks() {
+// for board
+void Board::RenderBlocks_Board() {
   for (int i=1;i<=10;i++) {
     for (int j=1;j<=20;j++) {
       if (blocks[i][j] == 1) {
@@ -137,55 +153,140 @@ void Board::RenderDroppedBlocks() {
   }
 }
 
-//
-/* line clearing functions below */
-//
-void Board::ClearLine(int row) {
-  for (int col=1;col<=10;col++) {
-    blocks[col][row] = 0;
-    colors[col][row] = 0;
-  }
-}
+// draws all blocks that have already landed
+// for held piece
+void Board::RenderBlocks_Hold() {
+  for (int i=1;i<=4;i++) {
+    for (int j=1;j<=4;j++) {
+      if (holdcolors[i][j] != BLACK) {
+        Util.ColorBuffer(holdcolors[i][j]);
+        glPushMatrix();
+        glTranslatef(-4.5*unit, 3*unit, 0.0f);
+        glBegin(GL_POLYGON);
 
-bool Board::IsRowFull(int row) {
-  for (int col=1;col<=10;col++) {
-    if (blocks[col][row] == 0) {
-      return false;
-    }
-  }
-  return true;
-}
+        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
 
-// y (row) is the row that the lines should be brought down to
-// and NumLines is the number of rows they should come down
-void Board::BringLinesDown(int y, int NumLines) {
-  for (int x=1;x<=10;x++) {
-    for (int vert=y;vert>=1;vert--) {
-      if (blocks[x][vert] == 1) {
-        blocks[x][vert + NumLines] = 1;
-        colors[x][vert + NumLines] = colors[x][vert];
-        blocks[x][vert] = 0;
-        colors[x][vert] = BLACK;
+        glEnd();
+        glPopMatrix();
       }
     }
   }
 }
 
-// core function for clearing lines
-void Board::LineClear() {
-  int TopMostRow = 0;
-  int LinesCleared = 0;
-  for (int y=20;y>=1;y--) {
-    if (this->IsRowFull(y) == true) {
-      this->ClearLine(y);
-      LinesCleared ++;
-      TopMostRow = y-1;
+void Board::SwitchTetronimo() {
+  // clear the old colors to replace with new
+  // everytime 'shift' is pressed
+  for (int i=1;i<=4;i++) {
+    for (int j=1;j<=4;j++) {
+      holdcolors[i][j] = BLACK;
     }
   }
-  if (LinesCleared >=1 ) {
-    this->BringLinesDown(TopMostRow, LinesCleared);
-    if (Timer.GameSpeed > LinesCleared) {
-      Timer.GameSpeed -= LinesCleared;
-    }
+  switch (Rand) {
+    case 1:
+      for (int i=1;i<=4;i++) {
+        holdcolors[i][3] = TETRONIMO_1_COLOR;
+      }
+      Tetronimo1.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 1;
+      break;
+    case 2:
+      for (int i=1;i<=3;i++) {
+        holdcolors[i][3] = TETRONIMO_2_COLOR;
+      }
+      holdcolors[2][2] = TETRONIMO_2_COLOR;
+      Tetronimo2.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 2;
+      break;
+    case 3:
+      holdcolors[2][3] = TETRONIMO_3_COLOR;
+      holdcolors[3][3] = TETRONIMO_3_COLOR;
+      holdcolors[3][2] = TETRONIMO_3_COLOR;
+      holdcolors[4][2] = TETRONIMO_3_COLOR;
+      Tetronimo3.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 3;
+      break;
+    case 4:
+      holdcolors[3][3] = TETRONIMO_4_COLOR;
+      holdcolors[2][3] = TETRONIMO_4_COLOR;
+      holdcolors[2][2] = TETRONIMO_4_COLOR;
+      holdcolors[1][2] = TETRONIMO_4_COLOR;
+      Tetronimo4.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 4;
+      break;
+    case 5:
+      holdcolors[2][3] = TETRONIMO_5_COLOR;
+      holdcolors[2][2] = TETRONIMO_5_COLOR;
+      holdcolors[3][2] = TETRONIMO_5_COLOR;
+      holdcolors[4][2] = TETRONIMO_5_COLOR;
+      Tetronimo5.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 5;
+      break;
+    case 6:
+      holdcolors[3][3] = TETRONIMO_6_COLOR;
+      holdcolors[2][3] = TETRONIMO_6_COLOR;
+      holdcolors[2][2] = TETRONIMO_6_COLOR;
+      holdcolors[2][1] = TETRONIMO_6_COLOR;
+      Tetronimo6.RotationCounter = 0;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 6;
+      break;
+    case 7:
+      holdcolors[2][2] = TETRONIMO_7_COLOR;
+      holdcolors[3][2] = TETRONIMO_7_COLOR;
+      holdcolors[3][3] = TETRONIMO_7_COLOR;
+      holdcolors[2][3] = TETRONIMO_7_COLOR;
+      if (InQueue!=0)
+        Rand = InQueue;
+      else if (InQueue == 0) {
+        Rand = (rand()%7)+1;
+      }
+      if (Testing) Rand = TestRand;
+      GameBoard.ResetUnits();
+      InQueue = 7;
+      break;
   }
 }

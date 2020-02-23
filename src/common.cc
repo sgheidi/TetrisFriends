@@ -11,6 +11,7 @@ Tetronimo_6 Tetronimo6;
 Tetronimo_7 Tetronimo7;
 Board GameBoard;
 Hard_Drop HardDropper;
+_LineClear_ LineClearer;
 
 GLFWwindow* window;
 
@@ -23,6 +24,7 @@ const float unit = ScreenX/10;
 
 int blocks[11][21] = {0};
 int colors[11][21] = {0};
+int holdcolors[5][5] = {0};
 
 float x = unit*5;
 float y = 0;

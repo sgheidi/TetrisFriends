@@ -8,7 +8,8 @@ int main(void) {
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
-	window = glfwCreateWindow(ScreenX + (6*unit), ScreenY, "Fruit Tetris", NULL, NULL);
+	// left and right side each have 4 blocks across to show 'held' and 'next' pieces
+	window = glfwCreateWindow(ScreenX + (10*unit), ScreenY + 1, "Fruit Tetris", NULL, NULL);
 	glfwSetWindowPos(window, 650, 80);
 	if (!window) {
 		glfwTerminate();
@@ -20,7 +21,7 @@ int main(void) {
 	srand(time(NULL));
 	// uncomment the following line to test a particular tetronimo
 	// Testing = true;
-	TestRand = 1;
+	TestRand = 5;
 	// random number is the Tetronimo piece number chosen randomly from 1-7
 	Rand = (rand()%7)+1;
 	if (Testing) Rand = TestRand;
@@ -30,7 +31,8 @@ int main(void) {
 		 glfwPollEvents();
 		 Timer.NumIterations ++;
 		 GameBoard.DrawGrid();
-		 GameBoard.RenderDroppedBlocks();
+		 GameBoard.RenderBlocks_Board();
+		 GameBoard.RenderBlocks_Hold();
 
 		 switch (Rand) {
 
@@ -49,7 +51,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -68,7 +70,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -87,7 +89,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -106,7 +108,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -125,7 +127,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -144,7 +146,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 
@@ -162,7 +164,7 @@ int main(void) {
 					Rand = (rand()%7)+1;
 					if (Testing) Rand = TestRand;
 					GameBoard.ResetUnits();
-					GameBoard.LineClear();
+					LineClearer.LineClear();
 				}
 				break;
 		}
