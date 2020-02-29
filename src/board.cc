@@ -177,8 +177,6 @@ void Board::RenderBlocks_Hold() {
 }
 
 void Board::SwitchTetronimo() {
-  // clear the old colors to replace with new
-  // everytime 'shift' is pressed
   for (int i=1;i<=4;i++) {
     for (int j=1;j<=4;j++) {
       holdcolors[i][j] = BLACK;
