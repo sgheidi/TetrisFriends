@@ -2,31 +2,28 @@
 #define TETRONIMO2_H
 
 class Tetronimo_2 {
+public:
+	int RotationCounter;
 
-	public:
+	void RenderTetronimo();
+	void RenderOutline(int TopRow);
 
-		int RotationCounter;
+	bool InWindowRight();
+	bool InWindowLeft();
 
-		void RenderTetronimo();
-		void RenderOutline(int TopRow);
+	// fills arrays for 'dropped' tetronimos
+	void FillBlocks();
+	void FillColors();
 
-		bool InWindowRight();
-		bool InWindowLeft();
+	void FillArrays();
 
-		// fills arrays for 'dropped' tetronimos
-		void FillBlocks();
-		void FillColors();
+	// collision detection functions
+	bool CheckCollisionRight();
+	bool CheckCollisionLeft();
 
-		void FillArrays();
-
-		// collision detection functions
-		bool CheckCollisionRight();
-		bool CheckCollisionLeft();
-
-		// stacking
-		// returns true if a stacking criteria is detected
-		bool StackingCriteria();
-
+	// stacking
+	// returns true if a stacking criteria is detected
+	bool StackingCriteria();
 };
 
 extern Tetronimo_2 Tetronimo2;

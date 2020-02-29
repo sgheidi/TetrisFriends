@@ -3,7 +3,7 @@
 void Tetronimo_6::RenderTetronimo() {
   glPushMatrix();
   Util.ColorBuffer(TETRONIMO_6_COLOR);
-  switch(Tetronimo6.RotationCounter) {
+  switch (Tetronimo6.RotationCounter) {
     case 0:
       glTranslatef(unit, unit, 0.0f);
       Util.DrawSquare();

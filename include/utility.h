@@ -2,30 +2,28 @@
 #define UTILITY_H
 
 class Utility {
+public:
+	void GoDown();
+	void AccelerateDown();
+	void GoRight();
+	void GoLeft();
 
-	public:
+	// maps int to color
+	// i.e outputs color with integer input
+	void ColorBuffer(int color);
 
-		void GoDown();
-		void AccelerateDown();
-		void GoRight();
-		void GoLeft();
+	// draws single block
+	void DrawSquare();
+	void OutlineSquare(int _row_);
 
-		// maps int to color
-		// i.e outputs color with integer input
-		void ColorBuffer(int color);
+	void ZeroArrays();
 
-		// draws single block
-		void DrawSquare();
-		void OutlineSquare(int _row_);
+	int FindTopRow_Single(int x);
+	int FindTopRow_Between(int StartCol, int EndCol);
 
-		void ZeroArrays();
-
-		int FindTopRow_Single(int x);
-		int FindTopRow_Between(int StartCol, int EndCol);
-
-		// Helper functions
-		void PrintFilledBlocks();
-		void PrintCurrentPosition();
+	// Helper functions
+	void PrintFilledBlocks();
+	void PrintCurrentPosition();
 };
 
 extern Utility Util;

@@ -8,7 +8,7 @@ int main(void) {
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
-	// left and right side each have 4 blocks across to show 'held' and 'next' pieces
+	// 5 blocks on each side to show left and right panels
 	window = glfwCreateWindow(ScreenX + (10*unit), ScreenY + 1, "Fruit Tetris", NULL, NULL);
 	glfwSetWindowPos(window, 650, 80);
 	if (!window) {

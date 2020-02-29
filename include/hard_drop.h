@@ -2,13 +2,9 @@
 #define HARD_DROP_H
 
 class Hard_Drop {
-
-	public:
-
-		void HardDrop();
-
-		void OutlineTetronimos();
-
+public:
+	void HardDrop();
+	void OutlineTetronimos();
 };
 
 extern Hard_Drop HardDropper;

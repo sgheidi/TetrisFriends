@@ -51,7 +51,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 					if(Tetronimo2.RotationCounter < 3) {
 						Tetronimo2.RotationCounter ++;
 					}
-					else if(Tetronimo2.RotationCounter >= 3) {
+					else if (Tetronimo2.RotationCounter >= 3) {
 						Tetronimo2.RotationCounter = 0;
 					}
 				}

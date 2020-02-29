@@ -2,7 +2,6 @@
 #define BOARD_H
 
 class Board {
-
 	public:
 		int InQueue = 0;
 		void Horizontal(int startX, int endX, int startY, int endY);
@@ -17,7 +16,6 @@ class Board {
 		void Init();
 
 		void ResetUnits();
-		
 		void SwitchTetronimo();
 };
 

@@ -2,12 +2,13 @@
 #define LINECLEAR_H
 
 class _LineClear_ {
+private:
+	void ClearLine(int row);
+	bool IsRowFull(int row);
+	void BringLinesDown(int y, int NumLines);
 
-	public:
-		void ClearLine(int row);
-		bool IsRowFull(int row);
-		void BringLinesDown(int y, int NumLines);
-		void LineClear();
+public:
+	void LineClear();
 };
 
 extern _LineClear_ LineClearer;
