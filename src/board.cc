@@ -204,6 +204,48 @@ void Board::RenderBlocks_Next() {
         glEnd();
         glPopMatrix();
       }
+      if (Next.colors2[i][j] != BLACK) {
+        Util.ColorBuffer(Next.colors2[i][j]);
+        glPushMatrix();
+        glTranslatef(ScreenX + 0.5*unit, 5.5*unit, 0.0f);
+        glBegin(GL_POLYGON);
+
+        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
+
+        glEnd();
+        glPopMatrix();
+      }
+      if (Next.colors3[i][j] != BLACK) {
+        Util.ColorBuffer(Next.colors3[i][j]);
+        glPushMatrix();
+        glTranslatef(ScreenX + 0.5*unit, 10.5*unit, 0.0f);
+        glBegin(GL_POLYGON);
+
+        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
+
+        glEnd();
+        glPopMatrix();
+      }
+      if (Next.colors4[i][j] != BLACK) {
+        Util.ColorBuffer(Next.colors4[i][j]);
+        glPushMatrix();
+        glTranslatef(ScreenX + 0.5*unit, 15.5*unit, 0.0f);
+        glBegin(GL_POLYGON);
+
+        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
+
+        glEnd();
+        glPopMatrix();
+      }
     }
   }
 }

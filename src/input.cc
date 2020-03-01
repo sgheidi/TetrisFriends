@@ -213,6 +213,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		GameBoard.ResetUnits();
 		Util.ZeroArrays();
 		GameBoard.Init();
+		Queue.UpdateNextColors();
 		Paused = false;
 		GameOver = false;
 		GameBoard.InQueue = 0;

@@ -3,7 +3,7 @@
 
 class _queue_ {
 private:
-	void ClearAllColors();
+	void ClearNextColors();
 public:
 	void Init();
 	void ServeNext();
