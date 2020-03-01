@@ -57,11 +57,23 @@ extern const float unit;
 // and colors of each block
 extern int blocks[11][21];
 extern int colors[11][21];
+
 extern int holdcolors[5][5];
+
+// struct holding the colors for the
+// 'next' tetronimos (top-down)
+struct _next_ {
+  int colors1[5][5];
+  int colors2[5][5];
+  int colors3[5][5];
+  int colors4[5][5];
+};
+
+extern struct _next_ Next;
 
 extern bool Paused;
 extern bool GameOver;
-extern int Rand;
+extern int Rand[4];
 
 extern bool Testing;
 extern int TestRand;

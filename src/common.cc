@@ -24,14 +24,19 @@ const float unit = ScreenX/10;
 
 int blocks[11][21] = {0};
 int colors[11][21] = {0};
+
 int holdcolors[5][5] = {0};
+
+struct _next_ Next = {0, 0, 0, 0};
 
 float x = unit*5;
 float y = 0;
 
 bool Paused = false;
 bool GameOver = false;
-int Rand = 0;
+for (int i=0;i<4;i++) {
+  int Rand[i] = (rand()%7)+1;
+}
 
 bool Testing = false;
 int TestRand = 0;

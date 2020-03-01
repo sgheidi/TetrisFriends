@@ -124,7 +124,16 @@ void Board::DrawGrid() {
   // draw 4 3x3 boxes on right side
   // to show the 4 next pieces in queue
   glPushMatrix();
-  glTranslatef(ScreenX, 0.0f, 0.0f);
+  glTranslatef(ScreenX, -0.5*unit, 0.0f);
+  this->Horizontal(unit/2, 4.5*unit, unit, 4*unit);
+  this->Vertical(unit/2, 4.5*unit, unit, 5*unit);
+  glTranslatef(0.0f, 5*unit, 0.0f);
+  this->Horizontal(unit/2, 4.5*unit, unit, 4*unit);
+  this->Vertical(unit/2, 4.5*unit, unit, 5*unit);
+  glTranslatef(0.0f, 5*unit, 0.0f);
+  this->Horizontal(unit/2, 4.5*unit, unit, 4*unit);
+  this->Vertical(unit/2, 4.5*unit, unit, 5*unit);
+  glTranslatef(0.0f, 5*unit, 0.0f);
   this->Horizontal(unit/2, 4.5*unit, unit, 4*unit);
   this->Vertical(unit/2, 4.5*unit, unit, 5*unit);
   glPopMatrix();
