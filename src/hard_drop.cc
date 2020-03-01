@@ -12,7 +12,7 @@
 
 void Hard_Drop::HardDrop() {
   int TopRow = 0;
-  switch (Rand) {
+  switch (Rand[0]) {
 
     /* Tetronimo 1 */
     case 1:
@@ -197,8 +197,11 @@ void Hard_Drop::HardDrop() {
           Tetronimo7.FillArrays();
           break;
   }
-  Rand = (rand()%7)+1;
-  if (Testing) Rand = TestRand;
+  Queue.ServeNext();
+  if (Testing) {
+    Queue.SetTestRand();
+  }
+  Queue.UpdateNextColors();
   GameBoard.ResetUnits();
   LineClearer.LineClear();
 }
@@ -213,7 +216,7 @@ void Hard_Drop::HardDrop() {
 
 void Hard_Drop::OutlineTetronimos() {
   int TopRow = 0;
-  switch (Rand) {
+  switch (Rand[0]) {
 
         /* Tetronimo 1 */
         case 1:

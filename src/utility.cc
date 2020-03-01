@@ -94,6 +94,10 @@ void Utility::ZeroArrays() {
   for (int i=1;i<=4;i++) {
     for (int j=1;j<=4;j++) {
       holdcolors[i][j] = BLACK;
+      Next.colors1[i][j] = BLACK;
+      Next.colors2[i][j] = BLACK;
+      Next.colors3[i][j] = BLACK;
+      Next.colors4[i][j] = BLACK;
     }
   }
 }

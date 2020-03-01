@@ -12,6 +12,7 @@ Tetronimo_7 Tetronimo7;
 Board GameBoard;
 Hard_Drop HardDropper;
 _LineClear_ LineClearer;
+_queue_ Queue;
 
 GLFWwindow* window;
 
@@ -34,9 +35,7 @@ float y = 0;
 
 bool Paused = false;
 bool GameOver = false;
-for (int i=0;i<4;i++) {
-  int Rand[i] = (rand()%7)+1;
-}
+int Rand[4] = {0};
 
 bool Testing = false;
 int TestRand = 0;

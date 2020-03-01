@@ -2,7 +2,7 @@
 
 // initial coordinates are assigned based on Tetronimo piece
 void Board::Init() {
-  switch (Rand) {
+  switch (Rand[0]) {
     case 1:
       row = 2;
       col = 6;
@@ -35,7 +35,7 @@ void Board::Init() {
 }
 
 void Board::ResetUnits() {
-  switch (Rand) {
+  switch (Rand[0]) {
     case 1:
       x = unit*5;
       y= 0;
@@ -185,24 +185,49 @@ void Board::RenderBlocks_Hold() {
   }
 }
 
+// draws all blocks that have already landed
+// for next pieces
+void Board::RenderBlocks_Next() {
+  for (int i=1;i<=4;i++) {
+    for (int j=1;j<=4;j++) {
+      if (Next.colors1[i][j] != BLACK) {
+        Util.ColorBuffer(Next.colors1[i][j]);
+        glPushMatrix();
+        glTranslatef(ScreenX + 0.5*unit, 0.5*unit, 0.0f);
+        glBegin(GL_POLYGON);
+
+        glVertex2f(i*unit, (j*unit)-unit);
+        glVertex2f(i*unit, j*unit);
+        glVertex2f((i*unit)-unit, j*unit);
+        glVertex2f((i*unit)-unit, (j*unit)-unit);
+
+        glEnd();
+        glPopMatrix();
+      }
+    }
+  }
+}
+
 void Board::SwitchTetronimo() {
   for (int i=1;i<=4;i++) {
     for (int j=1;j<=4;j++) {
       holdcolors[i][j] = BLACK;
     }
   }
-  switch (Rand) {
+  switch (Rand[0]) {
     case 1:
       for (int i=1;i<=4;i++) {
         holdcolors[i][3] = TETRONIMO_1_COLOR;
       }
       Tetronimo1.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 1;
       break;
@@ -213,11 +238,13 @@ void Board::SwitchTetronimo() {
       holdcolors[2][2] = TETRONIMO_2_COLOR;
       Tetronimo2.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 2;
       break;
@@ -228,11 +255,13 @@ void Board::SwitchTetronimo() {
       holdcolors[4][2] = TETRONIMO_3_COLOR;
       Tetronimo3.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 3;
       break;
@@ -243,11 +272,13 @@ void Board::SwitchTetronimo() {
       holdcolors[1][2] = TETRONIMO_4_COLOR;
       Tetronimo4.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 4;
       break;
@@ -258,11 +289,13 @@ void Board::SwitchTetronimo() {
       holdcolors[4][2] = TETRONIMO_5_COLOR;
       Tetronimo5.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 5;
       break;
@@ -273,11 +306,13 @@ void Board::SwitchTetronimo() {
       holdcolors[2][1] = TETRONIMO_6_COLOR;
       Tetronimo6.RotationCounter = 0;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 6;
       break;
@@ -287,11 +322,13 @@ void Board::SwitchTetronimo() {
       holdcolors[3][3] = TETRONIMO_7_COLOR;
       holdcolors[2][3] = TETRONIMO_7_COLOR;
       if (InQueue!=0)
-        Rand = InQueue;
+        Rand[0] = InQueue;
       else if (InQueue == 0) {
-        Rand = (rand()%7)+1;
+        Queue.ServeNext();
       }
-      if (Testing) Rand = TestRand;
+      if (Testing) {
+        Queue.SetTestRand();
+      }
       GameBoard.ResetUnits();
       InQueue = 7;
       break;

@@ -22,10 +22,12 @@ int main(void) {
 	// uncomment the following line to test a particular tetronimo
 	// Testing = true;
 	TestRand = 5;
-	// random number is the Tetronimo piece number chosen randomly from 1-7
-	Rand = (rand()%7)+1;
-	if (Testing) Rand = TestRand;
+	Queue.Init();
+	if (Testing) {
+		Queue.SetTestRand();
+	}
 	GameBoard.Init();
+	Queue.UpdateNextColors();
 
 	while (!glfwWindowShouldClose(window)) {
 		 glfwPollEvents();
@@ -33,8 +35,9 @@ int main(void) {
 		 GameBoard.DrawGrid();
 		 GameBoard.RenderBlocks_Board();
 		 GameBoard.RenderBlocks_Hold();
+		 GameBoard.RenderBlocks_Next();
 
-		 switch (Rand) {
+		 switch (Rand[0]) {
 
 			/* Tetronimo 1 */
 			case 1:
@@ -48,8 +51,11 @@ int main(void) {
 				if (Tetronimo1.StackingCriteria() == true) {
 					Tetronimo1.FillArrays();
 					Tetronimo1.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -67,8 +73,11 @@ int main(void) {
 				if (Tetronimo2.StackingCriteria() == true) {
 					Tetronimo2.FillArrays();
 					Tetronimo2.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -86,8 +95,11 @@ int main(void) {
 				if (Tetronimo3.StackingCriteria() == true) {
 					Tetronimo3.FillArrays();
 					Tetronimo3.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -105,8 +117,11 @@ int main(void) {
 				if (Tetronimo4.StackingCriteria() == true) {
 					Tetronimo4.FillArrays();
 					Tetronimo4.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -124,8 +139,11 @@ int main(void) {
 				if (Tetronimo5.StackingCriteria() == true) {
 					Tetronimo5.FillArrays();
 					Tetronimo5.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -143,8 +161,11 @@ int main(void) {
 				if (Tetronimo6.StackingCriteria() == true) {
 					Tetronimo6.FillArrays();
 					Tetronimo6.RotationCounter = 0;
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -161,8 +182,11 @@ int main(void) {
 				// stacking criteria
 				if (Tetronimo7.StackingCriteria() == true) {
 					Tetronimo7.FillArrays();
-					Rand = (rand()%7)+1;
-					if (Testing) Rand = TestRand;
+					Queue.ServeNext();
+					if (Testing) {
+						Queue.SetTestRand();
+					}
+					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
 				}
@@ -175,7 +199,7 @@ int main(void) {
 		if (blocks[6][1] == 1) {
 			Paused = true;
 			GameOver = true;
-			Rand = -1;
+			Rand[0] = -1;
 		}
 
 		glfwSwapBuffers(window);

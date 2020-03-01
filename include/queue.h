@@ -1,12 +1,17 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-class Queue {
+class _queue_ {
+private:
+	void ClearAllColors();
 public:
 	void Init();
-	void Enqueue();
+	void ServeNext();
+	void SetTestRand();
+	void UpdateNextColors();
+	void PrintQueue();
 };
 
-extern Hard_Drop HardDropper;
+extern _queue_ Queue;
 
 #endif // QUEUE_H

@@ -6,7 +6,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	if (action == GLFW_RELEASE) return;
 
-	switch (Rand) {
+	switch (Rand[0]) {
 
 		/* Tetronimo 1 */
 		case 1:
@@ -192,7 +192,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	// reset
 	if (key == GLFW_KEY_R) {
-		switch (Rand) {
+		switch (Rand[0]) {
 			case 1:
 				Tetronimo1.RotationCounter = 0;
 			case 2:
@@ -206,8 +206,10 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 			case 6:
 				Tetronimo6.RotationCounter = 0;
 		}
-		Rand = (rand()%7)+1;
-		if (Testing) Rand = TestRand;
+		Queue.Init();
+		if (Testing) {
+			Queue.SetTestRand();
+		}
 		GameBoard.ResetUnits();
 		Util.ZeroArrays();
 		GameBoard.Init();

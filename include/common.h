@@ -13,6 +13,7 @@
 #include "board.h"
 #include "hard_drop.h"
 #include "lineclear.h"
+#include "queue.h"
 #include "tetronimos/tetronimo1.h"
 #include "tetronimos/tetronimo2.h"
 #include "tetronimos/tetronimo3.h"
