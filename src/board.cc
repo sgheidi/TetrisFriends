@@ -375,4 +375,5 @@ void Board::SwitchTetronimo() {
       InQueue = 7;
       break;
   }
+  Queue.UpdateNextColors();
 }

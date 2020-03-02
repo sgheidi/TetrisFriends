@@ -69,7 +69,6 @@ struct _next_ {
   int colors3[5][5];
   int colors4[5][5];
 };
-
 extern struct _next_ Next;
 
 extern bool Paused;
@@ -83,7 +82,6 @@ struct _timer_ {
   int NumIterations;
   int GameSpeed;
 };
-
 extern struct _timer_ Timer;
 
 // pivot coordinates (pixels)

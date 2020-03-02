@@ -14,7 +14,7 @@ public:
 	void RenderBlocks_Hold();
 	void RenderBlocks_Next();
 
-	// initial setting of row/col (pivot: purple) based on Tetronimo piece (Rand)
+	// initial setting of row/col based on Tetronimo piece
 	void Init();
 
 	void ResetUnits();

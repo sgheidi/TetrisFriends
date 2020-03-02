@@ -181,7 +181,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	 }
 
 	 // hold tetronimo
-	 if (key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) {
+	 if ((key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) && !Paused) {
 		 GameBoard.SwitchTetronimo();
 	 }
 
