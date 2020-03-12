@@ -4,7 +4,7 @@ Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Screenshots
 
-![Alt text](screenshots/10.png?raw=true "Screenshot 1") &nbsp; &nbsp; &nbsp; ![Alt text](screenshots/11.png?raw=true "Screenshot 2")
+![Alt text](screenshots/8.png?raw=true "Screenshot 1") &nbsp; &nbsp; &nbsp; ![Alt text](screenshots/9.png?raw=true "Screenshot 2")
 
 ## Setting up
 
