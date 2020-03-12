@@ -9,7 +9,7 @@ int main(void) {
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
 	// 5 blocks on each side to show left and right panels
-	window = glfwCreateWindow(ScreenX + (10*unit), ScreenY + 1, "Fruit Tetris", NULL, NULL);
+	window = glfwCreateWindow(ScreenX + (10*unit), ScreenY + 1, "Tetris Friends", NULL, NULL);
 	glfwSetWindowPos(window, 650, 80);
 	if (!window) {
 		glfwTerminate();
