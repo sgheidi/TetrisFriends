@@ -4,12 +4,12 @@ Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Screenshots
 
-![Alt text](screenshots/3.png?raw=true "Screenshot 1") &nbsp; &nbsp; &nbsp; ![Alt text](screenshots/4.png?raw=true "T-Spin!")
+![Alt text](screenshots/5.png?raw=true "Screenshot 1") &nbsp; &nbsp; &nbsp; ![Alt text](screenshots/6.png?raw=true "T-Spin!")
 
 ## Setting up
 
 Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and build the library from source using CMake.
-Play the game by running ```make && ./TetrisFriends``` in the Linux terminal.
+Play the game by running ```make; ./TetrisFriends``` in the Linux terminal.
 
 ## How to play
 
