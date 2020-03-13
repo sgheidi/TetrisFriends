@@ -12,12 +12,13 @@ Before attempting to play the game, visit [glfw.org](https://www.glfw.org/) and 
 Play the game by running ```make; ./TetrisFriends``` in the Linux terminal.
 
 ## How to play
-
+The left panel displays the held piece and the right 4 panels display the next pieces.
 - Special keys
   - 'p': pause
   - 'r': restart
   - 'q' or 'ESC': exit
-  - 'Space' key: 'hard' drops a piece, dropping it instantly
+  - 'Space': 'hard' drops a piece, dropping it instantly
+  - 'Shift': Swap current piece with held piece.
 - Movements
   - Up key: rotate piece
   - Left/right keys: horizontal movement
