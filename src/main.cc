@@ -58,6 +58,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -80,6 +81,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -102,6 +104,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -124,6 +127,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -146,6 +150,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -168,6 +173,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 
@@ -189,6 +195,7 @@ int main(void) {
 					Queue.UpdateNextColors();
 					GameBoard.ResetUnits();
 					LineClearer.LineClear();
+					shift_allowed = true;
 				}
 				break;
 		}

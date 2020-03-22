@@ -1,6 +1,6 @@
 # Tetris Friends
 
-Tetris Friends clone written in OpenGL/C++ using GLFW.
+Fully-featured Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Screenshots
 

@@ -74,6 +74,7 @@ extern struct _next_ Next;
 extern bool Paused;
 extern bool GameOver;
 extern int Rand[5];
+extern bool shift_allowed;
 
 extern bool Testing;
 extern int TestRand;

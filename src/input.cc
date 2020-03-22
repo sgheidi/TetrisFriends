@@ -181,8 +181,9 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	 }
 
 	 // hold tetronimo
-	 if ((key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) && !Paused) {
+	 if ((key == GLFW_KEY_LEFT_SHIFT || key == GLFW_KEY_RIGHT_SHIFT) && !Paused && shift_allowed) {
 		 GameBoard.SwitchTetronimo();
+		 shift_allowed = false;
 	 }
 
 	// acceleration
@@ -218,6 +219,7 @@ void inputK(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		GameOver = false;
 		GameBoard.InQueue = 0;
 		Timer.GameSpeed = DEFAULT_GAME_SPEED;
+		shift_allowed = true;
 	}
 
 	// pause

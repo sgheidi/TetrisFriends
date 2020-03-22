@@ -36,6 +36,7 @@ float y = 0;
 bool Paused = false;
 bool GameOver = false;
 int Rand[5] = {0};
+bool shift_allowed = true;
 
 bool Testing = false;
 int TestRand = 0;

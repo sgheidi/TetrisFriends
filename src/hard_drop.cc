@@ -204,6 +204,7 @@ void Hard_Drop::HardDrop() {
   Queue.UpdateNextColors();
   GameBoard.ResetUnits();
   LineClearer.LineClear();
+  shift_allowed = true;
 }
 
 /* Colors the tiles (grey) in which the current tetronimo
