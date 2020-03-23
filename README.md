@@ -26,7 +26,7 @@ The left panel displays the held piece and the right 4 panels display the next p
 
 ## Other notes
 
-- Entire codebase written from scratch and closely follows Google C++ Style
+- Entire codebase written from scratch and closely follows Google C++ Style Guide
   - Code is well commented, easy to read and modify
   - Code also broken up into classes and objects for good structure
 - All game options are stored in the file ```common.cc``` and can be modified
