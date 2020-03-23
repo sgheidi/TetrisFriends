@@ -8,7 +8,7 @@ Fully-featured Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Setting up
 
-First, build GLFW by running ```cmake .``` in the Linux terminal. Play the game by running ```make; ./TetrisFriends```.
+First, build GLFW by running ```mkdir build; cd build; cmake ..``` in the Linux terminal. Play the game by running ```make; ./TetrisFriends```.
 
 ## How to play
 The left panel displays the held piece and the right 4 panels display the next pieces.
