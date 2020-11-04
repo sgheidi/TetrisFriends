@@ -1,4 +1,4 @@
-#include "../include/common.h"
+#include "../common.h"
 
 void _LineClear_::ClearLine(int row) {
   for (int col=1;col<=10;col++) {

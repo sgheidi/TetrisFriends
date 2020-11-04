@@ -1,4 +1,5 @@
-TODO
+todo
 TetrisFriends
 *.o
 build
+*.gch

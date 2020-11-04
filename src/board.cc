@@ -1,6 +1,11 @@
-#include "../include/common.h"
+#include "common.h"
 
 // initial coordinates are assigned based on Tetronimo piece
+
+void Board::Test(){
+  this->Horizontal(unit, 4.5*unit, 2*unit, unit);
+}
+
 void Board::Init() {
   switch (Rand[0]) {
     case 1:
@@ -81,7 +86,7 @@ void Board::ResetUnits() {
   }
 }
 
-// draw n horizontal lines with beginning & end coordinates
+// draw n horizontal lines from (startX, startY) -> (endX, endY)
 void Board::Horizontal(int startX, int endX, int startY, int endY) {
   glBegin(GL_LINES);
   for (auto i = startY; i <= endY + unit; i += unit) {

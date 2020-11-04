@@ -1,4 +1,4 @@
-#include "../include/common.h"
+#include "../common.h"
 
 /* use a simple queue to serve current & next tetronimos */
 

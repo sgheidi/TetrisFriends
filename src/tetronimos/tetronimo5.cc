@@ -1,4 +1,4 @@
-#include "../../include/common.h"
+#include "../common.h"
 
 void Tetronimo_5::RenderTetronimo() {
   glPushMatrix();

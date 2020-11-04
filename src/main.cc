@@ -1,10 +1,11 @@
-#include "../include/common.h"
+#include "common.h"
 
 static void error_callback(int error, const char* description) {
 	fputs(description, stderr);
 }
 
 int main(void) {
+	assert(ScreenY == ScreenX*2);
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
@@ -36,6 +37,7 @@ int main(void) {
 		 GameBoard.RenderBlocks_Board();
 		 GameBoard.RenderBlocks_Hold();
 		 GameBoard.RenderBlocks_Next();
+		 Util.test();
 
 		 switch (Rand[0]) {
 

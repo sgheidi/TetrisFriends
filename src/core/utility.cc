@@ -1,4 +1,8 @@
-#include "../include/common.h"
+#include "../common.h"
+
+void Utility::test() {
+  GameBoard.Test();
+}
 
 void Utility::GoDown() {
   y += unit;

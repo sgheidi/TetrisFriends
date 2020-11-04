@@ -1,4 +1,4 @@
-#include "../include/common.h"
+#include "common.h"
 
 /* input handling & collision detection here */
 

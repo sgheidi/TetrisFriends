@@ -9,11 +9,11 @@
 #include <time.h>
 #include <assert.h>
 
-#include "utility.h"
+#include "core/utility.h"
 #include "board.h"
-#include "hard_drop.h"
-#include "lineclear.h"
-#include "queue.h"
+#include "core/hard_drop.h"
+#include "core/lineclear.h"
+#include "core/queue.h"
 #include "tetronimos/tetronimo1.h"
 #include "tetronimos/tetronimo2.h"
 #include "tetronimos/tetronimo3.h"

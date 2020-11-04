@@ -6,7 +6,6 @@ private:
 	void ClearLine(int row);
 	bool IsRowFull(int row);
 	void BringLinesDown(int y, int NumLines);
-
 public:
 	void LineClear();
 };

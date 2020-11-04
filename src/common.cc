@@ -1,4 +1,4 @@
-#include "../include/common.h"
+#include "common.h"
 
 // initialize global classes
 Utility Util;
@@ -17,8 +17,8 @@ _queue_ Queue;
 GLFWwindow* window;
 
 // main grid width & height (pixels)
-const int ScreenX = 250;
-const int ScreenY = 500;
+const int ScreenX = 400;
+const int ScreenY = 800;
 
 // Area of 1 block (pixels)
 const float unit = ScreenX/10;
