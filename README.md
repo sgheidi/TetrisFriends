@@ -4,7 +4,7 @@ Fully-featured Tetris Friends clone written in OpenGL/C++ using GLFW.
 
 ## Demo
 
-<img src="media/tetris.gif" alt="TetrisFriends demo" width="320"/>
+<img src="media/tetris.gif" alt="TetrisFriends demo" width="200"/>
 
 ## Setting up
 
